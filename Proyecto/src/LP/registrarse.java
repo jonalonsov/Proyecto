@@ -51,16 +51,18 @@ public class registrarse extends JFrame implements ActionListener{
 		btnAceptar = new JButton("ACEPTAR");
 		btnAceptar.setBounds(65, 203, 89, 23);
 		contentPane.add(btnAceptar);
+		btnAceptar.addActionListener(this);
 		
 		btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setBounds(270, 203, 89, 23);
+		btnCancelar.setBounds(270, 203, 110, 23);
 		contentPane.add(btnCancelar);
+		btnCancelar.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.equals(btnAceptar)){
+		if (e.getSource() == btnAceptar){
 			
 			//HashMap baten bildu base de datoseko datuk eta hashcodekin konprobatu usuarioa ez dala errepikatzen
 			//usuarion hashcode in behar deu ez errepikatzeko
@@ -68,9 +70,11 @@ public class registrarse extends JFrame implements ActionListener{
 			
 			//ondo sartu bada datu basean gorde
 			
+			dispose();
+			
 		}
 		
-		if (e.equals(btnCancelar)){
+		if (e.getSource() == btnCancelar){
 			
 			dispose();
 		}

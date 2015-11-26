@@ -40,7 +40,7 @@ public class logIn extends JFrame implements ActionListener {
 		contentPane.add(passwordField);
 		
 		lblNewLabel = new JLabel("USUARIO");
-		lblNewLabel.setBounds(195, 61, 46, 14);
+		lblNewLabel.setBounds(195, 61, 60, 14);
 		contentPane.add(lblNewLabel);
 		
 		lblContrasea = new JLabel("CONTRASE\u00D1A");
@@ -50,6 +50,7 @@ public class logIn extends JFrame implements ActionListener {
 		btnAceptar = new JButton("ACEPTAR");
 		btnAceptar.setBounds(175, 200, 89, 23);
 		contentPane.add(btnAceptar);
+		btnAceptar.addActionListener(this);
 	}
 
 	@Override
@@ -58,6 +59,6 @@ public class logIn extends JFrame implements ActionListener {
 		//konprobatu base de datosen daon usuario ta kontraseñak bat datozen
 		//queri (ejemploBD)nn
 
-		
+			dispose();
 	}
 }
