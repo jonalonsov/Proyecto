@@ -27,23 +27,25 @@ public class principio extends JFrame implements ActionListener{
 		btnLogIn = new JButton("LOG IN");
 		btnLogIn.setBounds(92, 119, 89, 23);
 		contentPane.add(btnLogIn);
+		btnLogIn.addActionListener(this);
 		
 		btnRegistrarse = new JButton("REGISTRARSE");
-		btnRegistrarse.setBounds(247, 119, 101, 23);
+		btnRegistrarse.setBounds(247, 119, 130, 23);
 		contentPane.add(btnRegistrarse);
+		btnRegistrarse.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.equals(btnRegistrarse)){
+		if (e.getSource() == btnRegistrarse){
 			
 			registrarse registrarse = new registrarse();
 			registrarse.setVisible(true);
 			
 		}
 		
-		if (e.equals(btnLogIn)){
+		if (e.getSource() == btnLogIn){
 			
 
 			logIn logIn = new logIn();
