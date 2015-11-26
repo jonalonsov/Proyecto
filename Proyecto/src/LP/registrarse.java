@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
@@ -68,18 +69,26 @@ public class registrarse extends JFrame implements ActionListener{
 			
 			String nombre = textField.getText();
 			char[] elChar = passwordField.getPassword();
-			String contraseña = String.valueOf(elChar);
-						
+			String contraseña = String.valueOf(elChar);						
 			GestorJugador jugador = new GestorJugador(nombre, contraseña, null);
-			jugador.anyadirFilaATablauUsuario(null);
 			
-			//HashMap baten bildu base de datoseko datuk eta hashcodekin konprobatu usuarioa ez dala errepikatzen
-			//usuarion hashcode in behar deu ez errepikatzeko
-			//berdina baldin bada JoptionPane batean azaldu beste izen bat aukeratzeko
 			
-			//ondo sartu bada datu basean gorde
+			//chequea la tabla para ver si existe el usuario
+			if(jugador.chequearYaEnTabla(null) == false){
+				
+				//Si no existe, añade fila con el usuario nuevo y sus respectivos atributos
+				jugador.anyadirFilaATablauUsuario(null);
+				
+				dispose();
+				
+			}
 			
-			dispose();
+			else{
+				
+				//si el usuario ya existe aparece un mensaje de error
+				 JOptionPane.showMessageDialog(null, "El usuario ya existe, prueba con otro","Mensaje de error",JOptionPane.ERROR_MESSAGE);
+			}
+					
 			
 		}
 		
