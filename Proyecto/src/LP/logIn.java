@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
@@ -56,6 +57,14 @@ public class logIn extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
+		
+		char[] contrasena = passwordField.getPassword();
+		
+//        if (isPasswordCorrect(contrasena)) {
+//            JOptionPane.showMessageDialog(btnAceptar, "Bien! Tu contraseña es correcta.");
+//        } else {
+//            JOptionPane.showMessageDialog(btnAceptar, "Contraseña incorrecta, prueba otra vez","Mensaje de error",JOptionPane.ERROR_MESSAGE);
+//        }
 		//konprobatu base de datosen daon usuario ta kontraseñak bat datozen
 		//queri (ejemploBD)nn
 

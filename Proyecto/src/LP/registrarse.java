@@ -13,6 +13,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
+import LN.GestorJugador;
+
 public class registrarse extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
@@ -63,6 +65,13 @@ public class registrarse extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == btnAceptar){
+			
+			String nombre = textField.getText();
+			char[] elChar = passwordField.getPassword();
+			String contraseña = String.valueOf(elChar);
+						
+			GestorJugador jugador = new GestorJugador(nombre, contraseña, null);
+			jugador.anyadirFilaATablauUsuario(null);
 			
 			//HashMap baten bildu base de datoseko datuk eta hashcodekin konprobatu usuarioa ez dala errepikatzen
 			//usuarion hashcode in behar deu ez errepikatzeko

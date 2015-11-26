@@ -10,15 +10,14 @@ public class GestorJugador {
 	File file;
 	String contrasenya;
 	String nombre;
-	int numJug;
-	
-	public GestorJugador(int numJug, String nombre, String contrasenya, File file){
-		this.nombre = (nombre==null?"":nombre);
-		this.contrasenya = (contrasenya==null?"":contrasenya);
-		this.numJug = numJug;
+		
+	public GestorJugador(String nombre, String contrasenya, File file){
+		this.nombre = nombre;
+		this.contrasenya = contrasenya;
 		this.file = file;
 		
 	}
+		
 
 	
 	
@@ -61,7 +60,6 @@ public class GestorJugador {
 		try {
 			String sentSQL = "insert into USUARIO values(" +
 					"'" + file.getAbsolutePath() + "', " +
-					"'" + numJug + "', " +
 					"'" + nombre + "', " +
 					"'" + contrasenya + "')";
 			System.out.println( sentSQL );  // (Quitar) para ver lo que se hace
@@ -83,8 +81,7 @@ public class GestorJugador {
 	public boolean modificarFilaEnTablaUsuario( Statement st ) {
 	//UPDATE
 		try {
-			String sentSQL = "update USUARIO set "
-					+ "num_Jug = '" + numJug + "', " +
+			String sentSQL = "update USUARIO set "+ 
 					"nombre = '" + nombre + "', " +
 					"contrasenya = '" + contrasenya + "', " +
 					"where (fichero = '" + file.getAbsolutePath() + "')";
