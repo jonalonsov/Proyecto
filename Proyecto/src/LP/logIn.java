@@ -58,9 +58,9 @@ public class logIn extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		
 		
-		char[] contrasena = passwordField.getPassword();
+		char[] contrasenya = passwordField.getPassword();
 		
-//        if (isPasswordCorrect(contrasena)) {
+//        if (isPasswordCorrect(contrasenya)) {
 //            JOptionPane.showMessageDialog(btnAceptar, "Bien! Tu contraseña es correcta.");
 //        } else {
 //            JOptionPane.showMessageDialog(btnAceptar, "Contraseña incorrecta, prueba otra vez","Mensaje de error",JOptionPane.ERROR_MESSAGE);

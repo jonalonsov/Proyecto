@@ -34,6 +34,10 @@ public class GestorJugador {
 			System.out.println( sentSQL ); 
 			ResultSet rs = st.executeQuery( sentSQL );
 			if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
+				
+				
+				
+				
 				rs.close();
 				return true;
 			}
@@ -59,9 +63,9 @@ public class GestorJugador {
 		// Insercion normal
 		try {
 			String sentSQL = "insert into USUARIO values(" +
-					"'" + file.getAbsolutePath() + "', " +
-					"'" + nombre + "', " +
-					"'" + contrasenya + "')";
+							"'" + file.getAbsolutePath() + "', " +
+							"'" + nombre + "', " +
+							"'" + contrasenya + "')";
 			System.out.println( sentSQL );  // (Quitar) para ver lo que se hace
 			int val = st.executeUpdate( sentSQL );
 			if (val!=1) return false;  // Se tiene que añadir 1 - error si no
