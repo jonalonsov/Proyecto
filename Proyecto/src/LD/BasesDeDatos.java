@@ -25,7 +25,7 @@ public class BasesDeDatos {
 			statement = connection.createStatement();
 			statement.setQueryTimeout(30);  // poner timeout 30 msg. 
 			//TIMEOUT: Si estamos esperando una respuesta y si no nos dan en 30 mseg (en este caso), dejamos de esperar.
-			JOptionPane.showMessageDialog( null, "Ondo!! Nombre: " + nombreBD + " / bai bai toh konektau" , "BIEN", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "Ondo!! Nombre: " + nombreBD + " / DATU BASEA KONEKTATU DA" , "BIEN", JOptionPane.INFORMATION_MESSAGE);
 		    return connection;
 		} catch (ClassNotFoundException | SQLException e) {
 			JOptionPane.showMessageDialog( null, "Error!! Nombre: " + nombreBD + " / no se ha conectado la base de datos" , "ERROR", JOptionPane.ERROR_MESSAGE );
