@@ -69,8 +69,8 @@ public class registrarse extends JFrame implements ActionListener{
 			
 			String nombre = textField.getText();
 			char[] elChar = passwordField.getPassword();
-			String contraseña = String.valueOf(elChar);						
-			GestorJugador jugador = new GestorJugador(nombre, contraseña, null);
+			String contrasenya = String.valueOf(elChar);						
+			GestorJugador jugador = new GestorJugador(nombre, contrasenya, null);
 			
 			
 			//chequea la tabla para ver si existe el usuario
