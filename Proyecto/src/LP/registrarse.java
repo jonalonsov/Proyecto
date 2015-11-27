@@ -73,7 +73,7 @@ public class registrarse extends JFrame implements ActionListener{
 			GestorJugador jugador = new GestorJugador(nombre, contrasenya, null);
 			
 			
-			//chequea la tabla para ver si existe el usuario
+			//chequea la tabla para ver si existe el usuario...
 			if(jugador.chequearYaEnTabla(null) == false){
 				
 				//Si no existe, añade fila con el usuario nuevo y sus respectivos atributos
