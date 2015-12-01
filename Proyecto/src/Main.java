@@ -11,6 +11,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		BasesDeDatos.initBD("nuestrosDatos");
+		BasesDeDatos.crearTablaBDUsuario();
 		
 		principio frame = new principio();
 		frame.setVisible(true);
