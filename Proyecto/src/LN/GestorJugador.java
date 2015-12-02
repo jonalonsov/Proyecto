@@ -54,10 +54,10 @@ public class GestorJugador {
 	 * @param st	Sentencia ya abierta de Base de Datos (con la estructura de tabla correspondiente al usuario)
 	 * @return	true si la inserción es correcta, false en caso contrario
 	 */
-	public boolean anyadirFilaATablauUsuario( Statement st ) {
+	public boolean anyadirFilaATablauUsuario( Statement st, String nombre ) {
 	//INSERT
 
-		if (chequearYaEnTabla(st)) {  // Si esta ya en la tabla
+		if (chequearYaEnTabla(st, nombre)) {  // Si esta ya en la tabla
 			return modificarFilaEnTablaUsuario(st);
 		}
 		// Insercion normal

@@ -74,10 +74,10 @@ public class registrarse extends JFrame implements ActionListener{
 			
 			
 			//chequea la tabla para ver si existe el usuario...
-			if(jugador.chequearYaEnTabla(null) == false){
+			if(jugador.chequearYaEnTabla(null, nombre) == false){  //--- HAU EZ DA BEREZ, anyadirFilaATablaUsuario bertan egiten da
 				
-				//Si no existe, añade fila con el usuario nuevo y sus respectivos atributos
-				jugador.anyadirFilaATablauUsuario(null);
+				//Si no existe, aï¿½ade fila con el usuario nuevo y sus respectivos atributos
+				jugador.anyadirFilaATablauUsuario(null, nombre);
 				
 				dispose();
 				
