@@ -27,26 +27,26 @@ public class GestorJugador {
 	 * @param st	Sentencia ya abierta de base de datos
 	 * @return	true si el usuario ya esta en la tabla, false en caso contrario
 	 */
-	public boolean chequearYaEnTabla( Statement st ) {
-	//SELECT
-		try {
-			String sentSQL = "select * from USUARIO where (fichero = '" + file.getAbsolutePath() + "')";
-			System.out.println( sentSQL ); 
-			ResultSet rs = st.executeQuery( sentSQL );
-			if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
+	public boolean chequearYaEnTabla( Statement st, String nombre ) {
+		//SELECT
+			try {
+
+				String sentSQL = "select * from USUARIO where (nombre = '" + nombre + "')";
+				System.out.println( sentSQL ); 
 				
+				ResultSet rs = st.executeQuery( sentSQL );
 				
-				
-				
-				rs.close();
-				return true;
+				if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
+					rs.close();
+					return true;
+				}
+				return false;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
 			}
-			return false;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
 		}
-	}
+
 		
 	/** Añade un usuario a la tabla USUARIO de BD, 
 	 * que debe estar abierta y tener el formato y los nombres de campos apropiados: (int numJuego, Sting nombre, String contrasenya)
