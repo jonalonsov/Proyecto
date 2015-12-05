@@ -14,6 +14,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
+import LD.BasesDeDatos;
 import LN.GestorJugador;
 
 public class registrarse extends JFrame implements ActionListener{
@@ -65,19 +66,27 @@ public class registrarse extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
+		String nombre = textField.getText();
+		char[] elChar = passwordField.getPassword();
+		String contrasenya = String.valueOf(elChar);						
+		GestorJugador jugador = new GestorJugador(nombre, contrasenya, null);
+		
+		if(jugador.existeTabla()==true){
+			BasesDeDatos.initBD("nuestrosDatos");
+			BasesDeDatos.crearTablaBDUsuario();
+			
+		}
+		
 		if (e.getSource() == btnAceptar){
 			
-			String nombre = textField.getText();
-			char[] elChar = passwordField.getPassword();
-			String contrasenya = String.valueOf(elChar);						
-			GestorJugador jugador = new GestorJugador(nombre, contrasenya, null);
+			
 			
 			
 			//chequea la tabla para ver si existe el usuario...
-			if(jugador.chequearYaEnTabla(null, nombre) == false){  //--- HAU EZ DA BEREZ, anyadirFilaATablaUsuario bertan egiten da
+			if(jugador.chequearYaEnTabla(BasesDeDatos.getStatement(), nombre) == false){  //--- HAU EZ DA BEREZ, anyadirFilaATablaUsuario bertan egiten da
 				
 				//Si no existe, a�ade fila con el usuario nuevo y sus respectivos atributos
-				jugador.anyadirFilaATablauUsuario(null, nombre);
+				jugador.anyadirFilaATablauUsuario(BasesDeDatos.getStatement(), nombre);
 				
 				dispose();
 				

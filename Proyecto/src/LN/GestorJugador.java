@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import LD.BasesDeDatos;
+
 public class GestorJugador {
 
 	File file;
@@ -19,6 +21,33 @@ public class GestorJugador {
 	}
 		
 
+	public boolean existeTabla(){
+		boolean b=false;
+		try{
+//		    Class.forName("org.gjt.mm.mysql.Driver").newInstance();
+//		    String url = "jdbc:mysql://localhost/almacenamiento";
+//		    String DB_USER =   "user";          
+//		    String DB_PASSWD = "pass";
+//								 
+//		    Connection c1= DriverManager.getConnection(url, DB_USER, DB_PASSWD);
+//				    
+		    Statement stat = BasesDeDatos.getStatement();
+		    ResultSet rs1=stat.executeQuery("select * from usuario");
+				
+		    if(rs1.next()){
+		    	b=true;
+		    }
+		        return(b);
+		    }    	
+		     catch (Exception e){	
+			return b;
+		    }
+	}
+
+//	public int contar(){
+//		int g= "select count(*) from USUARIO";
+//		
+//	}
 	
 	
 //    USUARIO!!    //
@@ -34,7 +63,7 @@ public class GestorJugador {
 				String sentSQL = "select * from USUARIO where (nombre = '" + nombre + "')";
 				System.out.println( sentSQL ); 
 				
-				ResultSet rs = st.executeQuery( sentSQL );
+				ResultSet rs = st.executeQuery( "select * from USUARIO where (nombre = '" + nombre + "')" );
 				
 				if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
 					rs.close();

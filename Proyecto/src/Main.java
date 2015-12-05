@@ -10,8 +10,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		BasesDeDatos.initBD("nuestrosDatos");
-		BasesDeDatos.crearTablaBDUsuario();
+		//BasesDeDatos.initBD("nuestrosDatos");    --- REGISTRASEN BARRUN JARRI DITUT
+		//BasesDeDatos.crearTablaBDUsuario();
 		
 		principio frame = new principio();
 		frame.setVisible(true);
