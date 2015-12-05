@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import LD.BasesDeDatos;
 import LP.logIn;
 import LP.principio;
+import LP.tablero;
 
 
 
@@ -16,6 +17,12 @@ public class Main {
 		principio frame = new principio();
 		frame.setVisible(true);
 
+		
+		//de prueba
+		tablero tablero = new tablero();
+		tablero.setVisible(true);
+		
+		
 	}
 		
 		
