@@ -70,6 +70,8 @@ public class registrarse extends JFrame implements ActionListener{
 		char[] elChar = passwordField.getPassword();
 		String contrasenya = String.valueOf(elChar);						
 		GestorJugador jugador = new GestorJugador(nombre, contrasenya, null);
+		jugador.anyadirUnaFila(BasesDeDatos.getStatement(), "ainhoa", "bai");
+		System.out.println(jugador.contar());
 		
 		if(jugador.existeTabla()==true){
 			BasesDeDatos.initBD("nuestrosDatos");

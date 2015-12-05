@@ -44,10 +44,17 @@ public class GestorJugador {
 		    }
 	}
 
-//	public int contar(){
-//		int g= "select count(*) from USUARIO";
-//		
-//	}
+	public int contar(){
+		Statement s = BasesDeDatos.getStatement();
+		try {
+			ResultSet contar = s.executeQuery("select count(*) as num from USUARIO");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return contar();
+	}
 	
 	
 //    USUARIO!!    //
@@ -75,7 +82,28 @@ public class GestorJugador {
 				return false;
 			}
 		}
+	public boolean anyadirUnaFila( Statement st, String nombre, String contrasenya ) {
+		//INSERT
 
+			// Insercion normal
+			try {
+				String sentSQL = "insert into USUARIO values(" +
+								"'" + nombre + "', " +
+								"'" + contrasenya + "')"; 
+				System.out.println( sentSQL );  // (Quitar) para ver lo que se hace
+				Statement s = BasesDeDatos.getStatement();
+				ResultSet num = s.executeQuery("select count(*) from USUARIO");  //  --> NULL POINTER EXCEPTION
+				System.out.println(num);
+				int val=0;
+				while (num.next())
+					val = st.executeUpdate( sentSQL );  //  --> NULL POINTER EXCEPTION
+				if (val!=1) return false;  // Se tiene que añadir 1 - error si no
+				return true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
 		
 	/** Añade un usuario a la tabla USUARIO de BD, 
 	 * que debe estar abierta y tener el formato y los nombres de campos apropiados: (int numJuego, Sting nombre, String contrasenya)
@@ -92,7 +120,6 @@ public class GestorJugador {
 		// Insercion normal
 		try {
 			String sentSQL = "insert into USUARIO values(" +
-							"'" + file.getAbsolutePath() + "', " +
 							"'" + nombre + "', " +
 							"'" + contrasenya + "')";
 			System.out.println( sentSQL );  // (Quitar) para ver lo que se hace

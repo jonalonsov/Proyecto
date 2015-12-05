@@ -33,6 +33,7 @@ public class principio extends JFrame implements ActionListener{
 		btnRegistrarse.setBounds(247, 119, 130, 23);
 		contentPane.add(btnRegistrarse);
 		btnRegistrarse.addActionListener(this);
+		
 	}
 
 	@Override
