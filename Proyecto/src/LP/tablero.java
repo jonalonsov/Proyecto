@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.imageio.ImageIO;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,6 +17,7 @@ import LN.PanelConImagen;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.awt.Font;
+
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
@@ -24,6 +26,14 @@ public class tablero extends JFrame {
 
 	private PanelConImagen contentPane;
 	private JTextField Pregunta;
+	private JRadioButton NUMEROUNO;
+	private JRadioButton NUMERODOS;
+	private JRadioButton NUMEROTRES;
+	private JRadioButton NUMEROCUATRO;
+	private JTextField respuesta_1;
+	private JTextField respuesta_2;
+	private JTextField respuesta_3;
+	private JTextField respuesta_4;
 	
 					
 				
@@ -54,24 +64,54 @@ public class tablero extends JFrame {
 		Pregunta.setBounds(28, 35, 283, 40);
 		panel.add(Pregunta);
 		Pregunta.setColumns(10);
+		Pregunta.setEditable(false);
 		
-		JRadioButton NUMEROUNO = new JRadioButton("New radio button");
-		NUMEROUNO.setBounds(28, 87, 109, 23);
+		NUMEROUNO = new JRadioButton(" ");
+		NUMEROUNO.setBounds(28, 87, 22, 23);
 		panel.add(NUMEROUNO);
 		
-		JRadioButton NUMERODOS = new JRadioButton("New radio button");
-		NUMERODOS.setHorizontalAlignment(SwingConstants.TRAILING);
-		NUMERODOS.setBounds(28, 125, 109, 23);
+		NUMERODOS = new JRadioButton(" ");
+		NUMERODOS.setHorizontalAlignment(SwingConstants.LEFT);
+		NUMERODOS.setBounds(28, 125, 22, 23);
 		panel.add(NUMERODOS);
 		
-		JRadioButton NMEROTRES = new JRadioButton("New radio button");
-		NMEROTRES.setBounds(171, 87, 109, 23);
-		panel.add(NMEROTRES);
+		NUMEROTRES = new JRadioButton(" ");
+		NUMEROTRES.setBounds(171, 87, 22, 23);
+		panel.add(NUMEROTRES);
 		
-		JRadioButton NUMEROCUATRO = new JRadioButton("New radio button");
-		NUMEROCUATRO.setBounds(171, 125, 109, 23);
+		NUMEROCUATRO = new JRadioButton(" ");
+		NUMEROCUATRO.setBounds(171, 125, 22, 23);
 		panel.add(NUMEROCUATRO);
 		
+		respuesta_1 = new JTextField();
+		respuesta_1.setBounds(56, 88, 86, 20);
+		panel.add(respuesta_1);
+		respuesta_1.setColumns(10);
+		respuesta_1.setEditable(false);
+		
+		respuesta_2 = new JTextField();
+		respuesta_2.setColumns(10);
+		respuesta_2.setBounds(56, 126, 86, 20);
+		panel.add(respuesta_2);
+		respuesta_2.setEditable(false);
+		
+		respuesta_3 = new JTextField();
+		respuesta_3.setColumns(10);
+		respuesta_3.setBounds(199, 88, 86, 20);
+		panel.add(respuesta_3);
+		respuesta_3.setEditable(false);
+		
+		respuesta_4 = new JTextField();
+		respuesta_4.setColumns(10);
+		respuesta_4.setBounds(199, 126, 86, 20);
+		panel.add(respuesta_4);
+		respuesta_4.setEditable(false);
+		
+		ButtonGroup bg = new ButtonGroup();
+		bg.add(NUMEROUNO);
+		bg.add(NUMERODOS);
+		bg.add(NUMEROTRES);
+		bg.add(NUMEROCUATRO);
 		
 	}
 }
