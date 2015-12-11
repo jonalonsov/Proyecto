@@ -91,7 +91,8 @@ public class GestorJugador {
 								"'" + nombre + "', " +
 								"'" + contrasenya + "')"; 
 				System.out.println( sentSQL );  // (Quitar) para ver lo que se hace
-				ResultSet num = st.executeQuery("select count(*) from USUARIO");  //  --> NULL POINTER EXCEPTION
+				String s = "select count(*) from USUARIO";
+				ResultSet num = st.executeQuery(s);  //  --> NULL POINTER EXCEPTION
 				System.out.println(num);
 				int val=0;
 				while (num.next())
