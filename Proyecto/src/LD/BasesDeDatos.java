@@ -77,7 +77,7 @@ public class BasesDeDatos {
 	public static void crearTablaBDPregunta() {
 		if (statement==null) return;
 		try {
-			statement.executeUpdate("create table PREGUNTA (int num_Preg, String descp)");
+			statement.executeUpdate("create table PREGUNTA (int num_Preg, String descp, String resp1, String resp2, String resp3, String resp4, String correcta)");
 		} catch (SQLException e) {
 			// Si hay excepcion es que la tabla ya exist�a (lo cual es correcto)
 			e.printStackTrace();  
