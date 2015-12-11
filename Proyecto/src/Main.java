@@ -1,5 +1,7 @@
 import java.awt.EventQueue;
 
+import javax.swing.JFrame;
+
 import LD.BasesDeDatos;
 import LN.GestorJugador;
 import LP.logIn;
@@ -23,7 +25,9 @@ public class Main {
 		
 		//de prueba
 		tablero tablero = new tablero();
+		tablero.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		tablero.setVisible(true);
+		
 		
 		
 	}
