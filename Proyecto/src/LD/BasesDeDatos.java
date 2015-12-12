@@ -69,7 +69,8 @@ public class BasesDeDatos {
 			statement.executeUpdate("create table USUARIO ( numJuego int, nombre Sting, contrasenya String)");
 		} catch (SQLException e) {
 			// Si hay excepcion es que la tabla ya exist�a (lo cual es correcto)
-			e.printStackTrace();  
+			if (!e.getMessage().equals("table interaccion already exists"))
+				e.printStackTrace();  
 		}
 	}
 	

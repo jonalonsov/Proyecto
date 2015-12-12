@@ -70,7 +70,7 @@ public class GestorJugador {
 				String sentSQL = "select * from USUARIO where (nombre = '" + nombre + "')";
 				System.out.println( sentSQL ); 
 				
-				ResultSet rs = st.executeQuery( "select * from USUARIO where (nombre = '" + nombre + "')" );
+				ResultSet rs = st.executeQuery( sentSQL );
 				
 				if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
 					rs.close();
