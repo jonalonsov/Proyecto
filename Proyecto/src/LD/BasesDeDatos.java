@@ -66,7 +66,7 @@ public class BasesDeDatos {
 	public static void crearTablaBDUsuario() {
 		if (statement==null) return;
 		try {
-			statement.executeUpdate("create table USUARIO (int numJuego, Sting nombre, String contrasenya)");
+			statement.executeUpdate("create table USUARIO ( numJuego int, nombre Sting, contrasenya String)");
 		} catch (SQLException e) {
 			// Si hay excepcion es que la tabla ya exist�a (lo cual es correcto)
 			e.printStackTrace();  
@@ -88,7 +88,7 @@ public class BasesDeDatos {
 	public static void crearTablaBDPartida() {
 		if (statement==null) return;
 		try {
-			statement.executeUpdate("create table PARTIDA (int punt, Date fecha)");
+			statement.executeUpdate("create table PARTIDA (punt int, fecha Date)");
 		} catch (SQLException e) {
 			// Si hay excepcion es que la tabla ya exist�a (lo cual es correcto)
 			e.printStackTrace();  
@@ -99,7 +99,7 @@ public class BasesDeDatos {
 	public static void crearTablaBDPart_Preg() {
 		if (statement==null) return;
 		try {
-			statement.executeUpdate("create table PART_PREG (int num_Preg, Date fecha)");
+			statement.executeUpdate("create table PART_PREG ( num_Preg int,  fecha Date)");
 		} catch (SQLException e) {
 			// Si hay excepcion es que la tabla ya exist�a (lo cual es correcto)
 			e.printStackTrace();  
@@ -110,7 +110,7 @@ public class BasesDeDatos {
 	public static void crearTablaBDTema() {
 		if (statement==null) return;
 		try {
-			statement.executeUpdate("create table TEMA (String color, String descp)");
+			statement.executeUpdate("create table TEMA ( color String,  descp String)");
 		} catch (SQLException e) {
 			// Si hay excepcion es que la tabla ya exist�a (lo cual es correcto)
 			e.printStackTrace();  
