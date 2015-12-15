@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.JOptionPane;
+
 import LD.BasesDeDatos;
 
 public class GestorJugador {
@@ -24,13 +26,7 @@ public class GestorJugador {
 	public boolean existeTabla(){
 		boolean b=false;
 		try{
-//		    Class.forName("org.gjt.mm.mysql.Driver").newInstance();
-//		    String url = "jdbc:mysql://localhost/almacenamiento";
-//		    String DB_USER =   "user";          
-//		    String DB_PASSWD = "pass";
-//								 
-//		    Connection c1= DriverManager.getConnection(url, DB_USER, DB_PASSWD);
-//				    
+				    
 		    Statement stat = BasesDeDatos.getStatement();
 		    ResultSet rs1=stat.executeQuery("select * from usuario");
 				
@@ -74,6 +70,7 @@ public class GestorJugador {
 				
 				if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
 					rs.close();
+					JOptionPane.showMessageDialog(null, "El usuario ya existe, prueba con otro","Mensaje de error",JOptionPane.ERROR_MESSAGE);
 					return true;
 				}
 				return false;
@@ -82,28 +79,7 @@ public class GestorJugador {
 				return false;
 			}
 		}
-	public boolean anyadirUnaFila( Statement st, String nombre, String contrasenya ) {
-		//INSERT
-
-			// Insercion normal
-			try {
-				String sentSQL = "insert into USUARIO values(" +
-								"'" + nombre + "', " +
-								"'" + contrasenya + "')"; 
-				System.out.println( sentSQL );  // (Quitar) para ver lo que se hace
-				String s = "select count(*) from USUARIO";
-				ResultSet num = st.executeQuery(s);  //  --> NULL POINTER EXCEPTION
-				System.out.println(num);
-				int val=0;
-				while (num.next())
-					val = st.executeUpdate( sentSQL );  //  --> NULL POINTER EXCEPTION
-				if (val!=1) return false;  // Se tiene que añadir 1 - error si no
-				return true;
-			} catch (SQLException e) {
-				e.printStackTrace();
-				return false;
-			}
-		}
+	
 		
 	/** Añade un usuario a la tabla USUARIO de BD, 
 	 * que debe estar abierta y tener el formato y los nombres de campos apropiados: (int numJuego, Sting nombre, String contrasenya)
@@ -119,9 +95,7 @@ public class GestorJugador {
 		}
 		// Insercion normal
 		try {
-			String sentSQL = "insert into USUARIO values(" +
-							"'" + nombre + "', " +
-							"'" + contrasenya + "')";
+			String sentSQL = "insert into USUARIO values(" + "'" + nombre + "', " + "'" + contrasenya + "')"; 
 			System.out.println( sentSQL );  // (Quitar) para ver lo que se hace
 			int val = st.executeUpdate( sentSQL );
 			if (val!=1) return false;  // Se tiene que añadir 1 - error si no

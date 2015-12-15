@@ -70,10 +70,8 @@ public class registrarse extends JFrame implements ActionListener{
 		char[] elChar = passwordField.getPassword();
 		String contrasenya = String.valueOf(elChar);						
 		GestorJugador jugador = new GestorJugador(nombre, contrasenya, null);
-//		jugador.anyadirUnaFila(BasesDeDatos.getStatement(), "ainhoa", "bai");
-//		System.out.println(jugador.contar());
 		
-//		if(jugador.existeTabla()==true){
+//		if(jugador.contar()>0){
 			BasesDeDatos.initBD("nuestrosDatos");
 			BasesDeDatos.crearTablaBDUsuario();
 			
@@ -85,20 +83,20 @@ public class registrarse extends JFrame implements ActionListener{
 			
 			
 			//chequea la tabla para ver si existe el usuario...
-			if(jugador.chequearYaEnTabla(BasesDeDatos.getStatement(), nombre) == false){  //--- HAU EZ DA BEREZ, anyadirFilaATablaUsuario bertan egiten da
+//			if(jugador.chequearYaEnTabla(BasesDeDatos.getStatement(), nombre) == false){  //--- HAU EZ DA BEREZ, anyadirFilaATablaUsuario bertan egiten da
 				
 				//Si no existe, a�ade fila con el usuario nuevo y sus respectivos atributos
 				jugador.anyadirFilaATablauUsuario(BasesDeDatos.getStatement(), nombre);
 				
 				dispose();
 				
-			}
+//			}
 			
-			else{
+//			else{
 				
-				//si el usuario ya existe aparece un mensaje de error
-				 JOptionPane.showMessageDialog(null, "El usuario ya existe, prueba con otro","Mensaje de error",JOptionPane.ERROR_MESSAGE);
-			}
+				//si el usuario ya existe aparece un mensaje de error   --> GESTORJUGADOR-EN DAO
+//				 JOptionPane.showMessageDialog(null, "El usuario ya existe, prueba con otro","Mensaje de error",JOptionPane.ERROR_MESSAGE);
+//			}
 					
 			
 		}

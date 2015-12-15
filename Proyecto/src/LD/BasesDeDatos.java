@@ -66,7 +66,7 @@ public class BasesDeDatos {
 	public static void crearTablaBDUsuario() {
 		if (statement==null) return;
 		try {
-			statement.executeUpdate("create table USUARIO ( numJuego int, nombre Sting, contrasenya String)");
+			statement.executeUpdate("create table USUARIO ( nombre string, contrasenya string)");
 		} catch (SQLException e) {
 			// Si hay excepcion es que la tabla ya exist�a (lo cual es correcto)
 			if (!e.getMessage().equals("table interaccion already exists"))
@@ -78,7 +78,7 @@ public class BasesDeDatos {
 	public static void crearTablaBDPregunta() {
 		if (statement==null) return;
 		try {
-			statement.executeUpdate("create table PREGUNTA (int num_Preg, String descp, String resp1, String resp2, String resp3, String resp4, String correcta)");
+			statement.executeUpdate("create table PREGUNTA (num_Preg int, descp string, resp1 string, resp2 string, resp3 string, resp4 string, correcta string)");
 		} catch (SQLException e) {
 			// Si hay excepcion es que la tabla ya exist�a (lo cual es correcto)
 			e.printStackTrace();  
@@ -111,7 +111,7 @@ public class BasesDeDatos {
 	public static void crearTablaBDTema() {
 		if (statement==null) return;
 		try {
-			statement.executeUpdate("create table TEMA ( color String,  descp String)");
+			statement.executeUpdate("create table TEMA ( color string,  descp string)");
 		} catch (SQLException e) {
 			// Si hay excepcion es que la tabla ya exist�a (lo cual es correcto)
 			e.printStackTrace();  
