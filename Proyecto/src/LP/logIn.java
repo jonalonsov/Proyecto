@@ -25,7 +25,7 @@ public class logIn extends JFrame implements ActionListener {
 
 	public logIn() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 474, 393);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -55,19 +55,26 @@ public class logIn extends JFrame implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
 		
-		
+	
 		char[] contrasenya = passwordField.getPassword();
+				
+		
 		
 //        if (isPasswordCorrect(contrasenya)) {
-//            JOptionPane.showMessageDialog(btnAceptar, "Bien! Tu contrase�a es correcta.");
+//            JOptionPane.showMessageDialog(btnAceptar, "Bien! Tu contrasenya es correcta.");
 //        } else {
-//            JOptionPane.showMessageDialog(btnAceptar, "Contrase�a incorrecta, prueba otra vez","Mensaje de error",JOptionPane.ERROR_MESSAGE);
+//            JOptionPane.showMessageDialog(btnAceptar, "Contrasenya incorrecta, prueba otra vez","Mensaje de error",JOptionPane.ERROR_MESSAGE);
 //        }
-		//konprobatu base de datosen daon usuario ta kontrase�ak bat datozen
+		//konprobatu base de datosen daon usuario ta kontrasenyak bat datozen
 		//queri (ejemploBD)nn
+		
+		Menu frameMenu = new Menu();
+		frameMenu.setVisible(true);
 
 			dispose();
+		
 	}
 }
+

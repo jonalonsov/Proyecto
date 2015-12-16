@@ -19,14 +19,18 @@ public class Main {
 //		GestorJugador jugador = new GestorJugador("ainhoa", "bai", null);
 //		jugador.anyadirUnaFila(BasesDeDatos.getStatement(), "ainhoa", "bai");
 		
-		principio frame = new principio();
-		frame.setVisible(true);
+		
 
 		
 		//de prueba
 		tablero tablero = new tablero();
 		tablero.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		tablero.setVisible(true);
+		
+		
+		//menu de log in y registrarse
+		principio frame = new principio();
+		frame.setVisible(true);
 		
 		
 		
