@@ -13,6 +13,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
 import LD.BasesDeDatos;
+import java.awt.Font;
+import javax.swing.JLabel;
 
 public class principio extends JFrame implements ActionListener{
 
@@ -22,20 +24,27 @@ public class principio extends JFrame implements ActionListener{
 
 	public principio() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 474, 393);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		btnLogIn = new JButton("LOG IN");
-		btnLogIn.setBounds(92, 119, 89, 23);
+		btnLogIn.setFont(new Font("Stencil", Font.BOLD, 18));
+		btnLogIn.setBounds(10, 141, 438, 75);
 		contentPane.add(btnLogIn);
 		btnLogIn.addActionListener(this);
 		
 		btnRegistrarse = new JButton("REGISTRARSE");
-		btnRegistrarse.setBounds(247, 119, 130, 23);
+		btnRegistrarse.setFont(new Font("Stencil", Font.BOLD, 18));
+		btnRegistrarse.setBounds(10, 227, 438, 75);
 		contentPane.add(btnRegistrarse);
+		
+		JLabel lblNewLabel = new JLabel("DBS TRIVIAL");
+		lblNewLabel.setFont(new Font("Stencil", Font.BOLD, 24));
+		lblNewLabel.setBounds(153, 50, 212, 41);
+		contentPane.add(lblNewLabel);
 		btnRegistrarse.addActionListener(this);
 		
 		
@@ -68,7 +77,4 @@ public class principio extends JFrame implements ActionListener{
 		}
 		
 	}
-	
-	
-
 }

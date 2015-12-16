@@ -16,6 +16,7 @@ import javax.swing.JButton;
 
 import LD.BasesDeDatos;
 import LN.GestorJugador;
+import java.awt.Font;
 
 public class registrarse extends JFrame implements ActionListener{
 
@@ -29,36 +30,41 @@ public class registrarse extends JFrame implements ActionListener{
 
 	public registrarse() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 474, 393);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(65, 56, 86, 20);
+		textField.setFont(new Font("Stencil", Font.PLAIN, 18));
+		textField.setBounds(130, 56, 184, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(65, 113, 86, 20);
+		passwordField.setBounds(130, 130, 184, 20);
 		contentPane.add(passwordField);
 		
 		lblNombreDeUsuario = new JLabel("Nombre de usuario");
-		lblNombreDeUsuario.setBounds(65, 31, 112, 14);
+		lblNombreDeUsuario.setFont(new Font("Stencil", Font.PLAIN, 18));
+		lblNombreDeUsuario.setBounds(130, 25, 214, 20);
 		contentPane.add(lblNombreDeUsuario);
 		
 		lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setBounds(65, 87, 86, 14);
+		lblContrasea.setFont(new Font("Stencil", Font.PLAIN, 18));
+		lblContrasea.setBounds(165, 105, 149, 14);
 		contentPane.add(lblContrasea);
 		
 		btnAceptar = new JButton("ACEPTAR");
-		btnAceptar.setBounds(65, 203, 89, 23);
+		btnAceptar.setFont(new Font("Stencil", Font.BOLD, 18));
+		btnAceptar.setBounds(10, 199, 438, 67);
 		contentPane.add(btnAceptar);
 		btnAceptar.addActionListener(this);
 		
 		btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setBounds(270, 203, 110, 23);
+		btnCancelar.setFont(new Font("Stencil", Font.BOLD, 18));
+		btnCancelar.setBounds(10, 277, 438, 67);
 		contentPane.add(btnCancelar);
 		btnCancelar.addActionListener(this);
 	}
