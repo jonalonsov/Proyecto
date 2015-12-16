@@ -21,7 +21,7 @@ public class Main {
 		
 		
 
-		
+		System.out.println("Hasi gara!");
 		//de prueba
 		tablero tablero = new tablero();
 		tablero.setExtendedState(JFrame.MAXIMIZED_BOTH); 

@@ -70,7 +70,6 @@ public class registrarse extends JFrame implements ActionListener{
 		char[] elChar = passwordField.getPassword();
 		String contrasenya = String.valueOf(elChar);						
 		
-
 		
 		if (e.getSource() == btnAceptar){
 			

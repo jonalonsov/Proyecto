@@ -59,7 +59,7 @@ public class logIn extends JFrame implements ActionListener {
 		
 	
 		char[] contrasenya = passwordField.getPassword();
-				
+			
 		
 		
 //        if (isPasswordCorrect(contrasenya)) {
