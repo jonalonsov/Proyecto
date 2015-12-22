@@ -161,6 +161,7 @@ public class BasesDeDatos {
 										+ "'¿Con la muerte de quien dio por finalizado el Sgli de Oro?'," + 
 										"'Machado', 'Quevedo', 'Calderon', 'Cervantes', 'Calderon')" );
 				
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
