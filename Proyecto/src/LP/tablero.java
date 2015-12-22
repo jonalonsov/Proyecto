@@ -12,10 +12,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import LD.BasesDeDatos;
 import LN.PanelConImagen;
 
 import java.awt.Toolkit;
 import java.io.IOException;
+import java.util.Random;
 import java.awt.Font;
 
 import javax.swing.JTextField;
@@ -34,11 +36,13 @@ public class tablero extends JFrame {
 	private JTextField respuesta_2;
 	private JTextField respuesta_3;
 	private JTextField respuesta_4;
-	
+	Random r;
 					
 				
 
 	public tablero() {
+		r = new Random();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(1000, 1000, 4500, 3000);
 		contentPane = new PanelConImagen();
@@ -88,6 +92,7 @@ public class tablero extends JFrame {
 		panel.add(respuesta_1);
 		respuesta_1.setColumns(10);
 		respuesta_1.setEditable(false);
+		//respuesta_1.setText();
 		
 		respuesta_2 = new JTextField();
 		respuesta_2.setColumns(10);
