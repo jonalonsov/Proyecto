@@ -88,8 +88,13 @@ public class BasesDeDatos {
 		}
 	}
 	
-	public static void insertarPreguntas(){
+	public static void insertarPreguntas(Statement statement){
 		try {
+			
+			if(statement==null)
+				System.out.println("gaizki!");
+			
+			else{
 			statement.executeUpdate( "insert into PREGUNTA values('¿Donde se encuentra el Palacio Taj Mahal?', 'China', 'India', 'Japon', 'Rusia', 'India')" );
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" +
@@ -167,7 +172,7 @@ public class BasesDeDatos {
 			statement.executeUpdate( "insert into PREGUNTA values(" 
 									+ "'¿Con la muerte de quien dio por finalizado el Sgli de Oro?'," + 
 									"'Machado', 'Quevedo', 'Calderon', 'Cervantes', 'Calderon')" );
-			
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -46,7 +46,7 @@ public class tablero extends JFrame {
 	public tablero() {
 		//r = new Random();
 		BasesDeDatos.crearTablaBDPregunta();
-		BasesDeDatos.insertarPreguntas();
+		BasesDeDatos.insertarPreguntas(BasesDeDatos.getStatement());
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(1000, 1000, 4500, 3000);
@@ -101,7 +101,8 @@ public class tablero extends JFrame {
 		
 //		Statement st = null;
 //		try {
-//			st.executeQuery("select descp from PREGUNTA order by random() limit 1");   -- NULL POINTER EXCEPTION
+//			String s = "select * from PREGUNTA";
+//			st.executeQuery(s);  // -- NULL POINTER EXCEPTION
 //		} catch (SQLException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();

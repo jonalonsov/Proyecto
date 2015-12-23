@@ -82,7 +82,7 @@ public class registrarse extends JFrame implements ActionListener{
 			GestorJugador jugador = new GestorJugador(nombre, contrasenya, null);
 		
 
-			BasesDeDatos.initBD("nuestrosDatos");
+			//BasesDeDatos.initBD("nuestrosDatos");
 			BasesDeDatos.crearTablaBDUsuario();
 			
 			

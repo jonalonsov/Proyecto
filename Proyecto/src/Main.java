@@ -14,7 +14,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//BasesDeDatos.initBD("nuestrosDatos.bd");  //  --- REGISTRASEN BARRUN JARRI DITUT
+		BasesDeDatos.initBD("nuestrosDatos.bd");  //  --- REGISTRASEN BARRUN JARRI DITUT
 //		BasesDeDatos.crearTablaBDUsuario();
 //		GestorJugador jugador = new GestorJugador("ainhoa", "bai", null);
 //		jugador.anyadirUnaFila(BasesDeDatos.getStatement(), "ainhoa", "bai");
