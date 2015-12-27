@@ -37,34 +37,34 @@ public class registrarse extends JFrame implements ActionListener{
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setFont(new Font("Stencil", Font.PLAIN, 18));
-		textField.setBounds(130, 56, 184, 20);
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		textField.setBounds(130, 56, 184, 33);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(130, 130, 184, 20);
+		passwordField.setBounds(130, 141, 184, 32);
 		contentPane.add(passwordField);
 		
 		lblNombreDeUsuario = new JLabel("Nombre de usuario");
-		lblNombreDeUsuario.setFont(new Font("Stencil", Font.PLAIN, 18));
-		lblNombreDeUsuario.setBounds(130, 25, 214, 20);
+		lblNombreDeUsuario.setFont(new Font("Stencil", Font.PLAIN, 25));
+		lblNombreDeUsuario.setBounds(99, 25, 264, 20);
 		contentPane.add(lblNombreDeUsuario);
 		
 		lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setFont(new Font("Stencil", Font.PLAIN, 18));
-		lblContrasea.setBounds(165, 105, 149, 14);
+		lblContrasea.setFont(new Font("Stencil", Font.PLAIN, 25));
+		lblContrasea.setBounds(145, 100, 169, 32);
 		contentPane.add(lblContrasea);
 		
 		btnAceptar = new JButton("ACEPTAR");
 		btnAceptar.setFont(new Font("Stencil", Font.BOLD, 18));
-		btnAceptar.setBounds(10, 199, 438, 67);
+		btnAceptar.setBounds(27, 211, 401, 44);
 		contentPane.add(btnAceptar);
 		btnAceptar.addActionListener(this);
 		
 		btnCancelar = new JButton("CANCELAR");
 		btnCancelar.setFont(new Font("Stencil", Font.BOLD, 18));
-		btnCancelar.setBounds(10, 277, 438, 67);
+		btnCancelar.setBounds(27, 277, 401, 44);
 		contentPane.add(btnCancelar);
 		btnCancelar.addActionListener(this);
 	}

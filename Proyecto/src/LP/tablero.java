@@ -39,6 +39,9 @@ public class tablero extends JFrame {
 	private JTextField respuesta_2;
 	private JTextField respuesta_3;
 	private JTextField respuesta_4;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JLabel lblDado;
 	//Random r;
 					
 				
@@ -132,6 +135,30 @@ public class tablero extends JFrame {
 		bg.add(NUMERODOS);
 		bg.add(NUMEROTRES);
 		bg.add(NUMEROCUATRO);
+		
+		JLabel lblPuntos = new JLabel("PUNTOS");
+		lblPuntos.setFont(new Font("Stencil", Font.PLAIN, 25));
+		lblPuntos.setBounds(59, 614, 111, 26);
+		contentPane.add(lblPuntos);
+		
+		textField = new JTextField();
+		textField.setBounds(59, 651, 94, 26);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblPreguntasAcertadas = new JLabel("PREGUNTAS CORRECTAS");
+		lblPreguntasAcertadas.setFont(new Font("Stencil", Font.PLAIN, 25));
+		lblPreguntasAcertadas.setBounds(255, 614, 296, 34);
+		contentPane.add(lblPreguntasAcertadas);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(255, 654, 94, 26);
+		contentPane.add(textField_1);
+		
+		lblDado = new JLabel("New label");
+		lblDado.setBounds(280, 26, 69, 63);
+		contentPane.add(lblDado);
 		
 	}
 }

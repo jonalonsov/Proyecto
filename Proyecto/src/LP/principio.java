@@ -73,6 +73,7 @@ public class principio extends JFrame implements ActionListener{
 
 			logIn logIn = new logIn();
 			logIn.setVisible(true);
+			dispose();
 			
 		}
 		

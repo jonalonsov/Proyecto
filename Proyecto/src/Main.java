@@ -21,13 +21,7 @@ public class Main {
 		
 		
 
-		System.out.println("Hasi gara!");
-		//de prueba
-		tablero tablero = new tablero();
-		tablero.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-		tablero.setVisible(true);
-		
-		
+				
 		//menu de log in y registrarse
 		principio frame = new principio();
 		frame.setVisible(true);
