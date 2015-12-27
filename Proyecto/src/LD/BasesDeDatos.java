@@ -145,8 +145,7 @@ public class BasesDeDatos {
 									+ "'¿Cual de las siguientes palabras deberia de llevar tilde segun las reglas ortograficas?'," + 
 									"'Surgir', 'Toner', 'Capaz', 'Programar', 'Toner')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿De que estilo arquitectonico es la plaza mayor de Salamanca?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿De que estilo arquitectonico es la plaza mayor de Salamanca?'," + 
 									"'Gotico', 'Barroco', 'Romanico, 'Renacentista', 'Barroco')" );
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" 

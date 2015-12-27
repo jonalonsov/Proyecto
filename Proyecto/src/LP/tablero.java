@@ -5,11 +5,15 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.imageio.ImageIO;
+import javax.swing.BoundedRangeModel;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.Caret;
 
@@ -18,6 +22,7 @@ import LN.PanelConImagen;
 
 import java.awt.Toolkit;
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
@@ -30,7 +35,7 @@ import javax.swing.SwingConstants;
 public class tablero extends JFrame {
 
 	private PanelConImagen contentPane;
-	private JTextField Pregunta;
+	private JTextArea Pregunta;
 	private JRadioButton NUMEROUNO;
 	private JRadioButton NUMERODOS;
 	private JRadioButton NUMEROTRES;
@@ -42,12 +47,10 @@ public class tablero extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JLabel lblDado;
-	//Random r;
 					
 				
 
 	public tablero() {
-		//r = new Random();
 		BasesDeDatos.crearTablaBDPregunta();
 		BasesDeDatos.insertarPreguntas(BasesDeDatos.getStatement());
 		
@@ -72,11 +75,15 @@ public class tablero extends JFrame {
 		lblPreguntas.setFont(new Font("Verdana", Font.BOLD, 14));
 		panel.add(lblPreguntas);
 		
-		Pregunta = new JTextField();
-		Pregunta.setBounds(28, 35, 283, 40);
-		panel.add(Pregunta);
+		Pregunta = new JTextArea();
+		//Pregunta.setBounds(28, 35, 283, 40);
+		//panel.add(Pregunta);
 		Pregunta.setColumns(10);
 		Pregunta.setEditable(false);
+		
+		JScrollPane scroll = new JScrollPane(Pregunta);
+		scroll.setBounds(28, 35, 283, 40);
+		panel.add(scroll);
 		
 		NUMEROUNO = new JRadioButton(" ");
 		NUMEROUNO.setBounds(28, 87, 22, 23);
@@ -96,39 +103,44 @@ public class tablero extends JFrame {
 		panel.add(NUMEROCUATRO);
 		
 		respuesta_1 = new JTextField();
-		respuesta_1.setBounds(56, 88, 86, 20);
+		respuesta_1.setBounds(56, 88, 110, 20);
 		panel.add(respuesta_1);
 		respuesta_1.setColumns(10);
 		respuesta_1.setEditable(false);
-		
-		
-//		Statement st = null;
-//		try {
-//			String s = "select * from PREGUNTA";
-//			st.executeQuery(s);  // -- NULL POINTER EXCEPTION
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		respuesta_1.setCaret((Caret) st);
-		
+				
 		respuesta_2 = new JTextField();
 		respuesta_2.setColumns(10);
-		respuesta_2.setBounds(56, 126, 86, 20);
+		respuesta_2.setBounds(56, 126, 110, 20);
 		panel.add(respuesta_2);
 		respuesta_2.setEditable(false);
 		
 		respuesta_3 = new JTextField();
 		respuesta_3.setColumns(10);
-		respuesta_3.setBounds(199, 88, 86, 20);
+		respuesta_3.setBounds(199, 88, 110, 20);
 		panel.add(respuesta_3);
 		respuesta_3.setEditable(false);
 		
 		respuesta_4 = new JTextField();
 		respuesta_4.setColumns(10);
-		respuesta_4.setBounds(199, 126, 86, 20);
+		respuesta_4.setBounds(199, 126, 110, 20);
 		panel.add(respuesta_4);
 		respuesta_4.setEditable(false);
+		
+		Statement st = BasesDeDatos.getStatement();
+		String s = "";
+		try {
+			s = "select * from PREGUNTA order by RANDOM()";
+			ResultSet rs = st.executeQuery(s);
+			Pregunta.setText(rs.getString("descp"));
+			respuesta_1.setText(rs.getString("resp1"));
+			respuesta_2.setText(rs.getString("resp2"));
+			respuesta_3.setText(rs.getString("resp3"));
+			respuesta_4.setText(rs.getString("resp4"));
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		ButtonGroup bg = new ButtonGroup();
 		bg.add(NUMEROUNO);
