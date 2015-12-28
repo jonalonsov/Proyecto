@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.Caret;
 
 import LD.BasesDeDatos;
+import LN.Dado;
 import LN.PanelConImagen;
 
 import java.awt.Toolkit;
@@ -27,12 +28,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
 
-public class tablero extends JFrame {
+public class tablero extends JFrame implements ActionListener{
 
 	private PanelConImagen contentPane;
 	private JTextArea Pregunta;
@@ -46,7 +50,8 @@ public class tablero extends JFrame {
 	private JTextField respuesta_4;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JLabel lblDado;
+	private Dado lblDado;
+	private JButton btnTirarDado;
 					
 				
 
@@ -168,9 +173,34 @@ public class tablero extends JFrame {
 		textField_1.setBounds(255, 654, 94, 26);
 		contentPane.add(textField_1);
 		
-		lblDado = new JLabel("New label");
-		lblDado.setBounds(280, 26, 69, 63);
+		
+		
+		btnTirarDado = new JButton("Tirar \r\nDado");
+		btnTirarDado.setFont(new Font("Stencil", Font.PLAIN, 14));
+		btnTirarDado.setBounds(117, 36, 126, 39);
+		contentPane.add(btnTirarDado);
+		btnTirarDado.addActionListener(this);
+		
+		lblDado = new Dado();
+		lblDado.setBounds(280, 11, 88, 87);
 		contentPane.add(lblDado);
+	}
+
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+
+		if (e.getSource() == btnTirarDado){
+			
+			
+			
+		
+		int numeroDado = lblDado.tirarDado();
+		System.out.println(numeroDado);
+			
+		}
 		
 	}
 }
