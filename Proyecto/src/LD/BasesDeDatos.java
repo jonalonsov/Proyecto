@@ -106,8 +106,8 @@ public class BasesDeDatos {
 									"'Libelarismo', 'Liberacion', 'Ilustracion', 'Feudalismo', 'Libelarismo')" );
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'El Renacimiento se produjo en Europa Occidental durante: '," + 
-									"'La Edad Contemporanea', 'La Edad Media', 'La Edad Moderna', 'La Edad Antigua', 'La Edad Moderna')" );
+									+ "'El Renacimiento se produjo en Europa Occidental durante la edad: '," + 
+									"'Contemporanea', 'Media', 'Moderna', 'Antigua', 'Moderna')" );
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" 
 									+ "'¿Cual es el elemento químico cuyo símbolo es Pb?'," + 
@@ -115,7 +115,7 @@ public class BasesDeDatos {
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" 
 									+ "'¿Que acontecimiento marca el inicio de la Edad Moderna?'," + 
-									"'Revolución Industrial', 'Máquina de vapor', 'Descubrimiento de America', 'La caida del Imperio Romano', 'Descubrimiento de America')" );
+									"'Revolución Industrial', 'Máquina de vapor', 'Descubrimiento de America', 'Caida del Imperio Romano', 'Descubrimiento de America')" );
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" 
 									+ "'El Monte Vesubio se encentra en: '," + 
@@ -126,7 +126,7 @@ public class BasesDeDatos {
 									"'Joaquin Sorolla', 'Joan Miro', 'Johannes Vermeer', 'Max Ernst', 'Johannes Vermeer')" );
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'La ciencia o rama de la biología que estudia los vegetales se denomina:'," + 
+									+ "'La ciencia o rama de la biologia que estudia los vegetales se denomina:'," + 
 									"'Botanica', 'Ecologia', 'Microbiologia', 'Zoologia', 'Botanica')" );
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" 
@@ -135,10 +135,10 @@ public class BasesDeDatos {
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" 
 									+ "'El gentilicio de la provincia de Albacete es: '," + 
-									"'Albacereño', 'Albaceteño', 'Albecetense', 'Albecetano', 'Albaceteño')" );
+									"'Albacerenyo', 'Albacetenyo', 'Albecetense', 'Albecetano', 'Albacetenyo')" );
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿En qué movimiento cultural se encuentra Mariano Benlliure?'," + 
+									+ "'¿En que movimiento cultural se encuentra Mariano Benlliure?'," + 
 									"'Romanticismo', 'Fauvismo', 'Impresionismo', 'Realismo', 'Realismo')" );
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" 
@@ -150,7 +150,7 @@ public class BasesDeDatos {
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" 
 									+ "'¿Cual de los siguientes autores no pertenece a la Ilustración?'," + 
-									"'Fernandez de Moratin', 'Samaniego Zabala', 'Becquer', 'Jovrllanos', 'Becquer')" );
+									"'Fernandez de Moratin', 'Samaniego Zabala', 'Becquer', 'Joverllanos', 'Becquer')" );
 			
 			statement.executeUpdate( "insert into PREGUNTA values(" 
 									+ "'¿Cual es la magnitud que relaciona espacio y tiempo?'," + 

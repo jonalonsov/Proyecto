@@ -80,6 +80,27 @@ public class GestorJugador {
 			}
 		}
 	
+	public boolean chequearYaEnTablaCONTRASENYA( Statement st, String contrasenya ) {
+		//SELECT
+			try {
+
+				String sentSQL = "select * from USUARIO where (contrasenya = '" + contrasenya + "')";
+				System.out.println( sentSQL ); 
+				
+				ResultSet rs = st.executeQuery( sentSQL );
+				
+				if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
+					rs.close();
+					JOptionPane.showMessageDialog(null, "El usuario ya existe, prueba con otro","Mensaje de error",JOptionPane.ERROR_MESSAGE);
+					return true;
+				}
+				return false;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+	
 		
 	/** Añade un usuario a la tabla USUARIO de BD, 
 	 * que debe estar abierta y tener el formato y los nombres de campos apropiados: (int numJuego, Sting nombre, String contrasenya)

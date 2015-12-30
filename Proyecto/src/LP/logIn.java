@@ -14,7 +14,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
+import LD.BasesDeDatos;
+import LN.GestorJugador;
+
 import java.awt.Font;
+import java.sql.Statement;
 
 public class logIn extends JFrame implements ActionListener {
 
@@ -74,9 +78,23 @@ public class logIn extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 	
-		char[] contrasenya = passwordField.getPassword();
+		//char[] contrasenya = passwordField.getPassword();
+		
+		String nombre = textField.getText();
+		char[] elChar = passwordField.getPassword();
+		String contrasenya = String.valueOf(elChar);
+		GestorJugador gestor = new GestorJugador(nombre, contrasenya, null);
 			
 		if (e.getSource() == btnAceptar){
+			
+			Statement st = BasesDeDatos.getStatement();
+			boolean nombreCorrecto = gestor.chequearYaEnTabla(st, nombre);
+			boolean contrasenyaCorrecta = gestor.chequearYaEnTablaCONTRASENYA(st, contrasenya);
+			
+			if(nombreCorrecto == true && contrasenyaCorrecta == true){
+				Menu frameMenu = new Menu();
+				frameMenu.setVisible(true);
+			}
 		
 //        if (isPasswordCorrect(contrasenya)) {
 //            JOptionPane.showMessageDialog(btnAceptar, "Bien! Tu contrasenya es correcta.");
@@ -86,8 +104,7 @@ public class logIn extends JFrame implements ActionListener {
 		//konprobatu base de datosen daon usuario ta kontrasenyak bat datozen
 		//queri (ejemploBD)nn
 		
-		Menu frameMenu = new Menu();
-		frameMenu.setVisible(true);
+		
 
 			dispose();
 			
