@@ -10,6 +10,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -52,7 +53,18 @@ public class tablero extends JFrame implements ActionListener{
 	private JTextField textField_1;
 	private Dado lblDado;
 	private JButton btnTirarDado;
-					
+	private JButton btnOK;
+	String correcta;
+	
+	int jug1_aciertos = 0;
+	int jug2_aciertos = 0;
+	int jug1_puntos = 0;
+	int jug2_puntos = 0;
+	
+	String resp1 = "";
+	String resp2 = "";
+	String resp3 = "";
+	String resp4 = "";
 				
 
 	public tablero() {
@@ -131,22 +143,6 @@ public class tablero extends JFrame implements ActionListener{
 		panel.add(respuesta_4);
 		respuesta_4.setEditable(false);
 		
-		Statement st = BasesDeDatos.getStatement();
-		String s = "";
-		try {
-			s = "select * from PREGUNTA order by RANDOM()";
-			ResultSet rs = st.executeQuery(s);
-			Pregunta.setText(rs.getString("descp"));
-			respuesta_1.setText(rs.getString("resp1"));
-			respuesta_2.setText(rs.getString("resp2"));
-			respuesta_3.setText(rs.getString("resp3"));
-			respuesta_4.setText(rs.getString("resp4"));
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		ButtonGroup bg = new ButtonGroup();
 		bg.add(NUMEROUNO);
 		bg.add(NUMERODOS);
@@ -184,6 +180,17 @@ public class tablero extends JFrame implements ActionListener{
 		lblDado = new Dado();
 		lblDado.setBounds(280, 11, 88, 87);
 		contentPane.add(lblDado);
+		
+		
+		
+		btnOK = new JButton("OK");
+		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 8));
+		btnOK.setBounds(765, 415, 45, 28);
+		contentPane.add(btnOK);
+		btnOK.addActionListener(this);
+		
+		this.AñadirInformacion();
+		
 	}
 
 
@@ -197,10 +204,79 @@ public class tablero extends JFrame implements ActionListener{
 			
 			
 		
-		int numeroDado = lblDado.tirarDado();
-		System.out.println(numeroDado);
+			int numeroDado = lblDado.tirarDado();
+			System.out.println(numeroDado);
 			
 		}
 		
+		
+		if (e.getSource() == btnOK){
+			
+			//SELECCIÓN DE RESPUESTA
+			if(NUMEROUNO.isSelected()==true){
+				this.ComprobarRespuesta(resp1);
+				
+			} if(NUMERODOS.isSelected()==true){
+				this.ComprobarRespuesta(resp2);
+				
+			} if(NUMEROTRES.isSelected()==true){
+				this.ComprobarRespuesta(resp3);
+				
+			} if(NUMEROCUATRO.isSelected()==true){
+				this.ComprobarRespuesta(resp4);
+				
+			}
+		}
+		
+	}
+	
+	
+	public void ComprobarRespuesta(String respuestaSeleccionada){
+		
+		if(respuestaSeleccionada.equals(correcta)){
+			jug1_aciertos++;
+			jug1_puntos = jug1_puntos + 5;
+			textField_1.setText(String.valueOf(jug1_aciertos));
+			textField.setText(String.valueOf(jug1_puntos));
+			JOptionPane.showMessageDialog( null, "¡BIEN! ¡RESPUESTA CORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			this.AñadirInformacion();
+		}
+		else{
+			jug1_puntos = jug1_puntos - 3;
+			textField.setText(String.valueOf(jug1_puntos));
+			JOptionPane.showMessageDialog( null, "¡RESPUESTA INCORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			this.AñadirInformacion();
+		}
+	}
+	
+	
+	public void AñadirInformacion(){
+		
+		Statement st = BasesDeDatos.getStatement();
+		String s = "";
+		
+		try {
+			s = "select * from PREGUNTA order by RANDOM()";
+			ResultSet rs = st.executeQuery(s);
+			Pregunta.setText(rs.getString("descp"));
+			
+			resp1 = rs.getString("resp1");
+			respuesta_1.setText(resp1);
+			
+			resp2 = rs.getString("resp2");
+			respuesta_2.setText(resp2);
+			
+			resp3 = rs.getString("resp3");
+			respuesta_3.setText(resp3);
+			
+			resp4 = rs.getString("resp4");
+			respuesta_4.setText(resp4);
+			
+			correcta = rs.getString("correcta");
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
