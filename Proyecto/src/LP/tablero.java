@@ -56,9 +56,9 @@ public class tablero extends JFrame implements ActionListener{
 	private JTextField textField_1;
 	private Dado lblDado;
 	private JButton btnTirarDado;
-	private JButton btnOK;
 	String correcta;
 	private FichaJuego miFicha;
+	private JButton btnOK;
 	
 	int jug1_aciertos = 0;
 	int jug2_aciertos = 0;
@@ -69,6 +69,7 @@ public class tablero extends JFrame implements ActionListener{
 	String resp2 = "";
 	String resp3 = "";
 	String resp4 = "";
+	
 				
 
 	public tablero() {
@@ -153,6 +154,9 @@ public class tablero extends JFrame implements ActionListener{
 		bg.add(NUMEROTRES);
 		bg.add(NUMEROCUATRO);
 		
+		
+		
+	
 		JLabel lblPuntos = new JLabel("PUNTOS");
 		lblPuntos.setFont(new Font("Stencil", Font.PLAIN, 25));
 		lblPuntos.setBounds(59, 614, 111, 26);
@@ -185,13 +189,14 @@ public class tablero extends JFrame implements ActionListener{
 		lblDado.setBounds(280, 11, 88, 87);
 		contentPane.add(lblDado);
 		
-		
-		
 		btnOK = new JButton("OK");
-		btnOK.setFont(new Font("Tahoma", Font.PLAIN, 8));
-		btnOK.setBounds(765, 415, 45, 28);
-		contentPane.add(btnOK);
+		btnOK.setBounds(146, 154, 54, 23);
+		panel.add(btnOK);
 		btnOK.addActionListener(this);
+		
+		
+		
+		
 		
 		this.AnadirInformacion();
 		
@@ -218,7 +223,7 @@ public class tablero extends JFrame implements ActionListener{
 		
 		if (e.getSource() == btnOK){
 			
-			//SELECCIÓN DE RESPUESTA
+			//SELECCION DE RESPUESTA
 			if(NUMEROUNO.isSelected()==true){
 				this.ComprobarRespuesta(resp1);
 				
