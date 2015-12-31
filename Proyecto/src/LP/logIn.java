@@ -86,14 +86,18 @@ public class logIn extends JFrame implements ActionListener {
 		GestorJugador gestor = new GestorJugador(nombre, contrasenya, null);
 			
 		if (e.getSource() == btnAceptar){
+			//nik probak iteko
+			Menu frameMenu = new Menu();
+			frameMenu.setVisible(true);
+			//hau bakarrik
 			
 			Statement st = BasesDeDatos.getStatement();
 			boolean nombreCorrecto = gestor.chequearYaEnTabla(st, nombre);
 			boolean contrasenyaCorrecta = gestor.chequearYaEnTablaCONTRASENYA(st, contrasenya);
 			
 			if(nombreCorrecto == true && contrasenyaCorrecta == true){
-				Menu frameMenu = new Menu();
-				frameMenu.setVisible(true);
+				//Menu frameMenu = new Menu();
+				//frameMenu.setVisible(true);
 			}
 		
 //        if (isPasswordCorrect(contrasenya)) {

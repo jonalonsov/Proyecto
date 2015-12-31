@@ -20,6 +20,7 @@ import javax.swing.text.Caret;
 
 import LD.BasesDeDatos;
 import LN.Dado;
+import LN.FichaJuego;
 import LN.PanelConImagen;
 
 import java.awt.Toolkit;
@@ -36,6 +37,8 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+
+
 
 public class tablero extends JFrame implements ActionListener{
 
@@ -55,6 +58,7 @@ public class tablero extends JFrame implements ActionListener{
 	private JButton btnTirarDado;
 	private JButton btnOK;
 	String correcta;
+	private FichaJuego miFicha;
 	
 	int jug1_aciertos = 0;
 	int jug2_aciertos = 0;
@@ -189,7 +193,9 @@ public class tablero extends JFrame implements ActionListener{
 		contentPane.add(btnOK);
 		btnOK.addActionListener(this);
 		
-		this.AñadirInformacion();
+		this.AnadirInformacion();
+		
+		
 		
 	}
 
@@ -239,18 +245,18 @@ public class tablero extends JFrame implements ActionListener{
 			textField_1.setText(String.valueOf(jug1_aciertos));
 			textField.setText(String.valueOf(jug1_puntos));
 			JOptionPane.showMessageDialog( null, "¡BIEN! ¡RESPUESTA CORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
-			this.AñadirInformacion();
+			this.AnadirInformacion();
 		}
 		else{
 			jug1_puntos = jug1_puntos - 3;
 			textField.setText(String.valueOf(jug1_puntos));
 			JOptionPane.showMessageDialog( null, "¡RESPUESTA INCORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
-			this.AñadirInformacion();
+			this.AnadirInformacion();
 		}
 	}
 	
 	
-	public void AñadirInformacion(){
+	public void AnadirInformacion(){
 		
 		Statement st = BasesDeDatos.getStatement();
 		String s = "";
@@ -278,5 +284,12 @@ public class tablero extends JFrame implements ActionListener{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void creaFicha( int posX, int posY ) {
+		// Crear y a�adir el ficha a la ventana
+		miFicha = new FichaJuego();
+		miFicha.setPosicion( posX, posY );
+		contentPane.add( miFicha.getGrafico() );
 	}
 }
