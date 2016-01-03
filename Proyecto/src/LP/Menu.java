@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.BoxLayout;
 
+import LN.Instrucciones;
+
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -71,7 +73,7 @@ public class Menu extends JFrame implements ActionListener{
 			tablero.setVisible(true);
 			
 			tablero.creaFicha( 120, 130 );
-			tablero.setVisible( true );
+			
 		}
 		
 		if (e.getSource() == btnInstrucciones){

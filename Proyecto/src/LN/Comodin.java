@@ -4,8 +4,8 @@ public class Comodin extends Casilla{
 
 	int num_comodin;
 	
-	public Comodin(int num_casilla, String color, int valor, int num_comodin){
-		super(num_casilla, color, valor);
+	public Comodin( int pos_x, int pos_y, String color, int valor, int num_comodin){
+		super(pos_x, pos_y, color, valor);
 		num_comodin = this.num_comodin;
 	}
 

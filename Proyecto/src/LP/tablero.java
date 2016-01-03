@@ -19,6 +19,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.Caret;
 
 import LD.BasesDeDatos;
+import LN.Casilla;
 import LN.Dado;
 import LN.FichaJuego;
 import LN.PanelConImagen;
@@ -28,6 +29,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Random;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -42,6 +44,7 @@ import javax.swing.JButton;
 
 public class tablero extends JFrame implements ActionListener{
 
+	private int contadorPrueba=0;
 	private PanelConImagen contentPane;
 	private JTextArea Pregunta;
 	private JRadioButton NUMEROUNO;
@@ -57,8 +60,10 @@ public class tablero extends JFrame implements ActionListener{
 	private Dado lblDado;
 	private JButton btnTirarDado;
 	String correcta;
-	private FichaJuego miFicha;
+	private FichaJuego miFicha = new FichaJuego();
 	private JButton btnOK;
+	private JButton btnPrueba;
+	private ArrayList<Casilla> ListaCasillas;
 	
 	int jug1_aciertos = 0;
 	int jug2_aciertos = 0;
@@ -194,12 +199,44 @@ public class tablero extends JFrame implements ActionListener{
 		panel.add(btnOK);
 		btnOK.addActionListener(this);
 		
+		btnPrueba = new JButton("prueba");
+		btnPrueba.setBounds(10, 36, 68, 62);
+		contentPane.add(btnPrueba);
+		btnPrueba.addActionListener(this);
+		
+		
 		
 		
 		
 		
 		this.AnadirInformacion();
 		
+		//crear posiciones casillas
+		
+		ListaCasillas = new ArrayList<Casilla>();
+		
+		Casilla casilla1 = new Casilla(200, 130, "rojo", 1);
+		Casilla casilla2 = new Casilla(300, 100, "azul", 1);
+		Casilla casilla3 = new Casilla(400, 190, "verde", 1);
+		Casilla casilla4 = new Casilla(300, 90, "amarilo", 1);
+		Casilla casilla5 = new Casilla(200, 130, "verde", 1);
+		Casilla casilla6 = new Casilla(200, 130, "rojo", 1);
+		Casilla casilla7 = new Casilla(200, 130, "azul", 1);
+		Casilla casilla8 = new Casilla(200, 130, "amarillo", 1);
+		Casilla casilla9 = new Casilla(200, 130, "verde", 1);
+		Casilla casilla10 = new Casilla(200, 130, "azul", 1);
+		
+		ListaCasillas.add(casilla1);
+		ListaCasillas.add(casilla2);
+		ListaCasillas.add(casilla3);
+		ListaCasillas.add(casilla4);
+		ListaCasillas.add(casilla5);
+		ListaCasillas.add(casilla6);
+		ListaCasillas.add(casilla7);
+		ListaCasillas.add(casilla8);
+		ListaCasillas.add(casilla9);
+		ListaCasillas.add(casilla10);
+				
 		
 		
 	}
@@ -219,6 +256,17 @@ public class tablero extends JFrame implements ActionListener{
 			System.out.println(numeroDado);
 			
 		}
+		
+		if (e.getSource() == btnPrueba){
+			
+			int pos_x = ListaCasillas.get(contadorPrueba).getPos_x();
+			int pos_y = ListaCasillas.get(contadorPrueba).getPos_y();
+			miFicha.setPosicion(pos_x, pos_y);
+			contadorPrueba=+1;
+			System.out.println(pos_x + "   "+pos_y);
+			
+		}
+		
 		
 		
 		if (e.getSource() == btnOK){
@@ -293,7 +341,7 @@ public class tablero extends JFrame implements ActionListener{
 	
 	public void creaFicha( int posX, int posY ) {
 		// Crear y añadir el ficha a la ventana
-		miFicha = new FichaJuego();
+		
 		miFicha.setPosicion( posX, posY );
 		contentPane.add( miFicha.getGrafico() );
 	}

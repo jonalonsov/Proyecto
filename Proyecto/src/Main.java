@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 import LD.BasesDeDatos;
 import LN.GestorJugador;
-import LP.instrucciones;
+import LN.Instrucciones;
 import LP.logIn;
 import LP.principio;
 import LP.tablero;

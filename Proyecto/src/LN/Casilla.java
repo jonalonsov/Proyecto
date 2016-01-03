@@ -2,38 +2,36 @@ package LN;
 
 public class Casilla {
 
-	int num_casilla;
+	int pos_x;
+	int pos_y;
 	String color;
 	int valor; // Las casillas valdran 1 o 2, dependiendo de la dificultad
 	
-	public Casilla(int num_casilla, String color, int valor){
-		num_casilla = this.num_casilla;
+	public Casilla(int pos_x, int pos_y, String color, int valor){
+		pos_x = this.pos_x;
+		pos_y = this.pos_y;
 		color = this.color;
 		valor = this.valor;
 	}
 
-	public int getNum_casilla() {
-		return num_casilla;
+	public int getPos_x() {
+		return pos_x;
 	}
 
-	public void setNum_casilla(int num_casilla) {
-		this.num_casilla = num_casilla;
+	public void setPos_x(int pos_x) {
+		this.pos_x = pos_x;
 	}
 
-	public String getColor() {
-		return color;
+	public int getPos_y() {
+		return pos_y;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setPos_y(int pos_y) {
+		this.pos_y = pos_y;
 	}
+	
+	
 
-	public int getValor() {
-		return valor;
-	}
-
-	public void setValor(int valor) {
-		this.valor = valor;
-	}
+	
 	
 }
