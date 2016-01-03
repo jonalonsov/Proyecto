@@ -87,17 +87,20 @@ public class logIn extends JFrame implements ActionListener {
 			
 		if (e.getSource() == btnAceptar){
 			//nik probak iteko
-			Menu frameMenu = new Menu();
-			frameMenu.setVisible(true);
+//			Menu frameMenu = new Menu();
+//			frameMenu.setVisible(true);
 			//hau bakarrik
 			
 			Statement st = BasesDeDatos.getStatement();
-			boolean nombreCorrecto = gestor.chequearYaEnTabla(st, nombre);
-			boolean contrasenyaCorrecta = gestor.chequearYaEnTablaCONTRASENYA(st, contrasenya);
+			boolean correcto = gestor.chequearYaEnTablaLOGIN(st, nombre, contrasenya);
 			
-			if(nombreCorrecto == true && contrasenyaCorrecta == true){
-				//Menu frameMenu = new Menu();
-				//frameMenu.setVisible(true);
+			if(correcto == true){
+				dispose();
+				Menu frameMenu = new Menu();
+				frameMenu.setVisible(true);
+			}
+			else{
+				JOptionPane.showMessageDialog(null, "El nombre de usuario y la contrasenya no son correctas. Pruebe de nuevo.","Mensaje de error",JOptionPane.ERROR_MESSAGE);
 			}
 		
 //        if (isPasswordCorrect(contrasenya)) {
@@ -107,10 +110,7 @@ public class logIn extends JFrame implements ActionListener {
 //        }
 		//konprobatu base de datosen daon usuario ta kontrasenyak bat datozen
 		//queri (ejemploBD)nn
-		
-		
-
-			dispose();
+			
 			
 		}
 		

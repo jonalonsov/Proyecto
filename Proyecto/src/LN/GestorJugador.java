@@ -39,19 +39,6 @@ public class GestorJugador {
 			return b;
 		    }
 	}
-
-	public int contar(){
-		Statement s = BasesDeDatos.getStatement();
-		try {
-			ResultSet contar = s.executeQuery("select count(*) as num from USUARIO");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return contar();
-	}
-	
 	
 //    USUARIO!!    //
 	
@@ -80,18 +67,18 @@ public class GestorJugador {
 			}
 		}
 	
-	public boolean chequearYaEnTablaCONTRASENYA( Statement st, String contrasenya ) {
+	public boolean chequearYaEnTablaLOGIN( Statement st, String nombre, String contrasenya ) {
 		//SELECT
 			try {
 
-				String sentSQL = "select * from USUARIO where (contrasenya = '" + contrasenya + "')";
+				String sentSQL = "select * from USUARIO where ( nombre = '" + nombre + "' and contrasenya = '" + contrasenya + "')";
 				System.out.println( sentSQL ); 
 				
 				ResultSet rs = st.executeQuery( sentSQL );
 				
 				if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
 					rs.close();
-					JOptionPane.showMessageDialog(null, "El usuario ya existe, prueba con otro","Mensaje de error",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Nombre de usuario y contrasenya correctas","Correcto",JOptionPane.INFORMATION_MESSAGE);
 					return true;
 				}
 				return false;
