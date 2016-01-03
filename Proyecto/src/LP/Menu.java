@@ -74,6 +74,13 @@ public class Menu extends JFrame implements ActionListener{
 			tablero.setVisible( true );
 		}
 		
+		if (e.getSource() == btnInstrucciones){
+			
+			instrucciones i = new instrucciones();
+			i.setVisible(true);
+			
+		}
+
 		if (e.getSource() == btnSalir){
 			
 			dispose();

@@ -211,5 +211,15 @@ public class BasesDeDatos {
 		}
 	}
 	
-	//INSTRUCCIONES -- TABLA BAI???
+	
+	//TABLA INSTRUCCIONES
+	public static void crearTablaBDInstrucciones() {
+		if (statement==null) return;
+		try {
+			statement.executeUpdate("create table INSTRUCCIONES ( descp string )");
+		} catch (SQLException e) {
+			// Si hay excepcion es que la tabla ya exist�a (lo cual es correcto)
+			e.printStackTrace();  
+		}
+	}
 }

@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import LD.BasesDeDatos;
 import LN.GestorJugador;
+import LP.instrucciones;
 import LP.logIn;
 import LP.principio;
 import LP.tablero;
@@ -19,9 +20,7 @@ public class Main {
 //		GestorJugador jugador = new GestorJugador("ainhoa", "bai", null);
 //		jugador.anyadirUnaFila(BasesDeDatos.getStatement(), "ainhoa", "bai");
 		
-		
-
-				
+						
 		//menu de log in y registrarse
 		principio frame = new principio();
 		frame.setVisible(true);
