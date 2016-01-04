@@ -8,7 +8,13 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
 import javax.swing.JList;
 import javax.swing.JButton;
 
@@ -25,13 +31,14 @@ public class instrucciones extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnVolver;
-	private JList list;
+	private JTextPane area;
 	Instrucciones inst;
 
 	/**
 	 * Create the frame.
 	 */
 	public instrucciones() {
+		setTitle("INSTRUCCIONES");
 		
 		inst = new Instrucciones();
 		
@@ -43,11 +50,18 @@ public class instrucciones extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		list = new JList();
+		area = new JTextPane();
 		//list.setBounds(25, 28, 418, 289);
 		//contentPane.add(list);
+		//area.setColumns(10);
+		area.setEditable(false);
 		
-		JScrollPane barra = new javax.swing.JScrollPane(list); 
+		SimpleAttributeSet attribs = new SimpleAttributeSet();
+		StyleConstants.setAlignment(attribs , StyleConstants.ALIGN_JUSTIFIED);
+		area.setParagraphAttributes(attribs,true);
+		
+		
+		JScrollPane barra = new javax.swing.JScrollPane(area); 
 		barra.setBounds(25, 28, 418, 289);
 		contentPane.add(barra, BorderLayout.CENTER);
 		
@@ -65,19 +79,15 @@ public class instrucciones extends JFrame implements ActionListener {
 		
 		Statement st = BasesDeDatos.getStatement();
 		String s = "";
-		DefaultListModel modelo=new DefaultListModel();
 		inst.InsertarInstrucciones(BasesDeDatos.getStatement());
 		
 		try {
 			s = "select descp from INSTRUCCIONES";
 			
 			ResultSet rs = st.executeQuery(s);
-			
-			while(rs.next()){
-				modelo.addElement(rs.getString("descp"));
-			}
-			
-			list.setModel(modelo);
+		
+			while(rs.next())
+				area.setText(rs.getString("descp"));
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -97,79 +97,61 @@ public class BasesDeDatos {
 			else{
 			statement.executeUpdate( "insert into PREGUNTA values('¿Donde se encuentra el Palacio Taj Mahal?', 'China', 'India', 'Japon', 'Rusia', 'India')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" +
-									 "'El animal que come tanto plantas como animales se denomina: '," + 
+			statement.executeUpdate( "insert into PREGUNTA values('El animal que come tanto plantas como animales se denomina: '," + 
 									"'Oviparos', 'Herbivoro', 'Omnivoro', 'Carnivoro', 'Omnivoro')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿Como se llama la forma de gobierno que se crea con la revolucion francesa?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿Como se llama la forma de gobierno que se crea con la revolucion francesa?'," + 
 									"'Libelarismo', 'Liberacion', 'Ilustracion', 'Feudalismo', 'Libelarismo')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'El Renacimiento se produjo en Europa Occidental durante la edad: '," + 
+			statement.executeUpdate( "insert into PREGUNTA values('El Renacimiento se produjo en Europa Occidental durante la edad: '," + 
 									"'Contemporanea', 'Media', 'Moderna', 'Antigua', 'Moderna')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿Cual es el elemento químico cuyo símbolo es Pb?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿Cual es el elemento quimico cuyo simbolo es Pb?'," + 
 									"'Polonio', 'Platino', 'Praseodimio', 'Plomo', 'Plomo')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿Que acontecimiento marca el inicio de la Edad Moderna?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿Que acontecimiento marca el inicio de la Edad Moderna?'," + 
 									"'Revolución Industrial', 'Máquina de vapor', 'Descubrimiento de America', 'Caida del Imperio Romano', 'Descubrimiento de America')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'El Monte Vesubio se encentra en: '," + 
+			statement.executeUpdate( "insert into PREGUNTA values('El Monte Vesubio se encentra en: '," + 
 									"'Corcega', 'Sicilia', 'Napoles', 'Roma', 'Napoles')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿Quien pinto La lechera?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿Quien pinto La lechera?'," + 
 									"'Joaquin Sorolla', 'Joan Miro', 'Johannes Vermeer', 'Max Ernst', 'Johannes Vermeer')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'La ciencia o rama de la biologia que estudia los vegetales se denomina:'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('La ciencia o rama de la biologia que estudia los vegetales se denomina:'," + 
 									"'Botanica', 'Ecologia', 'Microbiologia', 'Zoologia', 'Botanica')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿Donde se encuentra el Catedral Braga?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿Donde se encuentra el Catedral Braga?'," + 
 									"'España', 'Portugal', 'Italia', 'Grecia', 'Portugal')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'El gentilicio de la provincia de Albacete es: '," + 
+			statement.executeUpdate( "insert into PREGUNTA values('El gentilicio de la provincia de Albacete es: '," + 
 									"'Albacerenyo', 'Albacetenyo', 'Albecetense', 'Albecetano', 'Albacetenyo')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿En que movimiento cultural se encuentra Mariano Benlliure?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿En que movimiento cultural se encuentra Mariano Benlliure?'," + 
 									"'Romanticismo', 'Fauvismo', 'Impresionismo', 'Realismo', 'Realismo')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿Cual de las siguientes palabras deberia de llevar tilde segun las reglas ortograficas?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿Cual de las siguientes palabras deberia de llevar tilde segun las reglas ortograficas?'," + 
 									"'Surgir', 'Toner', 'Capaz', 'Programar', 'Toner')" );
 			
 			statement.executeUpdate( "insert into PREGUNTA values('¿De que estilo arquitectonico es la plaza mayor de Salamanca?'," + 
 									"'Gotico', 'Barroco', 'Romanico, 'Renacentista', 'Barroco')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿Cual de los siguientes autores no pertenece a la Ilustración?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿Cual de los siguientes autores no pertenece a la Ilustracion?'," + 
 									"'Fernandez de Moratin', 'Samaniego Zabala', 'Becquer', 'Joverllanos', 'Becquer')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿Cual es la magnitud que relaciona espacio y tiempo?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿Cual es la magnitud que relaciona espacio y tiempo?'," + 
 									"'Temperatura', 'Peso', 'Velocidad', 'Gravedad', 'Velocidad')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿En donde se encuentra la Acropolis?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿En donde se encuentra la Acropolis?'," + 
 									"'Venecia', 'Atenas', 'Roma', 'Florencia', 'Atenas')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿Cual fue la primera capital de los Estados Unidos de America?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿Cual fue la primera capital de los Estados Unidos de America?'," + 
 									"'Nueva York', 'Chicago', 'Washington', 'Philadelphia', 'Nueva York')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿Cual de las siguientes palabras es compuesta?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿Cual de las siguientes palabras es compuesta?'," + 
 									"'Escobilla', 'Libreria', 'Mediodia', 'Cogedor', 'Mediodia')" );
 			
-			statement.executeUpdate( "insert into PREGUNTA values(" 
-									+ "'¿Con la muerte de quien dio por finalizado el Sgli de Oro?'," + 
+			statement.executeUpdate( "insert into PREGUNTA values('¿Con la muerte de quien dio por finalizado el Sgli de Oro?'," + 
 									"'Machado', 'Quevedo', 'Calderon', 'Cervantes', 'Calderon')" );
 			}
 			

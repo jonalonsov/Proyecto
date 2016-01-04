@@ -25,14 +25,21 @@ public class Instrucciones {
 		
 		else{
 			try {
-				st.executeUpdate("REGLAS DEL JUEGO");
-				st.executeUpdate("insert into INSTRUCCIONES values ('Se jugara de forma individual, tomando como contrario el ordenador, con un numero de puntos y numero de aciertos 0.')");
-				st.executeUpdate("insert into INSTRUCCIONES values ('El objetivo es llegar al centro, respondiendo bien las preguntas que se planteen.')");
-				st.executeUpdate("insert into INSTRUCCIONES values ('El primer tirador arroja el dado y mueve su ficha el número de casillas resultante, moviendo el número completo de casillas que marque el dado.')");
-				st.executeUpdate("insert into INSTRUCCIONES values ('Cuando una ficha llega a una casilla, se formula al jugador una pregunta sobre el tema correspondiente. Cada tema se distingue con un color diferente.')");
-				st.executeUpdate("insert into INSTRUCCIONES values ('En el centro de la pantalla se incluye una pregunta con cuatro respuestas posibles. Una vez seleccionada la respuesta se tiene que clikar OK para saber si la respuesta ha sido correcta.')");
-				st.executeUpdate("insert into INSTRUCCIONES values ('Si es correcta, se anyadira +5 puntos a la puntuacion del jugador y +1 preguntas acertadas y seguira tirando en dado para avanzar. Si es incorrecta, se restara -3 puntos y se quedara en la casilla que ya este.')");
-				st.executeUpdate("insert into INSTRUCCIONES values ('El ganador sera el primero que llege al centro de la tabla.')");
+				st.executeUpdate("insert into INSTRUCCIONES values ('REGLAS DEL JUEGO"
+																+ "\n\nSe jugara de forma individual, tomando como contrario el ordenador, con "
+																+ "un numero de puntos y numero de aciertos 0. El objetivo es llegar al "
+																+ "centro, respondiendo bien las preguntas que se planteen. "
+																+ "\n\nEl primer tirador arroja el dado y mueve su ficha el número de casillas "
+																+ "resultante, moviendo el número completo de casillas que marque el dado."
+																+ "Cuando una ficha llega a una casilla, se formula al jugador una pregunta "
+																+ "sobre el tema correspondiente. Cada tema se distingue con un color "
+																+ "diferente. En el centro de la pantalla se incluye una pregunta con cuatro "
+																+ "respuestas posibles. Una vez seleccionada la respuesta se tiene que "
+																+ "clikar OK para saber si la respuesta ha sido correcta. Si es correcta, "
+																+ "se anyadira +5 puntos a la puntuacion del jugador y +1 preguntas "
+																+ "acertadas y seguira tirando en dado para avanzar. Si es incorrecta, se "
+																+ "restara -3 puntos y se quedara en la casilla que ya este."
+																+ "\n\nEl ganador sera el primero que llege al centro de la tabla.')");
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
