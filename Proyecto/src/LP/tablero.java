@@ -22,6 +22,7 @@ import LD.BasesDeDatos;
 import LN.Casilla;
 import LN.Dado;
 import LN.FichaJuego;
+import LN.GestorCasillas;
 import LN.PanelConImagen;
 
 import java.awt.Toolkit;
@@ -44,7 +45,7 @@ import javax.swing.JButton;
 
 public class tablero extends JFrame implements ActionListener{
 
-	private int contadorPrueba=0;
+	private int contadorPrueba = 0;
 	private PanelConImagen contentPane;
 	private JTextArea Pregunta;
 	private JRadioButton NUMEROUNO;
@@ -63,7 +64,7 @@ public class tablero extends JFrame implements ActionListener{
 	private FichaJuego miFicha = new FichaJuego();
 	private JButton btnOK;
 	private JButton btnPrueba;
-	private ArrayList<Casilla> ListaCasillas;
+	GestorCasillas GestorCasillas = new GestorCasillas();
 	
 	int jug1_aciertos = 0;
 	int jug2_aciertos = 0;
@@ -213,30 +214,6 @@ public class tablero extends JFrame implements ActionListener{
 		
 		//crear posiciones casillas
 		
-		ListaCasillas = new ArrayList<Casilla>();
-		
-		Casilla casilla1 = new Casilla(200, 130, "rojo", 1);
-		Casilla casilla2 = new Casilla(300, 100, "azul", 1);
-		Casilla casilla3 = new Casilla(400, 190, "verde", 1);
-		Casilla casilla4 = new Casilla(300, 90, "amarilo", 1);
-		Casilla casilla5 = new Casilla(200, 130, "verde", 1);
-		Casilla casilla6 = new Casilla(200, 130, "rojo", 1);
-		Casilla casilla7 = new Casilla(200, 130, "azul", 1);
-		Casilla casilla8 = new Casilla(200, 130, "amarillo", 1);
-		Casilla casilla9 = new Casilla(200, 130, "verde", 1);
-		Casilla casilla10 = new Casilla(200, 130, "azul", 1);
-		
-		ListaCasillas.add(casilla1);
-		ListaCasillas.add(casilla2);
-		ListaCasillas.add(casilla3);
-		ListaCasillas.add(casilla4);
-		ListaCasillas.add(casilla5);
-		ListaCasillas.add(casilla6);
-		ListaCasillas.add(casilla7);
-		ListaCasillas.add(casilla8);
-		ListaCasillas.add(casilla9);
-		ListaCasillas.add(casilla10);
-				
 		
 		
 	}
@@ -259,12 +236,11 @@ public class tablero extends JFrame implements ActionListener{
 		
 		if (e.getSource() == btnPrueba){
 			
-			int pos_x = ListaCasillas.get(contadorPrueba).getPos_x();
-			int pos_y = ListaCasillas.get(contadorPrueba).getPos_y();
+			int pos_x = GestorCasillas.getPos_x(contadorPrueba);
+			int pos_y = GestorCasillas.getPos_y(contadorPrueba);
 			miFicha.setPosicion(pos_x, pos_y);
-			contadorPrueba=+1;
-			System.out.println(pos_x + "   "+pos_y);
-			
+			System.out.println(contadorPrueba + "     " + pos_x + "   "+pos_y);
+			contadorPrueba= contadorPrueba+1;
 		}
 		
 		
