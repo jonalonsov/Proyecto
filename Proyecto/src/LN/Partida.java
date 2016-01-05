@@ -8,8 +8,8 @@ public class Partida {
 	Date fecha;
 	
 	public Partida(int punt, Date fecha){
-		punt = this.punt;
-		fecha = this.fecha;
+		this.punt = punt;
+		this.fecha = fecha;
 	}
 
 	public int getPunt() {

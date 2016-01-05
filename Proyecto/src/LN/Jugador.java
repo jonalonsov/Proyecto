@@ -6,8 +6,8 @@ public class Jugador {
 	private int numJug;
 	
 	public Jugador(String nombre, int numJug){
-		nombre = this.nombre;
-		numJug = this.numJug;
+		this.nombre = nombre;
+		this.numJug = numJug;
 	}
 
 	public String getNombre() {

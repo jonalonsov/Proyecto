@@ -7,8 +7,8 @@ public class Preguntas extends Casilla{
 	
 	public Preguntas(int pos_x, int pos_y, int num_Preg, String descp, int num_casilla, String color, int valor){
 		super(pos_x, pos_y, color, valor);
-		num_Preg = this.num_Preg;
-		descp = this.descp;
+		this.num_Preg = num_Preg;
+		this.descp = descp;
 	}
 
 	public int getNum_Preg() {

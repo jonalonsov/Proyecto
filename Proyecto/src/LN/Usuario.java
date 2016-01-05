@@ -6,7 +6,7 @@ public class Usuario extends Jugador{
 
 	public Usuario(int numJug, String nombre, String contrasenya){
 		super(nombre, numJug);
-		contrasenya = this.contrasenya;
+		this.contrasenya = contrasenya;
 	}
 
 	public String getContrasenya() {

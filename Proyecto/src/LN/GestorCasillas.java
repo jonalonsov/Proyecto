@@ -40,6 +40,7 @@ public class GestorCasillas {
 		ListaCasillas.add(casilla10);
 		//BUKAERA
 		
+		System.out.println(casilla1.getColor());
 		
 		
 		try {
@@ -71,7 +72,7 @@ public class GestorCasillas {
 			try {
 				ois = new ObjectInputStream( new FileInputStream("casillas.dat") );
 				while (true) {
-					// Lectura hasta final de fichero (excepción)
+					// Lectura hasta final de fichero (excepciï¿½n)
 					// Tb a veces se graba un null al final y se usa ese null para acabar
 					Casilla u = (Casilla) ois.readObject();
 					listCasilla.add( u );
