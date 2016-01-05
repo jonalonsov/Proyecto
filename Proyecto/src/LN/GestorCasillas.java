@@ -10,44 +10,36 @@ import java.util.ArrayList;
 
 public class GestorCasillas {
 	
-	ArrayList<Casilla> ListaCasillas; 
+	ArrayList<Casilla> ListaCasillas;
 	
-	Casilla casilla1;
-	Casilla casilla2;
-	Casilla casilla3;
-	Casilla casilla4;
-	Casilla casilla5;
-	Casilla casilla6;
-	Casilla casilla7;
-	Casilla casilla8;
-	Casilla casilla9;
-	Casilla casilla10;
-	
-	public GestorCasillas(){
-		ListaCasillas = new ArrayList<Casilla>();
+	public void comenzarCasillas(){
 		
-		casilla1 = new Casilla(200, 130, "rojo", 1);
-		casilla2 = new Casilla(300, 100, "azul", 1);
-		casilla3 = new Casilla(400, 190, "verde", 1);
-		casilla4 = new Casilla(300, 90, "amarilo", 1);
-		casilla5 = new Casilla(200, 130, "verde", 1);
-		casilla6 = new Casilla(200, 130, "rojo", 1);
-		casilla7 = new Casilla(200, 130, "azul", 1);
-		casilla8 = new Casilla(200, 130, "amarillo", 1);
-		casilla9 = new Casilla(200, 130, "verde", 1);
-		casilla10 = new Casilla(200, 130, "azul", 1);
+		ListaCasillas= new ArrayList<Casilla>();
 		
+		Casilla casilla1= new Casilla(200, 130, "rojo", 1);
+		Casilla casilla2 = new Casilla(300, 100, "azul", 1);
+		Casilla casilla3 = new Casilla(400, 190, "verde", 1);
+		Casilla casilla4 = new Casilla(300, 90, "amarilo", 1);
+		Casilla casilla5 = new Casilla(200, 130, "verde", 1);
+		Casilla casilla6 = new Casilla(200, 130, "rojo", 1);
+		Casilla casilla7 = new Casilla(200, 130, "azul", 1);
+		Casilla casilla8 = new Casilla(200, 130, "amarillo", 1);
+		Casilla casilla9 = new Casilla(200, 130, "verde", 1);
+		Casilla casilla10 = new Casilla(200, 130, "azul", 1);
+			
+		//hau ez da beharrezkoa, pruebak iteko da. HASIERA
+		ListaCasillas.add(casilla1);
+		ListaCasillas.add(casilla2);
+		ListaCasillas.add(casilla3);
+		ListaCasillas.add(casilla4);
+		ListaCasillas.add(casilla5);
+		ListaCasillas.add(casilla6);
+		ListaCasillas.add(casilla7);
+		ListaCasillas.add(casilla8);
+		ListaCasillas.add(casilla9);
+		ListaCasillas.add(casilla10);
+		//BUKAERA
 		
-//		ListaCasillas.add(casilla1);
-//		ListaCasillas.add(casilla2);
-//		ListaCasillas.add(casilla3);
-//		ListaCasillas.add(casilla4);
-//		ListaCasillas.add(casilla5);
-//		ListaCasillas.add(casilla6);
-//		ListaCasillas.add(casilla7);
-//		ListaCasillas.add(casilla8);
-//		ListaCasillas.add(casilla9);
-//		ListaCasillas.add(casilla10);
 		
 		
 		try {
@@ -68,8 +60,8 @@ public class GestorCasillas {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
+	
 	
 	public ArrayList<Casilla> casillasList() {
 		
@@ -97,7 +89,6 @@ public class GestorCasillas {
 					}
 			}
 		
-		
 		return listCasilla;
 		
 	}
@@ -106,7 +97,9 @@ public class GestorCasillas {
 	public int getPos_x(int numero) {
 		
 		ListaCasillas = casillasList();
-				
+		
+		
+		
 		return ListaCasillas.get(numero).getPos_x();
 		
 				

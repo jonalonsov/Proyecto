@@ -213,7 +213,7 @@ public class tablero extends JFrame implements ActionListener{
 		this.AnadirInformacion();
 		
 		//crear posiciones casillas
-		
+		GestorCasillas.comenzarCasillas();
 		
 		
 	}
