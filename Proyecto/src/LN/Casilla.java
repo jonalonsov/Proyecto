@@ -1,6 +1,8 @@
 package LN;
 
-public class Casilla {
+import java.io.Serializable;
+
+public class Casilla implements Serializable {
 
 	int pos_x;
 	int pos_y;
