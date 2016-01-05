@@ -1,13 +1,28 @@
 package LN;
 
-public class Usuario extends Jugador{
+import java.util.Date;
+
+public class Usuario extends Partida{
 	
+	String nombre;
 	String contrasenya;
 
-	public Usuario(int numJug, String nombre, String contrasenya){
-		super(nombre, numJug);
+	public Usuario(String nombre, String contrasenya, int punt, String fecha){
+		super(punt, fecha);
+		this.nombre = nombre;
 		this.contrasenya = contrasenya;
 	}
+
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 
 	public String getContrasenya() {
 		return contrasenya;

@@ -86,17 +86,13 @@ public class logIn extends JFrame implements ActionListener {
 		GestorJugador gestor = new GestorJugador(nombre, contrasenya, null);
 			
 		if (e.getSource() == btnAceptar){
-			//nik probak iteko
-//			Menu frameMenu = new Menu();
-//			frameMenu.setVisible(true);
-			//hau bakarrik
 			
 			Statement st = BasesDeDatos.getStatement();
 			boolean correcto = gestor.chequearYaEnTablaLOGIN(st, nombre, contrasenya);
 			
 			if(correcto == true){
 				dispose();
-				Menu frameMenu = new Menu();
+				Menu frameMenu = new Menu(nombre);
 				frameMenu.setVisible(true);
 			}
 			else{

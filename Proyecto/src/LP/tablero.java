@@ -23,15 +23,21 @@ import LN.Casilla;
 import LN.Dado;
 import LN.FichaJuego;
 import LN.GestorCasillas;
+import LN.Maquina;
 import LN.PanelConImagen;
+import LN.Partida;
+import LN.Usuario;
 
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -66,19 +72,27 @@ public class tablero extends JFrame implements ActionListener{
 	private JButton btnPrueba;
 	GestorCasillas GestorCasillas = new GestorCasillas();
 	
+	private Integer[] array = {0, 1};
+	
 	int jug1_aciertos = 0;
-	int jug2_aciertos = 0;
+	int maquina_aciertos = 0;
 	int jug1_puntos = 0;
-	int jug2_puntos = 0;
+	int maquina_puntos = 0;
 	
 	String resp1 = "";
 	String resp2 = "";
 	String resp3 = "";
 	String resp4 = "";
 	
-				
+	String nombre;
+	int aleatorio;
+	private JLabel label;
+	private JTextField textField_puntosMaquina;
+	private JTextField textField_aciertosMaquina;
 
-	public tablero() {
+	public tablero( String nombre ) {
+		this.nombre = nombre;
+		
 		BasesDeDatos.crearTablaBDPregunta();
 		BasesDeDatos.insertarPreguntas(BasesDeDatos.getStatement());
 		
@@ -203,9 +217,38 @@ public class tablero extends JFrame implements ActionListener{
 		btnPrueba = new JButton("prueba");
 		btnPrueba.setBounds(10, 36, 68, 62);
 		contentPane.add(btnPrueba);
+		
+		
+		JLabel lblJugador = new JLabel("JUGADOR 1: " + nombre);
+		lblJugador.setFont(new Font("Stencil", Font.PLAIN, 25));
+		lblJugador.setBounds(24, 577, 376, 26);
+		contentPane.add(lblJugador);
+		
+		label = new JLabel("PUNTOS");
+		label.setFont(new Font("Stencil", Font.PLAIN, 25));
+		label.setBounds(1224, 618, 111, 26);
+		contentPane.add(label);
+		
+		textField_puntosMaquina = new JTextField();
+		textField_puntosMaquina.setColumns(10);
+		textField_puntosMaquina.setBounds(1234, 651, 94, 26);
+		contentPane.add(textField_puntosMaquina);
+		
+		JLabel label_1 = new JLabel("PREGUNTAS CORRECTAS");
+		label_1.setFont(new Font("Stencil", Font.PLAIN, 25));
+		label_1.setBounds(883, 614, 296, 34);
+		contentPane.add(label_1);
+		
+		textField_aciertosMaquina = new JTextField();
+		textField_aciertosMaquina.setColumns(10);
+		textField_aciertosMaquina.setBounds(1085, 651, 94, 26);
+		contentPane.add(textField_aciertosMaquina);
+		
+		JLabel lblJugador_1 = new JLabel("JUGADOR 2: Trivial");
+		lblJugador_1.setFont(new Font("Stencil", Font.PLAIN, 25));
+		lblJugador_1.setBounds(959, 581, 376, 26);
+		contentPane.add(lblJugador_1);
 		btnPrueba.addActionListener(this);
-		
-		
 		
 		
 		
@@ -266,23 +309,7 @@ public class tablero extends JFrame implements ActionListener{
 	}
 	
 	
-	public void ComprobarRespuesta(String respuestaSeleccionada){
-		
-		if(respuestaSeleccionada.equals(correcta)){
-			jug1_aciertos++;
-			jug1_puntos = jug1_puntos + 5;
-			textField_1.setText(String.valueOf(jug1_aciertos));
-			textField.setText(String.valueOf(jug1_puntos));
-			JOptionPane.showMessageDialog( null, "¡BIEN! ¡RESPUESTA CORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
-			this.AnadirInformacion();
-		}
-		else{
-			jug1_puntos = jug1_puntos - 3;
-			textField.setText(String.valueOf(jug1_puntos));
-			JOptionPane.showMessageDialog( null, "¡RESPUESTA INCORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
-			this.AnadirInformacion();
-		}
-	}
+	
 	
 	
 	public void AnadirInformacion(){
@@ -316,9 +343,111 @@ public class tablero extends JFrame implements ActionListener{
 	}
 	
 	public void creaFicha( int posX, int posY ) {
-		// Crear y a�adir el ficha a la ventana
+		// Crear y a�adir el ficha a la ventana
 		
 		miFicha.setPosicion( posX, posY );
 		contentPane.add( miFicha.getGrafico() );
+	}
+	
+	
+	
+	public void ComprobarRespuesta(String respuestaSeleccionada){
+		
+		if(respuestaSeleccionada.equals(correcta)){
+			jug1_aciertos++;
+			jug1_puntos = jug1_puntos + 5;
+			textField_1.setText(String.valueOf(jug1_aciertos));
+			textField.setText(String.valueOf(jug1_puntos));
+			this.RespuestaCORRECTA(true);
+		}
+		else{
+						
+			jug1_puntos = jug1_puntos - 3;
+			textField.setText(String.valueOf(jug1_puntos));
+			JOptionPane.showMessageDialog( null, "¡RESPUESTA INCORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			this.AnadirInformacion();
+			
+			 this.RespuestaMaquina();
+			
+		}
+	}
+	
+	public void RespuestaCORRECTA(boolean jugador){  //jugador: true: usuario / false: maquina
+		if(jugador == true)
+			JOptionPane.showMessageDialog( null, "¡BIEN! ¡RESPUESTA CORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+		if (jugador == false){
+			
+			try {
+				Thread.sleep( 500 );
+			} catch (Exception e) {
+			}
+			
+			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL CORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			
+			
+		}
+			
+		this.AnadirInformacion();
+		this.FinalPartida();
+		
+	}
+	
+	public void RespuestaMaquina(){
+
+		Random random = new Random();
+		aleatorio = random.nextInt(array.length);
+		
+		if(aleatorio == 1){
+			maquina_aciertos++;
+			maquina_puntos = maquina_puntos + 5;
+			
+			textField_aciertosMaquina.setText(String.valueOf(maquina_aciertos));
+			textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
+			this.RespuestaCORRECTA(false);
+			this.RespuestaMaquina();
+			
+			
+		}else if (aleatorio == 0){
+			try {
+				Thread.sleep( 500 );
+			} catch (Exception e) {
+			}
+			maquina_puntos = maquina_puntos - 3;
+			textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
+			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL INCORRECTA! TU TURNO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			this.AnadirInformacion();
+			
+		}
+		
+		
+	}
+	
+	
+	public void FinalPartida(){
+	
+		aleatorio = -1;
+		
+		if(jug1_aciertos >= 11){
+			Date data = new Date();
+			SimpleDateFormat formato = new SimpleDateFormat( "dd/MM/yyyy HH:mm:ss" );
+			System.out.println( "Fecha de la partida: " + formato.format(data) );
+			
+			Usuario jugador = new Usuario(nombre, null, jug1_puntos, formato.format(data));
+			Maquina maquina = new Maquina (0, formato.format(data));
+			
+			ArrayList<Partida> partida = new ArrayList<Partida>();
+			partida.add(jugador);
+			partida.add(maquina);
+			
+			JOptionPane.showMessageDialog( null, "¡HAS GANADO! ¡FELICIDADES!" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
+			dispose();
+
+		}
+		
+		if(maquina_aciertos >= 11){
+			JOptionPane.showMessageDialog( null, "HAS PERDIDO LA PARTIDA, LO SENTIMOS" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
+			dispose();
+		}
+		
 	}
 }

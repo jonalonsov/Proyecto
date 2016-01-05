@@ -40,8 +40,6 @@ public class GestorCasillas {
 		ListaCasillas.add(casilla10);
 		//BUKAERA
 		
-		System.out.println(casilla1.getColor());
-		
 		
 		try {
 			FileOutputStream fout = new FileOutputStream ("casillas.dat");

@@ -5,9 +5,9 @@ import java.util.Date;
 public class Partida {
 
 	int punt;
-	Date fecha;
+	String fecha;
 	
-	public Partida(int punt, Date fecha){
+	public Partida(int punt, String fecha){
 		this.punt = punt;
 		this.fecha = fecha;
 	}
@@ -20,11 +20,11 @@ public class Partida {
 		this.punt = punt;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 	

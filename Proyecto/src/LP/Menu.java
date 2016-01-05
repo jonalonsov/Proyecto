@@ -23,9 +23,12 @@ public class Menu extends JFrame implements ActionListener{
 	private JButton btnInstrucciones;
 	private JButton btnRanking;
 	private JButton btnSalir;
+	private String nombre;
 
 	
-	public Menu() {
+	public Menu(String nombre) {
+		this.nombre = nombre;
+		
 		setResizable(false);
 		setForeground(Color.BLACK);
 		setTitle("Menu");
@@ -68,7 +71,7 @@ public class Menu extends JFrame implements ActionListener{
 		
 		if (e.getSource() == btnJugar){
 	
-			tablero tablero = new tablero();
+			tablero tablero = new tablero(nombre);
 			tablero.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 			tablero.setVisible(true);
 			

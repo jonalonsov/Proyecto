@@ -1,9 +1,14 @@
 package LN;
 
-public class Maquina extends Jugador{
+import java.util.Date;
 
-	public Maquina(String nombre, int numJug, String contrasenya){
-		super(nombre, numJug);
+public class Maquina extends Partida{
+
+	String nombre; 
+	
+	public Maquina(int punt, String fecha){
+		super(punt, fecha);
+		nombre = "Trivial";
 	}
 	
 }

@@ -1,4 +1,5 @@
 import java.awt.EventQueue;
+import java.util.Random;
 
 import javax.swing.JFrame;
 
@@ -25,7 +26,7 @@ public class Main {
 		principio frame = new principio();
 		frame.setVisible(true);
 		
-		
+
 	}
 		
 		
