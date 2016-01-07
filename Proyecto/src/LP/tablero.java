@@ -73,6 +73,7 @@ public class tablero extends JFrame implements ActionListener{
 	
 	private JButton btnOK;
 	private JButton btnPrueba;
+	private JButton btnSalir;
 	GestorCasillas GestorCasillas = new GestorCasillas();
 	
 	private Integer[] array = {0, 1};
@@ -251,6 +252,13 @@ public class tablero extends JFrame implements ActionListener{
 		lblJugador_1.setFont(new Font("Stencil", Font.PLAIN, 25));
 		lblJugador_1.setBounds(959, 581, 376, 26);
 		contentPane.add(lblJugador_1);
+		
+		btnSalir = new JButton("SALIR");
+		btnSalir.addActionListener(this);
+		btnSalir.setFont(new Font("Stencil", Font.PLAIN, 14));
+		btnSalir.setIcon(new ImageIcon(tablero.class.getResource("/imagenes/red_x.png")));
+		btnSalir.setBounds(1241, 11, 94, 34);
+		contentPane.add(btnSalir);
 		btnPrueba.addActionListener(this);
 		
 				
@@ -317,6 +325,9 @@ public class tablero extends JFrame implements ActionListener{
 				
 			}
 		}
+		
+		if (e.getSource() == btnSalir)
+			dispose();
 		
 	}
 	
