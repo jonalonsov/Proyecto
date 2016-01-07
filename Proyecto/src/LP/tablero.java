@@ -21,7 +21,8 @@ import javax.swing.text.Caret;
 import LD.BasesDeDatos;
 import LN.Casilla;
 import LN.Dado;
-import LN.FichaJuego;
+import LN.FichaJuego1;
+import LN.FichaJuego2;
 import LN.GestorCasillas;
 import LN.Maquina;
 import LN.PanelConImagen;
@@ -67,7 +68,9 @@ public class tablero extends JFrame implements ActionListener{
 	private Dado lblDado;
 	private JButton btnTirarDado;
 	String correcta;
-	private FichaJuego miFicha = new FichaJuego();
+	private FichaJuego1 miFicha1 = new FichaJuego1();
+	private FichaJuego2 miFicha2 = new FichaJuego2();         
+	
 	private JButton btnOK;
 	private JButton btnPrueba;
 	GestorCasillas GestorCasillas = new GestorCasillas();
@@ -250,13 +253,12 @@ public class tablero extends JFrame implements ActionListener{
 		contentPane.add(lblJugador_1);
 		btnPrueba.addActionListener(this);
 		
-		
-		
-		
+				
 		this.AnadirInformacion();
 		
 		//crear posiciones casillas
-		GestorCasillas.comenzarCasillas();
+		GestorCasillas.comenzarCasillas1();
+		GestorCasillas.comenzarCasillas2();
 		
 		
 	}
@@ -279,11 +281,21 @@ public class tablero extends JFrame implements ActionListener{
 		
 		if (e.getSource() == btnPrueba){
 			
-			int pos_x = GestorCasillas.getPos_x(contadorPrueba);
-			int pos_y = GestorCasillas.getPos_y(contadorPrueba);
-			miFicha.setPosicion(pos_x, pos_y);
-			System.out.println(contadorPrueba + "     " + pos_x + "   "+pos_y);
+			int pos_x1 = GestorCasillas.getPos_x1(contadorPrueba);
+			int pos_y1 = GestorCasillas.getPos_y1(contadorPrueba);
+			miFicha1.setPosicion(pos_x1, pos_y1);
+			System.out.println(contadorPrueba + "     " + pos_x1 + "   "+pos_y1);
+			
+			int pos_x2 = GestorCasillas.getPos_x2(contadorPrueba);
+			int pos_y2 = GestorCasillas.getPos_y2(contadorPrueba);
+			miFicha2.setPosicion(pos_x2, pos_y2);
+			System.out.println(contadorPrueba + "     " + pos_x2 + "   "+pos_y2);
+			
+			
+			
 			contadorPrueba= contadorPrueba+1;
+			
+			
 		}
 		
 		
@@ -342,11 +354,17 @@ public class tablero extends JFrame implements ActionListener{
 		}
 	}
 	
-	public void creaFicha( int posX, int posY ) {
-		// Crear y a�adir el ficha a la ventana
+	public void creaFicha1( int posX, int posY ) {
+		// Crear y anyadir el ficha a la ventana
 		
-		miFicha.setPosicion( posX, posY );
-		contentPane.add( miFicha.getGrafico() );
+		miFicha1.setPosicion( posX, posY );
+		contentPane.add( miFicha1.getGrafico1() );
+	}
+	public void creaFicha2( int posX, int posY ) {
+		// Crear y anyadir el ficha a la ventana
+		
+		miFicha2.setPosicion( posX, posY );
+		contentPane.add( miFicha2.getGrafico2() );
 	}
 	
 	

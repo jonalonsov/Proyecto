@@ -75,7 +75,8 @@ public class Menu extends JFrame implements ActionListener{
 			tablero.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 			tablero.setVisible(true);
 			
-			tablero.creaFicha( 120, 130 );
+			tablero.creaFicha1( 120, 130 );
+			tablero.creaFicha2(1145,130);
 			
 		}
 		

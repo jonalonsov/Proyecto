@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 
 
 
-public class JLabelFicha extends JLabel {
+public class JLabelFicha1 extends JLabel {
 	
 	/**
 	 * 
@@ -20,12 +20,12 @@ public class JLabelFicha extends JLabel {
 	
 	/** Construye y devuelve el JLabel de la ficha con su gráfico y tamaño
 	 */
-	public JLabelFicha() {
+	public JLabelFicha1() {
 		// Esto se haría para acceder por sistema de ficheros
 		// 		
 		// Esto se hace para acceder tanto por recurso (jar) como por fichero
 		try {
-			setIcon( new ImageIcon( JLabelFicha.class.getResource( "/imagenes/ficha1.png" ).toURI().toURL() ) );
+			setIcon( new ImageIcon( JLabelFicha1.class.getResource( "/imagenes/ficha1.png" ).toURI().toURL() ) );
 		} catch (Exception e) {
 			System.err.println( "Error en carga de recurso: ficha1.png no encontrado" );
 			e.printStackTrace();
