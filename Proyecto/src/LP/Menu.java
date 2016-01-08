@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.BoxLayout;
 
+import LD.BasesDeDatos;
 import LN.Instrucciones;
 
 import java.awt.Font;
@@ -75,7 +76,8 @@ public class Menu extends JFrame implements ActionListener{
 			tablero.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 			tablero.setVisible(true);
 			
-			tablero.creaFicha( 120, 130 );
+			tablero.creaFicha1( 120, 130 );
+			tablero.creaFicha2(1145,130);
 			
 		}
 		
@@ -85,6 +87,16 @@ public class Menu extends JFrame implements ActionListener{
 			i.setVisible(true);
 			
 		}
+		
+		if (e.getSource() == btnRanking){
+			
+			BasesDeDatos.crearTablaBDPartida();
+		
+//			Ranking i = new Ranking();
+//			i.setVisible(true);
+			
+		}
+		
 
 		if (e.getSource() == btnSalir){
 			

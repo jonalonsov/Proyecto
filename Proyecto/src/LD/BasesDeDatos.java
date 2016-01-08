@@ -164,7 +164,7 @@ public class BasesDeDatos {
 	public static void crearTablaBDPartida() {
 		if (statement==null) return;
 		try {
-			statement.executeUpdate("create table PARTIDA (punt int, fecha Date)");
+			statement.executeUpdate("create table PARTIDA (nombreUsuario String, puntUsuario int, fecha Date, puntMaq int)");
 		} catch (SQLException e) {
 			// Si hay excepcion es que la tabla ya exist�a (lo cual es correcto)
 			e.printStackTrace();  
