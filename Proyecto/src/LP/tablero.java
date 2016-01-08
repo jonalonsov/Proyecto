@@ -52,7 +52,9 @@ import javax.swing.JButton;
 
 public class tablero extends JFrame implements ActionListener{
 
-	private int contadorPrueba = 0;
+	private int contadorPrueba = -1;
+	private int contadorUsuario = -1;
+	private int numeroDadoUsuario=0;
 	private PanelConImagen contentPane;
 	private JTextArea Pregunta;
 	private JRadioButton NUMEROUNO;
@@ -72,7 +74,6 @@ public class tablero extends JFrame implements ActionListener{
 	private FichaJuego2 miFicha2 = new FichaJuego2();         
 	
 	private JButton btnOK;
-	private JButton btnPrueba;
 	private JButton btnSalir;
 	GestorCasillas GestorCasillas = new GestorCasillas();
 	
@@ -217,10 +218,7 @@ public class tablero extends JFrame implements ActionListener{
 		btnOK.setBounds(146, 154, 54, 23);
 		panel.add(btnOK);
 		btnOK.addActionListener(this);
-		
-		btnPrueba = new JButton("prueba");
-		btnPrueba.setBounds(10, 36, 68, 62);
-		contentPane.add(btnPrueba);
+		btnOK.setEnabled(false);
 		
 		
 		JLabel lblJugador = new JLabel("JUGADOR 1: " + nombre);
@@ -259,7 +257,6 @@ public class tablero extends JFrame implements ActionListener{
 		btnSalir.setIcon(new ImageIcon(tablero.class.getResource("/imagenes/red_x.png")));
 		btnSalir.setBounds(1241, 11, 94, 34);
 		contentPane.add(btnSalir);
-		btnPrueba.addActionListener(this);
 		
 				
 		this.AnadirInformacion();
@@ -282,29 +279,76 @@ public class tablero extends JFrame implements ActionListener{
 			
 			
 		
-			int numeroDado = lblDado.tirarDado();
-			System.out.println(numeroDado);
+			numeroDadoUsuario = lblDado.tirarDado();
+			System.out.println(numeroDadoUsuario);
+			
+			
+			btnOK.setEnabled(true);
+			btnTirarDado.setEnabled(false);
+			
+			if(numeroDadoUsuario == 1){
+			JOptionPane.showMessageDialog( null, "HAS SACADO UN 1, ACIERTA LA PREGUNTA PARA PODER MOVER LA FICHA" , null, JOptionPane.INFORMATION_MESSAGE);
+			}
+			if(numeroDadoUsuario == 2){
+				JOptionPane.showMessageDialog( null, "HAS SACADO UN 2, ACIERTA LA PREGUNTA PARA PODER MOVER LA FICHA" , null, JOptionPane.INFORMATION_MESSAGE);
+			}
+			if(numeroDadoUsuario == 3){
+				JOptionPane.showMessageDialog( null, "HAS SACADO UN 3, ACIERTA LA PREGUNTA PARA PODER MOVER LA FICHA" , null, JOptionPane.INFORMATION_MESSAGE);
+			}
+			if(numeroDadoUsuario == 4){
+				JOptionPane.showMessageDialog( null, "HAS SACADO UN 4, ACIERTA LA PREGUNTA PARA PODER MOVER LA FICHA" , null, JOptionPane.INFORMATION_MESSAGE);
+			}
+			if(numeroDadoUsuario == 5){
+				JOptionPane.showMessageDialog( null, "HAS SACADO UN 5, ACIERTA LA PREGUNTA PARA PODER MOVER LA FICHA" , null, JOptionPane.INFORMATION_MESSAGE);
+			}
+			if(numeroDadoUsuario == 6){
+				JOptionPane.showMessageDialog( null, "HAS SACADO UN 6, ACIERTA LA PREGUNTA PARA PODER MOVER LA FICHA" , null, JOptionPane.INFORMATION_MESSAGE);
+			}
+			
+//			if(respuestaUsuario == true){
+//			int pos_x1 = GestorCasillas.getPos_x1(contadorUsuario);
+//			int pos_y1 = GestorCasillas.getPos_y1(contadorUsuario);
+//			miFicha1.setPosicion(pos_x1, pos_y1);
+//			System.out.println(contadorUsuario + "     " + pos_x1 + "   "+pos_y1);
+//			respuestaUsuario=false;
+//			}
+			
+//			if(contadorUsuario == 10){
+//				
+//				JOptionPane.showMessageDialog( null, "¡HAS GANADO!" , null, JOptionPane.INFORMATION_MESSAGE);
+//				
+//			}
+			
+//			Random caras = new Random();
+//	        int numeroDadoMaquina = caras.nextInt(6)+1;
+//	        contadorPrueba= contadorPrueba + numeroDadoMaquina;
+//			int pos_x2 = GestorCasillas.getPos_x2(contadorPrueba);
+//			int pos_y2 = GestorCasillas.getPos_y2(contadorPrueba);
+//			miFicha2.setPosicion(pos_x2, pos_y2);
+//			System.out.println(contadorPrueba + "     " + pos_x2 + "   "+pos_y2);
+			
+			
 			
 		}
 		
-		if (e.getSource() == btnPrueba){
-			
-			int pos_x1 = GestorCasillas.getPos_x1(contadorPrueba);
-			int pos_y1 = GestorCasillas.getPos_y1(contadorPrueba);
-			miFicha1.setPosicion(pos_x1, pos_y1);
-			System.out.println(contadorPrueba + "     " + pos_x1 + "   "+pos_y1);
-			
-			int pos_x2 = GestorCasillas.getPos_x2(contadorPrueba);
-			int pos_y2 = GestorCasillas.getPos_y2(contadorPrueba);
-			miFicha2.setPosicion(pos_x2, pos_y2);
-			System.out.println(contadorPrueba + "     " + pos_x2 + "   "+pos_y2);
-			
-			
-			
-			contadorPrueba= contadorPrueba+1;
-			
-			
-		}
+//		if (e.getSource() == btnPrueba){
+//			
+//			int pos_x1 = GestorCasillas.getPos_x1(contadorPrueba);
+//			int pos_y1 = GestorCasillas.getPos_y1(contadorPrueba);
+//			miFicha1.setPosicion(pos_x1, pos_y1);
+//			System.out.println(contadorPrueba + "     " + pos_x1 + "   "+pos_y1);
+//			
+//			int pos_x2 = GestorCasillas.getPos_x2(contadorPrueba);
+//			int pos_y2 = GestorCasillas.getPos_y2(contadorPrueba);
+//			miFicha2.setPosicion(pos_x2, pos_y2);
+//			System.out.println(contadorPrueba + "     " + pos_x2 + "   "+pos_y2);
+//			
+//			
+//			
+//			contadorPrueba= contadorPrueba+1;
+//			
+//			
+//		}
 		
 		
 		
@@ -382,19 +426,29 @@ public class tablero extends JFrame implements ActionListener{
 	
 	public void ComprobarRespuesta(String respuestaSeleccionada){
 		
+		btnTirarDado.setEnabled(true);
+		btnOK.setEnabled(false);
 		if(respuestaSeleccionada.equals(correcta)){
 			jug1_aciertos++;
 			jug1_puntos = jug1_puntos + 5;
 			textField_1.setText(String.valueOf(jug1_aciertos));
 			textField.setText(String.valueOf(jug1_puntos));
 			this.RespuestaCORRECTA(true);
+			
+			
+			
 		}
 		else{
 						
 			jug1_puntos = jug1_puntos - 3;
 			textField.setText(String.valueOf(jug1_puntos));
-			JOptionPane.showMessageDialog( null, "Â¡RESPUESTA INCORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "¡RESPUESTA INCORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 			this.AnadirInformacion();
+			
+			
+			
+			btnTirarDado.setEnabled(false);
+			btnOK.setEnabled(false);
 			
 			 this.RespuestaMaquina();
 			
@@ -402,16 +456,30 @@ public class tablero extends JFrame implements ActionListener{
 	}
 	
 	public void RespuestaCORRECTA(boolean jugador){  //jugador: true: usuario / false: maquina
-		if(jugador == true)
-			JOptionPane.showMessageDialog( null, "Â¡BIEN! Â¡RESPUESTA CORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+		if(jugador == true){
+			JOptionPane.showMessageDialog( null, "¡BIEN! ¡RESPUESTA CORRECTA! VUELVE A TIRAR EL DADO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+		
+		contadorUsuario = contadorUsuario + numeroDadoUsuario;
+		if(contadorUsuario > 10) {contadorUsuario=10;}
+		//mover ficha
+		int pos_x1 = GestorCasillas.getPos_x1(contadorUsuario);
+		int pos_y1 = GestorCasillas.getPos_y1(contadorUsuario);
+		miFicha1.setPosicion(pos_x1, pos_y1);
+		System.out.println(contadorUsuario + "     " + pos_x1 + "   "+pos_y1);
+		numeroDadoUsuario=0;
+		
+		
+		}
+		
 		if (jugador == false){
-			
+			numeroDadoUsuario=0;
 			try {
 				Thread.sleep( 500 );
 			} catch (Exception e) {
 			}
+			RespuestaMaquina();
+			//JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL CORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 			
-			JOptionPane.showMessageDialog( null, "Â¡RESPUESTA DE TRIVIAL CORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 			
 			
 		}
@@ -432,8 +500,22 @@ public class tablero extends JFrame implements ActionListener{
 			
 			textField_aciertosMaquina.setText(String.valueOf(maquina_aciertos));
 			textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
+			
+			//this.RespuestaMaquina();
+			
+			
+			Random caras = new Random();
+	        int numeroDadoMaquina = caras.nextInt(6)+1;
+	        contadorPrueba= contadorPrueba + numeroDadoMaquina;
+	        if(contadorPrueba > 10) {contadorPrueba=10;}
+			int pos_x2 = GestorCasillas.getPos_x2(contadorPrueba);
+			int pos_y2 = GestorCasillas.getPos_y2(contadorPrueba);
+			miFicha2.setPosicion(pos_x2, pos_y2);
+			System.out.println(contadorPrueba + "     " + pos_x2 + "   "+pos_y2);
+			
+			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL CORRECTA! SU FICHA MOVERA "+ numeroDadoMaquina +" CASILLAS" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			
 			this.RespuestaCORRECTA(false);
-			this.RespuestaMaquina();
 			
 			
 		}else if (aleatorio == 0){
@@ -443,8 +525,12 @@ public class tablero extends JFrame implements ActionListener{
 			}
 			maquina_puntos = maquina_puntos - 3;
 			textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
-			JOptionPane.showMessageDialog( null, "Â¡RESPUESTA DE TRIVIAL INCORRECTA! TU TURNO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL INCORRECTA! TU TURNO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 			this.AnadirInformacion();
+			
+			btnTirarDado.setEnabled(true);
+			btnOK.setEnabled(false);
+			
 			
 		}
 		
@@ -456,7 +542,7 @@ public class tablero extends JFrame implements ActionListener{
 	
 		aleatorio = -1;
 		
-		if(jug1_aciertos >= 11){
+		if(contadorUsuario == 10){
 			Date data = new Date();
 			SimpleDateFormat formato = new SimpleDateFormat( "dd/MM/yyyy HH:mm:ss" );
 			System.out.println( "Fecha de la partida: " + formato.format(data) );
@@ -473,7 +559,7 @@ public class tablero extends JFrame implements ActionListener{
 
 		}
 		
-		if(maquina_aciertos >= 11){
+		if(contadorPrueba == 10){
 			JOptionPane.showMessageDialog( null, "HAS PERDIDO LA PARTIDA, LO SENTIMOS" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
 			dispose();
 		}
