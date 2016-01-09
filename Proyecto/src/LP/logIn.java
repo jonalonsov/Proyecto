@@ -83,7 +83,7 @@ public class logIn extends JFrame implements ActionListener {
 		String nombre = textField.getText();
 		char[] elChar = passwordField.getPassword();
 		String contrasenya = String.valueOf(elChar);
-		GestorJugador gestor = new GestorJugador(nombre, contrasenya, null);
+		GestorJugador gestor = new GestorJugador(nombre, contrasenya);
 			
 		if (e.getSource() == btnAceptar){
 			

@@ -11,14 +11,12 @@ import LD.BasesDeDatos;
 
 public class GestorJugador {
 
-	File file;
 	String contrasenya;
 	String nombre;
 		
-	public GestorJugador(String nombre, String contrasenya, File file){
+	public GestorJugador(String nombre, String contrasenya){
 		this.nombre = nombre;
 		this.contrasenya = contrasenya;
-		this.file = file;
 		
 	}
 		
@@ -125,8 +123,7 @@ public class GestorJugador {
 		try {
 			String sentSQL = "update USUARIO set "+ 
 					"nombre = '" + nombre + "', " +
-					"contrasenya = '" + contrasenya + "', " +
-					"where (fichero = '" + file.getAbsolutePath() + "')";
+					"contrasenya = '" + contrasenya + "')";
 			System.out.println( sentSQL );  // (Quitar) para ver lo que se hace
 			int val = st.executeUpdate( sentSQL );
 			if (val!=1) return false;  // Se tiene que modificar 1, error si no

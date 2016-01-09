@@ -423,7 +423,6 @@ public class tablero extends JFrame implements ActionListener{
 	}
 	
 	
-	
 	public void ComprobarRespuesta(String respuestaSeleccionada){
 		
 		btnTirarDado.setEnabled(true);
