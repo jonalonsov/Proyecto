@@ -1,16 +1,11 @@
 package LP;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
-import javax.swing.BoxLayout;
 
-import LD.BasesDeDatos;
-import LN.Instrucciones;
 
 import java.awt.Font;
 import java.awt.Color;
@@ -19,6 +14,10 @@ import java.awt.event.ActionListener;
 
 public class Menu extends JFrame implements ActionListener{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JButton btnJugar;
 	private JButton btnInstrucciones;
@@ -90,10 +89,10 @@ public class Menu extends JFrame implements ActionListener{
 		
 		if (e.getSource() == btnRanking){
 			
-			BasesDeDatos.crearTablaBDPartida();
+			//BasesDeDatos.crearTablaBDPartida();
 		
-//			Ranking i = new Ranking();
-//			i.setVisible(true);
+			TablaRanking i = new TablaRanking();
+			i.setVisible(true);
 			
 		}
 		

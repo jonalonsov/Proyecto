@@ -1,19 +1,12 @@
 package LP;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.table.AbstractTableModel;
 
 import LN.DatoParaTabla;
 
 public class MiTablaModelo extends AbstractTableModel {
-
-	private JPanel contentPane;
 
 	
 	   // Lista principal de datos del modelo:

@@ -1,6 +1,5 @@
 package LN;
 
-import java.util.Date;
 
 public class Usuario extends Partida implements DatoParaTabla{
 	
