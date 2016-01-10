@@ -10,7 +10,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
+import LD.BasesDeDatos;
+import LN.GestorRanking;
 import LN.Usuario;
+
 import java.awt.Font;
 
 public class TablaRanking extends JFrame implements ActionListener{
@@ -22,14 +25,15 @@ public class TablaRanking extends JFrame implements ActionListener{
 	private JPanel contentPane;
 	private MiTablaModelo modelo;
 	private JButton btnAtras;
+	private String nombre;
 
 	/**
 	 * Create the frame.
 	 */
-	public TablaRanking() {
+	public TablaRanking(String nombre) {
+		
+		this.nombre = nombre;
 		modelo = new MiTablaModelo(Usuario.nombresAtributos, Usuario.atributosEditables);
-		
-		
         
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 528, 343);
@@ -62,13 +66,16 @@ public class TablaRanking extends JFrame implements ActionListener{
 		
 //		try {
 //			ResultSet rs = st.executeQuery("select * from PARTIDA where (nombreUsuario = '" + nombre + "')");
-//			Object datuak [] = new Object[3];
-//			
+//			ArrayList<Usuario> datuak = new ArrayList<Usuario>;
+		
+		GestorRanking gr = new GestorRanking();
+		int k = gr.cogerInfoDeTablaUsuario(BasesDeDatos.getStatement(), nombre).size();
 //			while(rs.next()){
-				 for(int i=0; i<10; i++){
+				 for(int i=0; i<k; i++){
 			    		
 			    		//datuak[i] = rs.getObject(i+1);
-				    	modelo.insertar( new Usuario( "ainhoa", null, 15, "2015/01/08") );
+					
+				    	modelo.insertar( gr.cogerInfoDeTablaUsuario(BasesDeDatos.getStatement(), nombre).get(i));
 			    	}
 //	    	}
 //			

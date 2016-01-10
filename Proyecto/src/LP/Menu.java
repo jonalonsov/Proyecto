@@ -7,6 +7,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
 
+
+import LD.BasesDeDatos;
+
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -88,10 +91,8 @@ public class Menu extends JFrame implements ActionListener{
 		}
 		
 		if (e.getSource() == btnRanking){
-			
-			//BasesDeDatos.crearTablaBDPartida();
 		
-			TablaRanking i = new TablaRanking();
+			TablaRanking i = new TablaRanking(nombre);
 			i.setVisible(true);
 			
 		}

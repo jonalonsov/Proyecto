@@ -12,17 +12,17 @@ import javax.swing.JOptionPane;
 import LD.BasesDeDatos;
 
 public class GestorRanking {
-	File file;
-	String usuario;
-	int puntUsuario;
-	int fecha;
+	
+	//String usuario;
+	//int puntUsuario;
+	//int fecha;
 	
 		
-	public GestorRanking(String usuario, int puntUsuario, int fecha, File file){
-		this.usuario = usuario;
-		this.puntUsuario = puntUsuario;
-		this.fecha = fecha;
-		this.file = file;
+	public GestorRanking( ){
+//		this.usuario = usuario;
+//		this.puntUsuario = puntUsuario;
+//		this.fecha = fecha;
+//		this.file = file;
 		
 	}
 		
@@ -50,7 +50,7 @@ public class GestorRanking {
 	 * @param st	Sentencia ya abierta de base de datos
 	 * @return	true si el usuario ya esta en la tabla, false en caso contrario
 	 */
-	public boolean chequearYaEnTabla( Statement st, String nombre ) {
+	public boolean chequearYaEnTabla( Statement st, String nombre, String fecha ) {
 		//SELECT
 			try {
 
@@ -81,11 +81,11 @@ public class GestorRanking {
 	 * @param st	Sentencia ya abierta de Base de Datos (con la estructura de tabla correspondiente al usuario)
 	 * @return	true si la inserción es correcta, false en caso contrario
 	 */
-	public boolean anyadirFilaATablauUsuario( Statement st, String usuario ) {
+	public boolean anyadirFilaATablaPartida( Statement st, String usuario, int puntUsuario, String fecha ) {
 	//INSERT
 
-		if (chequearYaEnTabla(st, usuario)) {  // Si esta ya en la tabla
-			return modificarFilaEnTablaPartida(st);
+		if (chequearYaEnTabla(st, usuario, fecha)) {  // Si esta ya en la tabla
+			return modificarFilaEnTablaPartida(st, usuario, fecha, puntUsuario);
 		}
 		// Insercion normal
 		try {
@@ -106,14 +106,13 @@ public class GestorRanking {
 	 * @param st	Sentencia ya abierta de Base de Datos (con la estructura de tabla correspondiente al usuario)
 	 * @return	true si la modificacion es correcta, false en caso contrario
 	 */
-	public boolean modificarFilaEnTablaPartida( Statement st ) {
+	public boolean modificarFilaEnTablaPartida( Statement st, String usuario, String fecha, int puntUsuario ) {
 	//UPDATE
 		try {
 			String sentSQL = "update PARTIDA set "+ 
 					"usuario = '" + usuario + "', " +
 					"puntUsuario = '" + puntUsuario + "', " +
-					"fecha = '" + fecha + "', " +
-					"where (fichero = '" + file.getAbsolutePath() + "')";
+					"fecha = '" + fecha + "')";
 			System.out.println( sentSQL );  // (Quitar) para ver lo que se hace
 			int val = st.executeUpdate( sentSQL );
 			if (val!=1) return false;  // Se tiene que modificar 1, error si no

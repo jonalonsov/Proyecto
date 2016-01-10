@@ -24,6 +24,7 @@ import LN.Dado;
 import LN.FichaJuego1;
 import LN.FichaJuego2;
 import LN.GestorCasillas;
+import LN.GestorRanking;
 import LN.Maquina;
 import LN.PanelConImagen;
 import LN.Partida;
@@ -554,6 +555,8 @@ public class tablero extends JFrame implements ActionListener{
 			partida.add(maquina);
 			
 			BasesDeDatos.crearTablaBDPartida();
+			GestorRanking gr = new GestorRanking();
+			gr.anyadirFilaATablaPartida(BasesDeDatos.getStatement(), nombre, jug1_puntos, formato.format(data));
 			
 			JOptionPane.showMessageDialog( null, "¡HAS GANADO! ¡FELICIDADES!" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
 			dispose();
