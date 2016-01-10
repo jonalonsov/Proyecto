@@ -7,14 +7,24 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-public class Partida {
+public class Partida implements DatoParaTabla{
 
 	int punt;
 	String fecha;
+	String nombre;
 	
-	public Partida(int punt, String fecha){
+	public Partida(int punt, String fecha, String nombre){
 		this.punt = punt;
 		this.fecha = fecha;
+		this.nombre = nombre;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public int getPunt() {
@@ -55,37 +65,37 @@ public class Partida {
 			}
 		}
 	
-	public boolean anyadirFilaATablauUsuario( Statement st, String nombre, int puntUsuario, int puntMaq, String fecha ) {
-		//INSERT
 
-			if (chequearYaEnTabla(st, nombre)) {  // Si esta ya en la tabla
-				// Insercion normal
-				try {
-					String sentSQL = "insert into PARTIDA values('" + nombre + ", "+ puntUsuario +", " + fecha + ", "+ puntMaq +"')"; 
-					System.out.println( sentSQL );  // (Quitar) para ver lo que se hace
-					int val = st.executeUpdate( sentSQL );
-					if (val!=1) return false;  // Se tiene que añadir 1 - error si no
-					return true;
-				} catch (SQLException e) {
-					e.printStackTrace();
-					return false;
-				}
-			}
-			
-			else
-				return false;
+	@Override
+	public int getNumColumnas() {
+		// TODO Auto-generated method stub
+		return 3;
 	}
-	
-	public void Ranking(Statement statement, String nombre){
-		
-		try {
-			statement.executeQuery("select puntUsuario from PARTIDA where (nombreUsuario = '" + nombre + "')");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+	@Override
+	public Object getValor(int col) {
+		// TODO Auto-generated method stub
+		switch (col) {
+	    	case 0: { return getNombre(); }
+	    	case 1: { return this.getPunt(); }
+	    	case 2: { return this.getFecha(); }
 		}
+		return null;
 	}
 
-
+	@Override
+	public void setValor(Object value, int col) {
+		// TODO Auto-generated method stub
+		try {
+	    	switch (col) {
+		    	case 0: { this.setNombre((String) value); break; }
+		    	case 1: { this.setPunt( (Integer) value);  break; }
+		    	case 2: { this.setFecha((String) value); break; }
+	    	}
+    	} catch (Exception e) {
+    		// Error en conversi�n. Intentando asignar un tipo incorrecto
+    		e.printStackTrace();
+    	}
+	}
 	
 }

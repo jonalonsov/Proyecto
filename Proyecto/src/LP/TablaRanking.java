@@ -69,13 +69,13 @@ public class TablaRanking extends JFrame implements ActionListener{
 //			ArrayList<Usuario> datuak = new ArrayList<Usuario>;
 		
 		GestorRanking gr = new GestorRanking();
-		int k = gr.cogerInfoDeTablaUsuario(BasesDeDatos.getStatement(), nombre).size();
+		int k = gr.cogerInfoDeTablaPartida(BasesDeDatos.getStatement(), nombre).size();
 //			while(rs.next()){
 				 for(int i=0; i<k; i++){
 			    		
 			    		//datuak[i] = rs.getObject(i+1);
 					
-				    	modelo.insertar( gr.cogerInfoDeTablaUsuario(BasesDeDatos.getStatement(), nombre).get(i));
+				    	modelo.insertar( gr.cogerInfoDeTablaPartida(BasesDeDatos.getStatement(), nombre).get(i));
 			    	}
 //	    	}
 //			

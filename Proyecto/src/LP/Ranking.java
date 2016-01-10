@@ -61,11 +61,11 @@ public class Ranking extends JTable implements ActionListener{
 //				Object datuak [] = new Object[3];
 //				
 //				while(rs.next()){
-			    	for(int i=0; i<10; i++){
-			    		
-			    		//datuak[i] = rs.getObject(i+1);
-				    	datos.insertar( new Usuario( "ainhoa", null, 15, "2015/01/08") );
-			    	}
+//			    	for(int i=0; i<10; i++){
+//			    		
+//			    		//datuak[i] = rs.getObject(i+1);
+//				    	datos.insertar( new Usuario( "ainhoa", null, 15, "2015/01/08") );
+//			    	}
 //		    	}
 //				
 //				

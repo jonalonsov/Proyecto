@@ -5,13 +5,14 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 import LN.DatoParaTabla;
+import LN.Partida;
 import LN.Usuario;
 
 public class MiTablaModelo extends AbstractTableModel {
 
 	
 	   // Lista principal de datos del modelo:
-    private ArrayList<Usuario> datos = new ArrayList<Usuario>();
+    private ArrayList<Partida> datos = new ArrayList<Partida>();
     private String[] nombresColumnas;  // Nombres de columnas
     private boolean[] columnasEditables;  // Columnas editables o no
 	private static final long serialVersionUID = 7026825539532562011L;
@@ -29,9 +30,10 @@ public class MiTablaModelo extends AbstractTableModel {
     /** Añade un dato al final del modelo
      * @param dato	Dato a añadir
      */
-    public void insertar(Usuario dato ) {
+    public void insertar(Partida dato ) {
     	datos.add( dato );
     }
+
 
     /** Elimina un dato del modelo
      * @param dato	Dato a borrar

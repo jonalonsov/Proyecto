@@ -542,17 +542,17 @@ public class tablero extends JFrame implements ActionListener{
 	
 		aleatorio = -1;
 		ArrayList<Partida> partida = new ArrayList<Partida>();
+		Date data = new Date();
+		SimpleDateFormat formato = new SimpleDateFormat( "dd/MM/yyyy HH:mm:ss" );
+		System.out.println( "Fecha de la partida: " + formato.format(data) );
 		
 		if(contadorUsuario == 10){
-			Date data = new Date();
-			SimpleDateFormat formato = new SimpleDateFormat( "dd/MM/yyyy HH:mm:ss" );
-			System.out.println( "Fecha de la partida: " + formato.format(data) );
 			
-			Usuario jugador = new Usuario(nombre, null, jug1_puntos, formato.format(data));
-			Maquina maquina = new Maquina (0, formato.format(data));
-			
-			partida.add(jugador);
-			partida.add(maquina);
+//			Usuario jugador = new Usuario(nombre, null, jug1_puntos, formato.format(data));
+//			Maquina maquina = new Maquina (0, formato.format(data), "Trivial");
+//			
+//			partida.add(jugador);
+//			partida.add(maquina);
 			
 			BasesDeDatos.crearTablaBDPartida();
 			GestorRanking gr = new GestorRanking();
@@ -565,6 +565,9 @@ public class tablero extends JFrame implements ActionListener{
 		
 		if(contadorPrueba == 10){
 			JOptionPane.showMessageDialog( null, "HAS PERDIDO LA PARTIDA, LO SENTIMOS" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
+			BasesDeDatos.crearTablaBDPartida();
+			GestorRanking gr = new GestorRanking();
+			gr.anyadirFilaATablaPartida(BasesDeDatos.getStatement(), "Trivial", maquina_puntos, formato.format(data));
 			dispose();
 		}
 		

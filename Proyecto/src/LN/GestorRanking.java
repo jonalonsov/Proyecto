@@ -110,7 +110,7 @@ public class GestorRanking {
 	//UPDATE
 		try {
 			String sentSQL = "update PARTIDA set "+ 
-					"usuario = '" + usuario + "', " +
+					"nombreUsuario = '" + usuario + "', " +
 					"puntUsuario = '" + puntUsuario + "', " +
 					"fecha = '" + fecha + "')";
 			System.out.println( sentSQL );  // (Quitar) para ver lo que se hace
@@ -123,14 +123,14 @@ public class GestorRanking {
 		}
 	}
 	
-	public ArrayList<Usuario> cogerInfoDeTablaUsuario( Statement st, String usuario ) {
+	public ArrayList<Partida> cogerInfoDeTablaPartida( Statement st, String usuario ) {
 		//SELECT
 		
-		ArrayList<Usuario> ListaPartidaUsuario = new ArrayList<Usuario>();
+		ArrayList<Partida> ListaPartida = new ArrayList<Partida>();
 		
 			try {
 
-				String sentSQL = "select * from PARTIDA where (usuario = '" + usuario + "')";
+				String sentSQL = "select * from PARTIDA ";
 				System.out.println( sentSQL ); 
 				
 				ResultSet rs = st.executeQuery( sentSQL );
@@ -138,42 +138,69 @@ public class GestorRanking {
 				while(rs.next())
 				      {
 						
-						ListaPartidaUsuario.add(new Usuario(rs.getString("usuario"), null, rs.getInt("puntUsuario"), rs.getString("fecha")));
+						ListaPartida.add(new Usuario(rs.getString("nombreUsuario"), null, rs.getInt("puntUsuario"), rs.getString("fecha")));
 				      
 				      }
 					
-					return ListaPartidaUsuario;
+					return ListaPartida;
 					
 			} catch (SQLException e) {
 				e.printStackTrace();
-				return ListaPartidaUsuario;
+				return ListaPartida;
 			}
 		}
 	
-	public ArrayList<Maquina> cogerInfoDeTablaMaquina( Statement st ) {
-		//SELECT
-		
-		ArrayList<Maquina> ListaPartidaMaquina = new ArrayList<Maquina>();
-		
-			try {
-
-				String sentSQL = "select * from PARTIDA where (usuario = 'Trivial')";
-				System.out.println( sentSQL ); 
-				
-				ResultSet rs = st.executeQuery( sentSQL );
-				
-				while(rs.next())
-				      {
-						
-					ListaPartidaMaquina.add(new Maquina(rs.getInt("puntUsuario"), rs.getString("fecha")));
-				      
-				      }
-					
-					return ListaPartidaMaquina;
-					
-			} catch (SQLException e) {
-				e.printStackTrace();
-				return ListaPartidaMaquina;
-			}
-		}
+//	public ArrayList<Usuario> cogerInfoDeTablaUsuario( Statement st, String usuario ) {
+//		//SELECT
+//		
+//		ArrayList<Usuario> ListaPartidaUsuario = new ArrayList<Usuario>();
+//		
+//			try {
+//
+//				String sentSQL = "select * from PARTIDA where (nombreUsuario = '" + usuario + "')";
+//				System.out.println( sentSQL ); 
+//				
+//				ResultSet rs = st.executeQuery( sentSQL );
+//				
+//				while(rs.next())
+//				      {
+//						
+//						ListaPartidaUsuario.add(new Usuario(rs.getString("nombreUsuario"), null, rs.getInt("puntUsuario"), rs.getString("fecha")));
+//				      
+//				      }
+//					
+//					return ListaPartidaUsuario;
+//					
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//				return ListaPartidaUsuario;
+//			}
+//		}
+//	
+//	public ArrayList<Maquina> cogerInfoDeTablaMaquina( Statement st ) {
+//		//SELECT
+//		
+//		ArrayList<Maquina> ListaPartidaMaquina = new ArrayList<Maquina>();
+//		
+//			try {
+//
+//				String sentSQL = "select * from PARTIDA where (nombreUsuario = 'Trivial')";
+//				System.out.println( sentSQL ); 
+//				
+//				ResultSet rs = st.executeQuery( sentSQL );
+//				
+//				while(rs.next())
+//				      {
+//						
+//					ListaPartidaMaquina.add(new Maquina(rs.getInt("puntUsuario"), rs.getString("fecha")));
+//				      
+//				      }
+//					
+//					return ListaPartidaMaquina;
+//					
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//				return ListaPartidaMaquina;
+//			}
+//		}
 }
