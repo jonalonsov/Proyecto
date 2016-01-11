@@ -39,6 +39,14 @@ public class Casilla implements Serializable {
 	public void setColor(String color) {
 		this.color = color;
 	}
+
+	public int getValor() {
+		return valor;
+	}
+
+	public void setValor(int valor) {
+		this.valor = valor;
+	}
 	
 	
 

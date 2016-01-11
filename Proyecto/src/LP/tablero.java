@@ -430,7 +430,9 @@ public class tablero extends JFrame implements ActionListener{
 		btnOK.setEnabled(false);
 		if(respuestaSeleccionada.equals(correcta)){
 			jug1_aciertos++;
-			jug1_puntos = jug1_puntos + 5;
+			
+			jug1_puntos = jug1_puntos + GestorCasillas.getPunt(contadorUsuario);
+			//jug1_puntos = jug1_puntos + 5;
 			textField_1.setText(String.valueOf(jug1_aciertos));
 			textField.setText(String.valueOf(jug1_puntos));
 			this.RespuestaCORRECTA(true);
@@ -496,7 +498,7 @@ public class tablero extends JFrame implements ActionListener{
 		
 		if(aleatorio == 1){
 			maquina_aciertos++;
-			maquina_puntos = maquina_puntos + 5;
+			maquina_puntos = maquina_puntos + GestorCasillas.getPunt(contadorPrueba);
 			
 			textField_aciertosMaquina.setText(String.valueOf(maquina_aciertos));
 			textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
@@ -513,7 +515,7 @@ public class tablero extends JFrame implements ActionListener{
 			miFicha2.setPosicion(pos_x2, pos_y2);
 			System.out.println(contadorPrueba + "     " + pos_x2 + "   "+pos_y2);
 			
-			JOptionPane.showMessageDialog( null, "Â¡RESPUESTA DE TRIVIAL CORRECTA! SU FICHA MOVERA "+ numeroDadoMaquina +" CASILLAS" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL CORRECTA! SU FICHA MOVERA "+ numeroDadoMaquina +" CASILLAS" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 			
 			this.RespuestaCORRECTA(false);
 			

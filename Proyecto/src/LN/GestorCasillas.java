@@ -210,5 +210,13 @@ public class GestorCasillas {
 		
 	}
 	
+	public int getPunt(int numero){
+		
+		ListaCasillas1 = casillasList1();
+		return ListaCasillas1.get(numero).getValor();
+		
+		
+	}
+	
 	
 }
