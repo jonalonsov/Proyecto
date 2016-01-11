@@ -8,17 +8,18 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import LN.Partida;
 import LN.Usuario;
 
-public class UsuarioTest {
+public class PartidaTest {
 
-	Usuario u;
+	Partida u;
 	
 	
 	@Before
 	public void setUp() throws Exception {
 	
-		u = new Usuario("dada", "dada", 15, "2016/01/09");
+		u = new Usuario("ainhoa", "ainhoa", 15, "2016/01/09");
 	}
 	
 	@After
