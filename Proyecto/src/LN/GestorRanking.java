@@ -143,6 +143,7 @@ public class GestorRanking {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public ArrayList<Partida> cogerInfoDeTablaPartida( Statement st, String usuario ) {
 		//SELECT
 		
@@ -162,11 +163,15 @@ public class GestorRanking {
 				      
 				      }
 					
+					Collections.sort(ListaPartida);
+					
 					return ListaPartida;
 					
 			} catch (SQLException e) {
 				e.printStackTrace();
+				
 				Collections.sort(ListaPartida);
+				
 				return ListaPartida;
 			}
 		}

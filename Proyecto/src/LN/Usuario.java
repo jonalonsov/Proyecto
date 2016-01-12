@@ -1,7 +1,7 @@
 package LN;
 
 
-public class Usuario extends Partida{
+public class Usuario extends Partida {
 
 	String contrasenya;
 	
@@ -52,5 +52,19 @@ public class Usuario extends Partida{
 //    		e.printStackTrace();
 //    	}
 //	}
+	
+	
+
+	
+
+//@Override
+//public int compareTo(Partida o) {
+//	// TODO Auto-generated method stub
+//	
+//	if(this.punt>o.getPunt())return  1;
+//	if(this.punt>o.getPunt())return -1;
+//	
+//	return 0;
+//}
 	
 }

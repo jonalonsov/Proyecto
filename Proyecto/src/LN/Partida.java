@@ -7,7 +7,7 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-public class Partida implements DatoParaTabla, Comparable{
+public class Partida implements DatoParaTabla, Comparable<Object> {
 
 	int punt;
 	String fecha;
@@ -100,15 +100,17 @@ public class Partida implements DatoParaTabla, Comparable{
 
 	@Override
 	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
 		
-		Partida a=(Partida)o;
+		Partida a = (Partida)o;
 		
 		if(this.punt>a.getPunt())return  1;
 		if(this.punt>a.getPunt())return -1;
 		
+		
 		return 0;
 	}
+
+	
 	
 //	public int compareTo(Object o){
 //		
