@@ -150,7 +150,7 @@ public class GestorRanking {
 		
 			try {
 
-				String sentSQL = "select * from PARTIDA where (nombreUsuario = '" + usuario + "')";
+				String sentSQL = "select * from PARTIDA where(nombreUsuario = '" + usuario + "')";
 				System.out.println( sentSQL ); 
 				
 				ResultSet rs = st.executeQuery( sentSQL );
