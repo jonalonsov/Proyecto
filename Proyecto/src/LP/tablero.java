@@ -496,7 +496,8 @@ public class tablero extends JFrame implements ActionListener{
 			JOptionPane.showMessageDialog( null, "¡BIEN! ¡RESPUESTA CORRECTA! VUELVE A TIRAR EL DADO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 		
 			contadorUsuario = contadorUsuario + numeroDadoUsuario;
-			
+			if(contadorUsuario > 10) {contadorUsuario=10;}
+			System.out.println("contador=" + contadorUsuario);
 			//mover ficha
 			int pos_x1 = GestorCasillas.getPos_x1(contadorUsuario);
 			int pos_y1 = GestorCasillas.getPos_y1(contadorUsuario);
@@ -506,7 +507,7 @@ public class tablero extends JFrame implements ActionListener{
 			jug1_puntos = jug1_puntos + GestorCasillas.getPunt(contadorUsuario);
 			textField.setText(String.valueOf(jug1_puntos));
 			
-			if(contadorUsuario > 10) {contadorUsuario=10;}
+			
 			
 			this.FinalPartida();
 		}
@@ -552,6 +553,7 @@ public class tablero extends JFrame implements ActionListener{
 			Random caras = new Random();
 	        int numeroDadoMaquina = caras.nextInt(6)+1;
 	        contadorPrueba= contadorPrueba + numeroDadoMaquina;
+	        if(contadorPrueba > 10)	contadorPrueba=10;
 	        
 			int pos_x2 = GestorCasillas.getPos_x2(contadorPrueba);
 			int pos_y2 = GestorCasillas.getPos_y2(contadorPrueba);
@@ -569,10 +571,9 @@ public class tablero extends JFrame implements ActionListener{
 			} catch (Exception e) {
 			}
 			
-			if(contadorPrueba > 10) {
-				contadorPrueba=10;
+			
 				
-			}
+		
 			
 			this.RespuestaCORRECTA(false);
 			this.FinalPartida();

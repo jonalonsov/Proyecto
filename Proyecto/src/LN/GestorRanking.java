@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -149,7 +150,7 @@ public class GestorRanking {
 		
 			try {
 
-				String sentSQL = "select * from PARTIDA ";
+				String sentSQL = "select * from PARTIDA where (nombreUsuario = '" + usuario + "')";
 				System.out.println( sentSQL ); 
 				
 				ResultSet rs = st.executeQuery( sentSQL );
@@ -165,6 +166,7 @@ public class GestorRanking {
 					
 			} catch (SQLException e) {
 				e.printStackTrace();
+				Collections.sort(ListaPartida);
 				return ListaPartida;
 			}
 		}
