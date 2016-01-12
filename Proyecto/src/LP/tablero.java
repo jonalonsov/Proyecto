@@ -415,7 +415,7 @@ public class tablero extends JFrame implements ActionListener{
 	
 	public void PreguntaUsuario(){
 		
-			Pregunta.setText("¡TIRA EL DADO!");
+			Pregunta.setText("Â¡TIRA EL DADO!");
 						
 			respuesta_1.setText(" ");
 			
@@ -484,26 +484,31 @@ public class tablero extends JFrame implements ActionListener{
 			btnTirarDado.setEnabled(false);
 			btnOK.setEnabled(false);
 			
-			 this.RespuestaMaquina();
+			this.RespuestaMaquina();
 			
 		}
+		
+		//this.FinalPartida();
 	}
 	
 	public void RespuestaCORRECTA(boolean jugador){  //jugador: true: usuario / false: maquina
 		if(jugador == true){
-			JOptionPane.showMessageDialog( null, "¡BIEN! Â¡RESPUESTA CORRECTA! VUELVE A TIRAR EL DADO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "Â¡BIEN! Â¡RESPUESTA CORRECTA! VUELVE A TIRAR EL DADO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 		
-		contadorUsuario = contadorUsuario + numeroDadoUsuario;
-		if(contadorUsuario > 10) {contadorUsuario=10;}
-		//mover ficha
-		int pos_x1 = GestorCasillas.getPos_x1(contadorUsuario);
-		int pos_y1 = GestorCasillas.getPos_y1(contadorUsuario);
-		miFicha1.setPosicion(pos_x1, pos_y1);
-		System.out.println(contadorUsuario + "     " + pos_x1 + "   "+pos_y1);
-		numeroDadoUsuario=0;
-		jug1_puntos = jug1_puntos + GestorCasillas.getPunt(contadorUsuario);
-		textField.setText(String.valueOf(jug1_puntos));
-		
+			contadorUsuario = contadorUsuario + numeroDadoUsuario;
+			
+			//mover ficha
+			int pos_x1 = GestorCasillas.getPos_x1(contadorUsuario);
+			int pos_y1 = GestorCasillas.getPos_y1(contadorUsuario);
+			miFicha1.setPosicion(pos_x1, pos_y1);
+			System.out.println(contadorUsuario + "     " + pos_x1 + "   "+pos_y1);
+			numeroDadoUsuario=0;
+			jug1_puntos = jug1_puntos + GestorCasillas.getPunt(contadorUsuario);
+			textField.setText(String.valueOf(jug1_puntos));
+			
+			if(contadorUsuario > 10) {contadorUsuario=10;}
+			
+			this.FinalPartida();
 		}
 		
 		if (jugador == false){
@@ -512,7 +517,10 @@ public class tablero extends JFrame implements ActionListener{
 				Thread.sleep( 500 );
 			} catch (Exception e) {
 			}
+			
+			this.FinalPartida();
 			RespuestaMaquina();
+				
 			//JOptionPane.showMessageDialog( null, "Â¡RESPUESTA DE TRIVIAL CORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 			
 			
@@ -521,7 +529,7 @@ public class tablero extends JFrame implements ActionListener{
 		
 		PreguntaUsuario();
 		//this.AnadirInformacion();
-		this.FinalPartida();
+		
 		
 	}
 	
@@ -531,10 +539,7 @@ public class tablero extends JFrame implements ActionListener{
 		aleatorio = random.nextInt(array.length);
 		
 		if(aleatorio == 1){
-			maquina_aciertos++;
-			
-			
-			
+			maquina_aciertos++;			
 			
 			//maquina_puntos = maquina_puntos + 5;
 			
@@ -547,7 +552,7 @@ public class tablero extends JFrame implements ActionListener{
 			Random caras = new Random();
 	        int numeroDadoMaquina = caras.nextInt(6)+1;
 	        contadorPrueba= contadorPrueba + numeroDadoMaquina;
-	        if(contadorPrueba > 10) {contadorPrueba=10;}
+	        
 			int pos_x2 = GestorCasillas.getPos_x2(contadorPrueba);
 			int pos_y2 = GestorCasillas.getPos_y2(contadorPrueba);
 			miFicha2.setPosicion(pos_x2, pos_y2);
@@ -556,9 +561,21 @@ public class tablero extends JFrame implements ActionListener{
 			textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
 			
 			
-			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL CORRECTA! SU FICHA MOVERA "+ numeroDadoMaquina +" CASILLAS" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "Â¡RESPUESTA DE TRIVIAL CORRECTA! SU FICHA MOVERA "+ numeroDadoMaquina +" CASILLAS" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			
+			numeroDadoUsuario=0;
+			try {
+				Thread.sleep( 500 );
+			} catch (Exception e) {
+			}
+			
+			if(contadorPrueba > 10) {
+				contadorPrueba=10;
+				
+			}
 			
 			this.RespuestaCORRECTA(false);
+			this.FinalPartida();
 			
 			
 		}else if (aleatorio == 0){
@@ -568,7 +585,7 @@ public class tablero extends JFrame implements ActionListener{
 			}
 			maquina_puntos = maquina_puntos - 3;
 			textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
-			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL INCORRECTA! TU TURNO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "Â¡RESPUESTA DE TRIVIAL INCORRECTA! TU TURNO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 			//this.AnadirInformacion();
 			
 			btnTirarDado.setEnabled(true);
@@ -590,12 +607,6 @@ public class tablero extends JFrame implements ActionListener{
 		System.out.println( "Fecha de la partida: " + formato.format(data) );
 		
 		if(contadorUsuario == 10){
-			
-//			Usuario jugador = new Usuario(nombre, null, jug1_puntos, formato.format(data));
-//			Maquina maquina = new Maquina (0, formato.format(data), "Trivial");
-//			
-//			partida.add(jugador);
-//			partida.add(maquina);
 			
 			BasesDeDatos.crearTablaBDPartida();
 			GestorRanking gr = new GestorRanking();
