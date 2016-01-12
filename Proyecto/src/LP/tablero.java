@@ -277,10 +277,7 @@ public class tablero extends JFrame implements ActionListener{
 
 
 		if (e.getSource() == btnTirarDado){
-			
-			
-			
-		
+
 			numeroDadoUsuario = lblDado.tirarDado();
 			System.out.println(numeroDadoUsuario);
 			
@@ -308,52 +305,9 @@ public class tablero extends JFrame implements ActionListener{
 			}
 			
 			
-			AnadirInformacion();
-//			if(respuestaUsuario == true){
-//			int pos_x1 = GestorCasillas.getPos_x1(contadorUsuario);
-//			int pos_y1 = GestorCasillas.getPos_y1(contadorUsuario);
-//			miFicha1.setPosicion(pos_x1, pos_y1);
-//			System.out.println(contadorUsuario + "     " + pos_x1 + "   "+pos_y1);
-//			respuestaUsuario=false;
-//			}
-			
-//			if(contadorUsuario == 10){
-//				
-//				JOptionPane.showMessageDialog( null, "�HAS GANADO!" , null, JOptionPane.INFORMATION_MESSAGE);
-//				
-//			}
-			
-//			Random caras = new Random();
-//	        int numeroDadoMaquina = caras.nextInt(6)+1;
-//	        contadorPrueba= contadorPrueba + numeroDadoMaquina;
-//			int pos_x2 = GestorCasillas.getPos_x2(contadorPrueba);
-//			int pos_y2 = GestorCasillas.getPos_y2(contadorPrueba);
-//			miFicha2.setPosicion(pos_x2, pos_y2);
-//			System.out.println(contadorPrueba + "     " + pos_x2 + "   "+pos_y2);
-			
-			
+			AnadirInformacion();	
 			
 		}
-		
-//		if (e.getSource() == btnPrueba){
-//			
-//			int pos_x1 = GestorCasillas.getPos_x1(contadorPrueba);
-//			int pos_y1 = GestorCasillas.getPos_y1(contadorPrueba);
-//			miFicha1.setPosicion(pos_x1, pos_y1);
-//			System.out.println(contadorPrueba + "     " + pos_x1 + "   "+pos_y1);
-//			
-//			int pos_x2 = GestorCasillas.getPos_x2(contadorPrueba);
-//			int pos_y2 = GestorCasillas.getPos_y2(contadorPrueba);
-//			miFicha2.setPosicion(pos_x2, pos_y2);
-//			System.out.println(contadorPrueba + "     " + pos_x2 + "   "+pos_y2);
-//			
-//			
-//			
-//			contadorPrueba= contadorPrueba+1;
-//			
-//			
-//		}
-		
 		
 		
 		if (e.getSource() == btnOK){
