@@ -18,16 +18,16 @@ public class GestorCasillas {
 		ListaCasillas1= new ArrayList<Casilla>();
 		
 		Casilla casilla1= new Casilla(210, 130, "rojo", 1);
-		Casilla casilla2 = new Casilla(210, 210, "azul", 1);
-		Casilla casilla3 = new Casilla(210, 295, "verde", 1);
-		Casilla casilla4 = new Casilla(210, 375, "amarilo", 1);
-		Casilla casilla5 = new Casilla(300, 375, "verde", 1);
+		Casilla casilla2 = new Casilla(210, 210, "azul", 5);
+		Casilla casilla3 = new Casilla(210, 295, "verde", 3);
+		Casilla casilla4 = new Casilla(210, 375, "amarilo", 7);
+		Casilla casilla5 = new Casilla(300, 375, "verde", 3);
 		Casilla casilla6 = new Casilla(390, 375, "rojo", 1);
-		Casilla casilla7 = new Casilla(390, 295, "azul", 1);
-		Casilla casilla8 = new Casilla(390, 210, "amarillo", 1);
-		Casilla casilla9 = new Casilla(390, 130, "verde", 1);
-		Casilla casilla10 = new Casilla(480, 130, "azul", 1);
-		Casilla casilla11 = new Casilla(635, 130, "morado", 10);
+		Casilla casilla7 = new Casilla(390, 295, "azul", 5);
+		Casilla casilla8 = new Casilla(390, 210, "amarillo", 7);
+		Casilla casilla9 = new Casilla(390, 130, "verde", 3);
+		Casilla casilla10 = new Casilla(480, 130, "azul", 5);
+		Casilla casilla11 = new Casilla(635, 130, "morado", 15);
 			
 		
 		//hau ez da beharrezkoa, pruebak iteko da. HASIERA
