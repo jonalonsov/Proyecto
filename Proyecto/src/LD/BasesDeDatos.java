@@ -153,6 +153,36 @@ public class BasesDeDatos {
 			
 			statement.executeUpdate( "insert into PREGUNTA values('¿Con la muerte de quien dio por finalizado el Sgli de Oro?'," + 
 									"'Machado', 'Quevedo', 'Calderon', 'Cervantes', 'Calderon')" );
+			
+			statement.executeUpdate( "insert into PREGUNTA values('¿Cual es el verdadero nombre del escritor Bernardo Atxaga?'," + 
+									"'Jose', 'Miguel', 'Jon', 'Jose Mari', 'Jose')" );
+			
+			statement.executeUpdate( "insert into PREGUNTA values('¿De quien es el disco 'Agiak'?'," + 
+									"'Piperrak', 'Herntzainak', 'Ken 7', 'Gatibu', 'Ken 7')" );
+			
+			statement.executeUpdate( "insert into PREGUNTA values('¿Cual de estos no es un pueblo de la Rioja Alavesa?'," + 
+									"'Biasteri', 'Bastida', 'Bargota', 'Leza', 'Bargota')" );
+			
+			statement.executeUpdate( "insert into PREGUNTA values('¿Cual es la famosa feria que se celebra en 21 de diciembre?'," + 
+									"'San Tomas', 'San Telmo', 'San Juan', 'San Pedro', 'San Tomas')" );
+			
+			statement.executeUpdate( "insert into PREGUNTA values('¿Donde se encuentra el monte Anboto?'," + 
+									"'Alava', 'Guipuzcoa', 'Navarra', 'Bizkaia', 'Bizkaia')" );
+			
+			statement.executeUpdate( "insert into PREGUNTA values('¿Cual es el peso del cerebro?'," + 
+									"'1-1,5kg', '2,5-3kg', '2-2,5kg', '1,5-2kg', '1-1,5kg')" );
+			
+			statement.executeUpdate( "insert into PREGUNTA values('¿Cuantos dias tiene un año bisiesto?'," + 
+									"'367', '364', '365', '366', '366')" );
+			
+			statement.executeUpdate( "insert into PREGUNTA values('Machu Pichu se encuentra en:'," + 
+									"'Peru', 'Brasil', 'Bolivia', 'Colombia', 'Peru')" );
+			
+			statement.executeUpdate( "insert into PREGUNTA values('¿Quien pinto 'La Gioconda'?'," + 
+									"'Botticelli', 'Sanzio', 'Da Vinci', 'Cervantes', 'Da Vinci')" );
+			
+			statement.executeUpdate( "insert into PREGUNTA values('¿Como se representa en numero 3045 en numeros romanos?'," + 
+									"'MMDLXV', 'MMMXLV', 'MMCCLXV', 'MMMLX', 'MMMXLV')" );
 			}
 			
 		} catch (SQLException e) {
