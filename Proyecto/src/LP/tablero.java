@@ -511,9 +511,11 @@ public class tablero extends JFrame implements ActionListener{
 			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL CORRECTA! SU FICHA MOVERA "+ numeroDadoMaquina +" CASILLAS" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 			
 			if(contadorPrueba == 10){
+				
 				this.FinalPartida();
 			}
 			else{
+				
 				this.RespuestaCORRECTA(false);
 			}
 			
