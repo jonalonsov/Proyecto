@@ -135,7 +135,8 @@ public class GestorRanking {
 		
 			try {
 
-				String sentSQL = "select * from PARTIDA where(nombreUsuario = '" + usuario + "' or 'Trivial')";
+				//String sentSQL = "select * from PARTIDA where(nombreUsuario = '" + usuario + "' OR 'Trivial')";
+				String sentSQL = "select * from PARTIDA ";
 				System.out.println( sentSQL ); 
 				
 				ResultSet rs = st.executeQuery( sentSQL );
@@ -146,6 +147,8 @@ public class GestorRanking {
 						ListaPartida.add(new Usuario(rs.getString("nombreUsuario"), null, rs.getInt("puntUsuario"), rs.getString("fecha")));
 				      
 				      }
+				
+				
 					
 					Collections.sort(ListaPartida);
 					
@@ -153,6 +156,8 @@ public class GestorRanking {
 					
 			} catch (SQLException e) {
 				e.printStackTrace();
+				
+				
 				
 				Collections.sort(ListaPartida);
 				
