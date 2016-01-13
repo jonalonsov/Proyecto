@@ -474,16 +474,12 @@ public class tablero extends JFrame implements ActionListener{
 			}
 			
 			this.FinalPartida();
-			RespuestaMaquina();
-				
-			//JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL CORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
-			
+			RespuestaMaquina();		
 			
 			
 		}
 		
 		PreguntaUsuario();
-		//this.AnadirInformacion();
 		
 		
 	}
@@ -496,12 +492,7 @@ public class tablero extends JFrame implements ActionListener{
 		if(aleatorio == 1){
 			maquina_aciertos++;			
 			
-			//maquina_puntos = maquina_puntos + 5;
-			
 			textField_aciertosMaquina.setText(String.valueOf(maquina_aciertos));
-			//textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
-			
-			//this.RespuestaMaquina();
 			
 			
 			Random caras = new Random();
@@ -519,18 +510,14 @@ public class tablero extends JFrame implements ActionListener{
 			
 			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL CORRECTA! SU FICHA MOVERA "+ numeroDadoMaquina +" CASILLAS" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 			
-			numeroDadoUsuario=0;
-			try {
-				Thread.sleep( 500 );
-			} catch (Exception e) {
+			if(contadorPrueba == 10){
+				this.FinalPartida();
+			}
+			else{
+				this.RespuestaCORRECTA(false);
 			}
 			
 			
-				
-		
-			
-			this.RespuestaCORRECTA(false);
-			this.FinalPartida();
 			
 			
 		}else if (aleatorio == 0){
@@ -541,7 +528,6 @@ public class tablero extends JFrame implements ActionListener{
 			maquina_puntos = maquina_puntos - 3;
 			textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
 			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL INCORRECTA! TU TURNO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
-			//this.AnadirInformacion();
 			
 			btnTirarDado.setEnabled(true);
 			btnOK.setEnabled(false);
@@ -580,6 +566,7 @@ public class tablero extends JFrame implements ActionListener{
 			
 			JOptionPane.showMessageDialog( null, "HAS PERDIDO LA PARTIDA, LO SENTIMOS" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
 			dispose();
+			
 		}
 		
 		return partida;
