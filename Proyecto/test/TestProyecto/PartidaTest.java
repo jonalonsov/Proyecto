@@ -35,7 +35,7 @@ public class PartidaTest {
 		
 	}
 	
-	//gero ez du balioko...
+	
 	@Test
 	public void testGetValor() {
 		String obj = (String) u.getValor(2);

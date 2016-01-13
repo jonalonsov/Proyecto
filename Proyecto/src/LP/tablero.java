@@ -567,7 +567,7 @@ public class tablero extends JFrame implements ActionListener{
 			GestorRanking gr = new GestorRanking();
 			gr.anyadirFilaATablaPartida(BasesDeDatos.getStatement(), nombre, jug1_puntos, formato.format(data));
 			
-			JOptionPane.showMessageDialog( null, "¡HAS GANADO! ¡FELICIDADES!" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "ï¿½HAS GANADO! ï¿½FELICIDADES!" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
 			dispose();
 			
 		}

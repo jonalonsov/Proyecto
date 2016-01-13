@@ -51,39 +51,23 @@ public class GestorRanking {
 	 * @param st	Sentencia ya abierta de base de datos
 	 * @return	true si el usuario ya esta en la tabla, false en caso contrario
 	 */
-	public boolean chequearYaEnTabla( Statement st, String nombre, String fecha, int puntUsuario ) {
+	public boolean chequearYaEnTabla( Statement st, String fecha ) {
 		//SELECT
 		
 		try {
-
-			if(nombre.equals("Trivial")){
 				
-				String sentSQL = "select * from PARTIDA where ( nombreUsuario = '"+ nombre +"' and puntUsuario = '"+ puntUsuario + "')";
-				System.out.println( sentSQL ); 
-				
-				ResultSet rs = st.executeQuery( sentSQL );
-				
-				if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
-					rs.close();
-					JOptionPane.showMessageDialog(null, "Esta partida ya se ha guardado,","Mensaje de error",JOptionPane.ERROR_MESSAGE);
-					return true;
-				}
-				return false;
+			String sentSQL = "select * from PARTIDA where ( fecha = '"+ fecha + "')";
+			System.out.println( sentSQL ); 
+			
+			ResultSet rs = st.executeQuery( sentSQL );
+			
+			if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
+				rs.close();
+				JOptionPane.showMessageDialog(null, "Esta partida ya se ha guardado,","Mensaje de error",JOptionPane.ERROR_MESSAGE);
+				return true;
 			}
-			else{
-				
-				String sentSQL = "select * from PARTIDA where ( fecha = '"+ fecha + "')";
-				System.out.println( sentSQL ); 
-				
-				ResultSet rs = st.executeQuery( sentSQL );
-				
-				if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
-					rs.close();
-					JOptionPane.showMessageDialog(null, "Esta partida ya se ha guardado,","Mensaje de error",JOptionPane.ERROR_MESSAGE);
-					return true;
-				}
-				return false;
-			}
+			return false;
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -103,9 +87,9 @@ public class GestorRanking {
 	public boolean anyadirFilaATablaPartida( Statement st, String usuario, int puntUsuario, String fecha ) {
 	//INSERT
 
-//		if (chequearYaEnTabla(st, usuario, fecha, puntUsuario)) {  // Si esta ya en la tabla
-//			return modificarFilaEnTablaPartida(st, usuario, fecha, puntUsuario);
-//		}
+		if (chequearYaEnTabla(st, fecha)) {  // Si esta ya en la tabla
+			return modificarFilaEnTablaPartida(st, usuario, fecha, puntUsuario);
+		}
 		// Insercion normal
 		try {
 			String sentSQL = "insert into PARTIDA values(" + "'" + usuario + "', " + "'" + puntUsuario + "', " + "'" + fecha +  "')"; 

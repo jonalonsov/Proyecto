@@ -78,21 +78,9 @@ public class TablaRanking extends JFrame implements ActionListener{
 			    		//datuak[i] = rs.getObject(i+1);
 					
 				    	modelo.insertar( gr.cogerInfoDeTablaPartida(BasesDeDatos.getStatement(), nombre).get(i));
-			    	}
+			    }
 				 
-//				 for(int i=0; i<k; i++){
-//			    		
-//			    		//datuak[i] = rs.getObject(i+1);
-//					
-//				    	modelo.insertar( gr.cogerInfoDeTablaPartida(BasesDeDatos.getStatement(), nombre).get(i));
-//			    	}
-//	    	}
-//			
-//			
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+
 	}
 
 	@Override
