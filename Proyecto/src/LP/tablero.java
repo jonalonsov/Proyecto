@@ -473,7 +473,7 @@ public class tablero extends JFrame implements ActionListener{
 			} catch (Exception e) {
 			}
 			
-			this.FinalPartida();
+			//this.FinalPartida();
 			RespuestaMaquina();
 				
 			//JOptionPane.showMessageDialog( null, "Â¡RESPUESTA DE TRIVIAL CORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
@@ -517,7 +517,7 @@ public class tablero extends JFrame implements ActionListener{
 			textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
 			
 			
-			JOptionPane.showMessageDialog( null, "Â¡RESPUESTA DE TRIVIAL CORRECTA! SU FICHA MOVERA "+ numeroDadoMaquina +" CASILLAS" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL CORRECTA! SU FICHA MOVERA "+ numeroDadoMaquina +" CASILLAS" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 			
 			numeroDadoUsuario=0;
 			try {
@@ -525,12 +525,16 @@ public class tablero extends JFrame implements ActionListener{
 			} catch (Exception e) {
 			}
 			
-			
+			if(contadorPrueba == 10){
+				this.FinalPartida();
+			}else{
+				this.RespuestaCORRECTA(false);
+			}
 				
 		
 			
-			this.RespuestaCORRECTA(false);
-			this.FinalPartida();
+			
+			//this.FinalPartida();
 			
 			
 		}else if (aleatorio == 0){
@@ -540,7 +544,7 @@ public class tablero extends JFrame implements ActionListener{
 			}
 			maquina_puntos = maquina_puntos - 3;
 			textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
-			JOptionPane.showMessageDialog( null, "Â¡RESPUESTA DE TRIVIAL INCORRECTA! TU TURNO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL INCORRECTA! TU TURNO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 			//this.AnadirInformacion();
 			
 			btnTirarDado.setEnabled(true);
