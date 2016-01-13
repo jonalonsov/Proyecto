@@ -103,9 +103,9 @@ public class GestorRanking {
 	public boolean anyadirFilaATablaPartida( Statement st, String usuario, int puntUsuario, String fecha ) {
 	//INSERT
 
-		if (chequearYaEnTabla(st, usuario, fecha, puntUsuario)) {  // Si esta ya en la tabla
-			return modificarFilaEnTablaPartida(st, usuario, fecha, puntUsuario);
-		}
+//		if (chequearYaEnTabla(st, usuario, fecha, puntUsuario)) {  // Si esta ya en la tabla
+//			return modificarFilaEnTablaPartida(st, usuario, fecha, puntUsuario);
+//		}
 		// Insercion normal
 		try {
 			String sentSQL = "insert into PARTIDA values(" + "'" + usuario + "', " + "'" + puntUsuario + "', " + "'" + fecha +  "')"; 
@@ -151,7 +151,7 @@ public class GestorRanking {
 		
 			try {
 
-				String sentSQL = "select * from PARTIDA where(nombreUsuario = '" + usuario + "')";
+				String sentSQL = "select * from PARTIDA where(nombreUsuario = '" + usuario + "' or 'Trivial')";
 				System.out.println( sentSQL ); 
 				
 				ResultSet rs = st.executeQuery( sentSQL );

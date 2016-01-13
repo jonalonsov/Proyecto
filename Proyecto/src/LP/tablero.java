@@ -567,16 +567,18 @@ public class tablero extends JFrame implements ActionListener{
 			GestorRanking gr = new GestorRanking();
 			gr.anyadirFilaATablaPartida(BasesDeDatos.getStatement(), nombre, jug1_puntos, formato.format(data));
 			
-			JOptionPane.showMessageDialog( null, "Â¡HAS GANADO! Â¡FELICIDADES!" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "¡HAS GANADO! ¡FELICIDADES!" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
 			dispose();
 			
 		}
 		
 		if(contadorPrueba == 10){
-			JOptionPane.showMessageDialog( null, "HAS PERDIDO LA PARTIDA, LO SENTIMOS" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
+			
 			BasesDeDatos.crearTablaBDPartida();
 			GestorRanking gr = new GestorRanking();
 			gr.anyadirFilaATablaPartida(BasesDeDatos.getStatement(), "Trivial", maquina_puntos, formato.format(data));
+			
+			JOptionPane.showMessageDialog( null, "HAS PERDIDO LA PARTIDA, LO SENTIMOS" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
 			dispose();
 		}
 		
