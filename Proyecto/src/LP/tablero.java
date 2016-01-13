@@ -428,7 +428,7 @@ public class tablero extends JFrame implements ActionListener{
 						
 			jug1_puntos = jug1_puntos - 3;
 			textField.setText(String.valueOf(jug1_puntos));
-			JOptionPane.showMessageDialog( null, "Â¡RESPUESTA INCORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "¡RESPUESTA INCORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 			PreguntaMaquina();
 			
 			
@@ -443,7 +443,7 @@ public class tablero extends JFrame implements ActionListener{
 	
 	public void RespuestaCORRECTA(boolean jugador){  //jugador: true: usuario / false: maquina
 		if(jugador == true){
-			JOptionPane.showMessageDialog( null, "Â¡BIEN! Â¡RESPUESTA CORRECTA! VUELVE A TIRAR EL DADO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "¡BIEN! ¡RESPUESTA CORRECTA! VUELVE A TIRAR EL DADO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
 		
 			contadorUsuario = contadorUsuario + numeroDadoUsuario;
 			if(contadorUsuario > 10) {contadorUsuario=10;}
@@ -525,7 +525,6 @@ public class tablero extends JFrame implements ActionListener{
 			maquina_puntos = maquina_puntos - 3;
 			textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
 			JOptionPane.showMessageDialog( null, "¡RESPUESTA DE TRIVIAL INCORRECTA! TU TURNO" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
-			//this.AnadirInformacion();
 			
 			btnTirarDado.setEnabled(true);
 			btnOK.setEnabled(false);
@@ -551,7 +550,7 @@ public class tablero extends JFrame implements ActionListener{
 			GestorRanking gr = new GestorRanking();
 			gr.anyadirFilaATablaPartida(BasesDeDatos.getStatement(), nombre, jug1_puntos, formato.format(data));
 			
-			JOptionPane.showMessageDialog( null, "ï¿½HAS GANADO! ï¿½FELICIDADES!" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog( null, "¡HAS GANADO! ¡FELICIDADES!" , "FIN DE LA PARTIDA", JOptionPane.INFORMATION_MESSAGE);
 			dispose();
 			
 		}
