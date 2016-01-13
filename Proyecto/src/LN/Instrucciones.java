@@ -25,6 +25,7 @@ public class Instrucciones {
 		
 		else{
 			try {
+				
 				st.executeUpdate("insert into INSTRUCCIONES values ('REGLAS DEL JUEGO"
 																+ "\n\nSe jugara de forma individual, tomando como contrario el ordenador, con "
 																+ "un numero de puntos y numero de aciertos 0. El objetivo es llegar al "
