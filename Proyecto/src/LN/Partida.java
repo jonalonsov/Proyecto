@@ -103,8 +103,11 @@ public class Partida implements DatoParaTabla, Comparable<Object> {
 		
 		Partida a = (Partida)o;
 		
-		if(this.punt>a.getPunt())return  1;
-		if(this.punt>a.getPunt())return -1;
+		if(this.punt < a.getPunt()) 
+			return  1;
+		
+		if(this.punt > a.getPunt()) 
+			return -1;
 		
 		
 		return 0;

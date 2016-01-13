@@ -418,9 +418,7 @@ public class tablero extends JFrame implements ActionListener{
 		if(respuestaSeleccionada.equals(correcta)){
 			jug1_aciertos++;
 			
-			//jug1_puntos = jug1_puntos + 5;
 			textField_1.setText(String.valueOf(jug1_aciertos));
-			//textField.setText(String.valueOf(jug1_puntos));
 			this.RespuestaCORRECTA(true);
 			
 			
@@ -431,7 +429,6 @@ public class tablero extends JFrame implements ActionListener{
 			jug1_puntos = jug1_puntos - 3;
 			textField.setText(String.valueOf(jug1_puntos));
 			JOptionPane.showMessageDialog( null, "Â¡RESPUESTA INCORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
-			//this.AnadirInformacion();
 			PreguntaMaquina();
 			
 			
@@ -441,8 +438,7 @@ public class tablero extends JFrame implements ActionListener{
 			this.RespuestaMaquina();
 			
 		}
-		
-		//this.FinalPartida();
+
 	}
 	
 	public void RespuestaCORRECTA(boolean jugador){  //jugador: true: usuario / false: maquina
@@ -472,18 +468,12 @@ public class tablero extends JFrame implements ActionListener{
 				Thread.sleep( 500 );
 			} catch (Exception e) {
 			}
-			
-			//this.FinalPartida();
+
 			RespuestaMaquina();
-				
-			//JOptionPane.showMessageDialog( null, "Â¡RESPUESTA DE TRIVIAL CORRECTA!" , "RESPUESTA", JOptionPane.INFORMATION_MESSAGE);
-			
-			
-			
+
 		}
 		
 		PreguntaUsuario();
-		//this.AnadirInformacion();
 		
 		
 	}
@@ -494,14 +484,9 @@ public class tablero extends JFrame implements ActionListener{
 		aleatorio = random.nextInt(array.length);
 		
 		if(aleatorio == 1){
-			maquina_aciertos++;			
-			
-			//maquina_puntos = maquina_puntos + 5;
+			maquina_aciertos++;	
 			
 			textField_aciertosMaquina.setText(String.valueOf(maquina_aciertos));
-			//textField_puntosMaquina.setText(String.valueOf(maquina_puntos));
-			
-			//this.RespuestaMaquina();
 			
 			
 			Random caras = new Random();
@@ -530,12 +515,7 @@ public class tablero extends JFrame implements ActionListener{
 			}else{
 				this.RespuestaCORRECTA(false);
 			}
-				
-		
-			
-			
-			//this.FinalPartida();
-			
+
 			
 		}else if (aleatorio == 0){
 			try {

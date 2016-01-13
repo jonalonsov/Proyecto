@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -159,63 +160,21 @@ public class GestorRanking {
 				
 				
 				
-				Collections.sort(ListaPartida);
+				Collections.sort(ListaPartida, new Comparator() {
+					public int compare(Partida p1, Partida p2) {
+						// Aqui esta el truco, ahora comparamos p2 con p1 y no al reves como antes
+						return new Integer(p2.getPunt()).compareTo(new Integer(p1.getPunt()));
+					}
+
+					@Override
+					public int compare(Object arg0, Object arg1) {
+						// TODO Auto-generated method stub
+						return 0;
+					}
+				});
 				
 				return ListaPartida;
 			}
 		}
-	
-//	public ArrayList<Usuario> cogerInfoDeTablaUsuario( Statement st, String usuario ) {
-//		//SELECT
-//		
-//		ArrayList<Usuario> ListaPartidaUsuario = new ArrayList<Usuario>();
-//		
-//			try {
-//
-//				String sentSQL = "select * from PARTIDA where (nombreUsuario = '" + usuario + "')";
-//				System.out.println( sentSQL ); 
-//				
-//				ResultSet rs = st.executeQuery( sentSQL );
-//				
-//				while(rs.next())
-//				      {
-//						
-//						ListaPartidaUsuario.add(new Usuario(rs.getString("nombreUsuario"), null, rs.getInt("puntUsuario"), rs.getString("fecha")));
-//				      
-//				      }
-//					
-//					return ListaPartidaUsuario;
-//					
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//				return ListaPartidaUsuario;
-//			}
-//		}
-//	
-//	public ArrayList<Maquina> cogerInfoDeTablaMaquina( Statement st ) {
-//		//SELECT
-//		
-//		ArrayList<Maquina> ListaPartidaMaquina = new ArrayList<Maquina>();
-//		
-//			try {
-//
-//				String sentSQL = "select * from PARTIDA where (nombreUsuario = 'Trivial')";
-//				System.out.println( sentSQL ); 
-//				
-//				ResultSet rs = st.executeQuery( sentSQL );
-//				
-//				while(rs.next())
-//				      {
-//						
-//					ListaPartidaMaquina.add(new Maquina(rs.getInt("puntUsuario"), rs.getString("fecha")));
-//				      
-//				      }
-//					
-//					return ListaPartidaMaquina;
-//					
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//				return ListaPartidaMaquina;
-//			}
-//		}
+
 }
