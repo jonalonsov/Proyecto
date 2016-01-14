@@ -1,7 +1,5 @@
 package LP;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -18,11 +16,16 @@ import javax.swing.JLabel;
 
 public class principio extends JFrame implements ActionListener{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JButton btnLogIn;
 	private JButton btnRegistrarse;
 
 	public principio() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 474, 393);
 		contentPane = new JPanel();

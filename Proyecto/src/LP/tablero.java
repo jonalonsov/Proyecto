@@ -114,7 +114,7 @@ public class tablero extends JFrame implements ActionListener{
 		contentPane.setBackground(new Color(217, 218, 186));
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(502, 261, 334, 188);
+		panel.setBounds(495, 261, 354, 193);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -123,23 +123,13 @@ public class tablero extends JFrame implements ActionListener{
 		lblPreguntas.setFont(new Font("Verdana", Font.BOLD, 14));
 		panel.add(lblPreguntas);
 		
-		Pregunta = new JTextArea();
-		//Pregunta.setBounds(28, 35, 283, 40);
-		//panel.add(Pregunta);
-		Pregunta.setColumns(10);
-		Pregunta.setEditable(false);
-		
-		JScrollPane scroll = new JScrollPane(Pregunta);
-		scroll.setBounds(28, 35, 283, 40);
-		panel.add(scroll);
-		
 		NUMEROUNO = new JRadioButton(" ");
-		NUMEROUNO.setBounds(28, 87, 22, 23);
+		NUMEROUNO.setBounds(17, 87, 22, 23);
 		panel.add(NUMEROUNO);
 		
 		NUMERODOS = new JRadioButton(" ");
 		NUMERODOS.setHorizontalAlignment(SwingConstants.LEFT);
-		NUMERODOS.setBounds(28, 125, 22, 23);
+		NUMERODOS.setBounds(17, 125, 22, 23);
 		panel.add(NUMERODOS);
 		
 		NUMEROTRES = new JRadioButton(" ");
@@ -151,26 +141,26 @@ public class tablero extends JFrame implements ActionListener{
 		panel.add(NUMEROCUATRO);
 		
 		respuesta_1 = new JTextField();
-		respuesta_1.setBounds(56, 88, 110, 20);
+		respuesta_1.setBounds(45, 87, 120, 23);
 		panel.add(respuesta_1);
 		respuesta_1.setColumns(10);
 		respuesta_1.setEditable(false);
 				
 		respuesta_2 = new JTextField();
 		respuesta_2.setColumns(10);
-		respuesta_2.setBounds(56, 126, 110, 20);
+		respuesta_2.setBounds(45, 126, 121, 20);
 		panel.add(respuesta_2);
 		respuesta_2.setEditable(false);
 		
 		respuesta_3 = new JTextField();
 		respuesta_3.setColumns(10);
-		respuesta_3.setBounds(199, 88, 110, 20);
+		respuesta_3.setBounds(199, 88, 120, 22);
 		panel.add(respuesta_3);
 		respuesta_3.setEditable(false);
 		
 		respuesta_4 = new JTextField();
 		respuesta_4.setColumns(10);
-		respuesta_4.setBounds(199, 126, 110, 20);
+		respuesta_4.setBounds(199, 126, 120, 22);
 		panel.add(respuesta_4);
 		respuesta_4.setEditable(false);
 		
@@ -220,6 +210,17 @@ public class tablero extends JFrame implements ActionListener{
 		panel.add(btnOK);
 		btnOK.addActionListener(this);
 		btnOK.setEnabled(false);
+		
+		JScrollPane scroll = new JScrollPane();
+		scroll.setBounds(43, 34, 283, 40);
+		panel.add(scroll);
+		
+		Pregunta = new JTextArea();
+		scroll.setViewportView(Pregunta);
+		//Pregunta.setBounds(28, 35, 283, 40);
+		//panel.add(Pregunta);
+		Pregunta.setColumns(10);
+		Pregunta.setEditable(false);
 		
 		
 		JLabel lblJugador = new JLabel("JUGADOR 1: " + nombre);

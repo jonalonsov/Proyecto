@@ -1,7 +1,5 @@
 package LP;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,6 +20,10 @@ import java.sql.Statement;
 
 public class logIn extends JFrame implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
@@ -31,6 +33,7 @@ public class logIn extends JFrame implements ActionListener {
 	private JButton cancelarbtn;
 
 	public logIn() {
+		setResizable(false);
 		setTitle("LOG IN");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 474, 393);
@@ -76,9 +79,7 @@ public class logIn extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-	
-		//char[] contrasenya = passwordField.getPassword();
+
 		
 		String nombre = textField.getText();
 		char[] elChar = passwordField.getPassword();
@@ -98,16 +99,7 @@ public class logIn extends JFrame implements ActionListener {
 			else{
 				JOptionPane.showMessageDialog(null, "El nombre de usuario y la contrasenya no son correctas. Pruebe de nuevo.","Mensaje de error",JOptionPane.ERROR_MESSAGE);
 			}
-		
-//        if (isPasswordCorrect(contrasenya)) {
-//            JOptionPane.showMessageDialog(btnAceptar, "Bien! Tu contrasenya es correcta.");
-//        } else {
-//            JOptionPane.showMessageDialog(btnAceptar, "Contrasenya incorrecta, prueba otra vez","Mensaje de error",JOptionPane.ERROR_MESSAGE);
-//        }
-		//konprobatu base de datosen daon usuario ta kontrasenyak bat datozen
-		//queri (ejemploBD)nn
-			
-			
+
 		}
 		
 		if (e.getSource() == cancelarbtn){
@@ -120,4 +112,3 @@ public class logIn extends JFrame implements ActionListener {
 		
 	}
 }
-

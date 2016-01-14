@@ -1,14 +1,11 @@
 package LP;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
@@ -20,6 +17,10 @@ import java.awt.Font;
 
 public class registrarse extends JFrame implements ActionListener{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
@@ -29,6 +30,7 @@ public class registrarse extends JFrame implements ActionListener{
 	private JButton btnCancelar;
 
 	public registrarse() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 474, 393);
 		contentPane = new JPanel();
@@ -80,28 +82,14 @@ public class registrarse extends JFrame implements ActionListener{
 		if (e.getSource() == btnAceptar){
 			
 			GestorJugador jugador = new GestorJugador(nombre, contrasenya);
-		
 
-			//BasesDeDatos.initBD("nuestrosDatos");
 			BasesDeDatos.crearTablaBDUsuario();
 			
-			
-			//chequea la tabla para ver si existe el usuario...
-//			if(jugador.chequearYaEnTabla(BasesDeDatos.getStatement(), nombre) == false){  //--- HAU EZ DA BEREZ, anyadirFilaATablaUsuario bertan egiten da
+		//Si no existe, a�ade fila con el usuario nuevo y sus respectivos atributos
+			jugador.anyadirFilaATablauUsuario(BasesDeDatos.getStatement(), nombre);
 				
-				//Si no existe, a�ade fila con el usuario nuevo y sus respectivos atributos
-				jugador.anyadirFilaATablauUsuario(BasesDeDatos.getStatement(), nombre);
-				
-				dispose();
-				
-//			}
-			
-//			else{
-				
-				//si el usuario ya existe aparece un mensaje de error   --> GESTORJUGADOR-EN DAO
-//				 JOptionPane.showMessageDialog(null, "El usuario ya existe, prueba con otro","Mensaje de error",JOptionPane.ERROR_MESSAGE);
-//			}
-					
+			dispose();
+
 			
 		}
 		

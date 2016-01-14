@@ -1,21 +1,14 @@
 package LP;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.Font;
-
-import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
-import javax.swing.text.BadLocationException;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
-import javax.swing.JList;
 import javax.swing.JButton;
 
 import LD.BasesDeDatos;
@@ -29,6 +22,10 @@ import java.sql.Statement;
 
 public class instrucciones extends JFrame implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JButton btnVolver;
 	private JTextPane area;
@@ -38,6 +35,7 @@ public class instrucciones extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public instrucciones() {
+		setResizable(false);
 		setTitle("INSTRUCCIONES");
 		
 		inst = new Instrucciones();
@@ -51,9 +49,6 @@ public class instrucciones extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		area = new JTextPane();
-		//list.setBounds(25, 28, 418, 289);
-		//contentPane.add(list);
-		//area.setColumns(10);
 		area.setEditable(false);
 		
 		SimpleAttributeSet attribs = new SimpleAttributeSet();

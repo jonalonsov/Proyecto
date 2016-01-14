@@ -100,6 +100,7 @@ public class Menu extends JFrame implements ActionListener{
 
 		if (e.getSource() == btnSalir){
 			
+			BasesDeDatos.close();
 			dispose();
 			
 		}
