@@ -29,6 +29,8 @@ public class GestorRankingTest {
 	
 	@After
 	public void tearDown() throws Exception {
+		
+		BasesDeDatos.close();
 	}
 	
 	@Test
