@@ -49,23 +49,5 @@ public class Instrucciones {
 		}
 	}
 	
-	public boolean chequearYaEnTabla( Statement st, String descp ) {
-		//SELECT
-			try {
 
-				String sentSQL = "select * from INSTRUCCIONES where (nombre = '" + descp + "')";
-				System.out.println( sentSQL ); 
-				
-				ResultSet rs = st.executeQuery( sentSQL );
-				
-				if (rs.next()) {
-					rs.close();
-					return true;
-				}
-				return false;
-			} catch (SQLException e) {
-				e.printStackTrace();
-				return false;
-			}
-		}
 }

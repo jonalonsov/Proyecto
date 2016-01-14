@@ -77,6 +77,7 @@ public class GestorRanking {
 		}
 	}
 	
+	
 	/** Modifica los datos de un usuario en la tabla USUARIO de BD, 
 	 * que debe estar abierta y tener el formato y los nombres de campos apropiados:(int numJuego, Sting nombre, String contrasenya)
 	 * Usa la sentencia UPDATE de SQL.
@@ -101,6 +102,11 @@ public class GestorRanking {
 		}
 	}
 	
+	
+	
+	
+	
+	// COGER INFORMACIÓN DE LA TABLA PARTIDA Y PONER EN ARRAYLIST
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ArrayList<Partida> cogerInfoDeTablaPartida( Statement st, String usuario ) {
 		//SELECT
@@ -131,7 +137,7 @@ public class GestorRanking {
 				e.printStackTrace();
 				
 				
-				
+			//   ORDENAR	
 				Collections.sort(ListaPartida, new Comparator() {
 					@SuppressWarnings("unused")
 					public int compare(Partida p1, Partida p2) {
