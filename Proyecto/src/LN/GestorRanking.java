@@ -19,23 +19,6 @@ public class GestorRanking {
 	}
 		
 
-	public boolean existeTabla(){
-		boolean b=false;
-		try{
-				    
-		    Statement stat = BasesDeDatos.getStatement();
-		    ResultSet rs1=stat.executeQuery("select * from PARTIDA");
-				
-		    if(rs1.next()){
-		    	b=true;
-		    }
-		        return(b);
-		    }    	
-		     catch (Exception e){	
-			return b;
-		    }
-	}
-	
 //    PARTIDA!!    //
 	
 	/** Comprueba si un usuario ya esta en la tabla USUARIO de BD,considerando la trayectoria completa del disco como informacion clave.
