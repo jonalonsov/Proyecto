@@ -32,8 +32,7 @@ public class PartidaTest extends TestCase{
 		
 		assertEquals(15, t);
 		
-	}
-	
+	}		
 	
 	@Test
 	public void testGetValor() {

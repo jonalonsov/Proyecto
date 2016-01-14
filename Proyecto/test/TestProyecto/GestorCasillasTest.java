@@ -40,7 +40,15 @@ public class GestorCasillasTest extends TestCase{
 		@Test
 		public void testgetPos_x1() {
 						
-			assertEquals(210, casilla1.getPos_x());
+			gc.comenzarCasillas1();
+			
+			arrayCasilla = gc.casillasList1();
+
+			int pos_x = casilla1.getPos_x();
+			int pos_x2 = arrayCasilla.get(2).getPos_x();
+			
+			
+			assertEquals(pos_x , pos_x2);
 			
 		}
 		
@@ -49,28 +57,61 @@ public class GestorCasillasTest extends TestCase{
 		public void testgetPos_y1() {
 			
 			
-			assertEquals(210, casilla1.getPos_x());
+			gc.comenzarCasillas1();
+			
+			arrayCasilla = gc.casillasList1();
+
+			int pos_y = casilla1.getPos_y();
+			int pos_y2 = arrayCasilla.get(2).getPos_y();
+						
+			assertEquals(pos_y , pos_y2);
 			
 		}
 		
 		@Test
 		public void testgetPunt() {
 			
-			assertEquals(3, casilla1.getValor());
+			gc.comenzarCasillas1();
+			
+			arrayCasilla = gc.casillasList1();
+
+			int valor = casilla2.getValor();
+			int valor2 = arrayCasilla.get(0).getValor();
+			arrayCasilla.clear();
+			
+			
+			assertEquals(valor , valor2);
 			
 		}
 		
 		@Test
 		public void testgetPos_x2() {
 						
-			assertEquals(1055, casilla2.getPos_x());
+			gc.comenzarCasillas2();
+			
+			arrayCasilla = gc.casillasList2();
+
+			int pos_x = casilla2.getPos_x();
+			int pos_x2 = arrayCasilla.get(0).getPos_x();
+			
+			
+			assertEquals(pos_x , pos_x2);
 			
 		}
 		
 		@Test
 		public void testgetPos_y2() {
 			
-			assertEquals(130, casilla2.getPos_y());
+			gc.comenzarCasillas2();
+			
+			arrayCasilla = gc.casillasList2();
+
+			int pos_y = casilla2.getPos_y();
+			int pos_y2 = arrayCasilla.get(0).getPos_y();
+			arrayCasilla.clear();
+			
+			
+			assertEquals(pos_y , pos_y2);
 			
 		}
 		
@@ -83,11 +124,11 @@ public class GestorCasillasTest extends TestCase{
 			
 			arrayCasilla = gc.casillasList2();
 
-			int pos_x = casilla2.getPos_x();
-			int pos_x2 = arrayCasilla.get(1).getPos_x();
-			
-			
-			assertEquals(pos_x , pos_x2);
+//			int pos_x = casilla2.getPos_x();
+//			int pos_x2 = arrayCasilla.get(0).getPos_x();
+						
+			//comprobamos si el color por ejemplo es igual para saber si recibimos el array guardado
+			assertEquals(arrayCasilla.get(0).getColor() , casilla2.getColor());
 			
 		}
 		
