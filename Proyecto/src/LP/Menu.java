@@ -8,12 +8,14 @@ import javax.swing.JButton;
 
 
 
+
 import LD.BasesDeDatos;
 
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class Menu extends JFrame implements ActionListener{
 
@@ -100,7 +102,14 @@ public class Menu extends JFrame implements ActionListener{
 
 		if (e.getSource() == btnSalir){
 			
-			BasesDeDatos.close();
+			try {
+				BasesDeDatos.close();
+				BasesDeDatos.getStatement().close();
+				BasesDeDatos.getConnection().close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			dispose();
 			
 		}
