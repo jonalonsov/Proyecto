@@ -1,8 +1,7 @@
 package TestProyecto;
 
 import static org.junit.Assert.*;
-
-import java.sql.Statement;
+import junit.framework.TestCase;
 
 import org.junit.After;
 import org.junit.Before;
@@ -11,7 +10,7 @@ import org.junit.Test;
 import LN.Partida;
 import LN.Usuario;
 
-public class PartidaTest {
+public class PartidaTest extends TestCase{
 
 	Partida u;
 	

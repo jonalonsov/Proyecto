@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import junit.framework.TestCase;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +15,7 @@ import LN.GestorJugador;
 import LN.GestorRanking;
 import LN.Partida;
 
-public class GestorRankingTest {
+public class GestorRankingTest extends TestCase {
 
 	GestorRanking gr;
 	ArrayList<Partida> partida;

@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
+import junit.framework.TestCase;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +14,7 @@ import LN.Casilla;
 import LN.GestorCasillas;
 
 
-public class GestorCasillasTest {
+public class GestorCasillasTest extends TestCase{
 	
 	Casilla casilla1;
 	Casilla casilla2;
@@ -86,5 +88,7 @@ public class GestorCasillasTest {
 			assertEquals(k1,k2);
 			
 		}
+		
+		
 
 }
