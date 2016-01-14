@@ -36,7 +36,7 @@ public class GestorRankingTest extends TestCase {
 	}
 	
 	@Test
-	public void AnyadirFilaATablaPartidaTest() {
+	public void testanyadirFilaATablaPartida() {
 		
 		gr.anyadirFilaATablaPartida(BasesDeDatos.getStatement(), "eider", 15, "2016/01/10");
 		gr.anyadirFilaATablaPartida(BasesDeDatos.getStatement(), "aitor", 20, "2016/01/05");
@@ -53,7 +53,7 @@ public class GestorRankingTest extends TestCase {
 	}
 	
 	@Test
-	public void CogerInfoDeTablaPartidaTest() {
+	public void testcogerInfoDeTablaPartida() {
 		
 		String nombre = "amaia";
 		String nombre2 = "";

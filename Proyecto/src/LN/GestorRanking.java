@@ -90,7 +90,7 @@ public class GestorRanking {
 			String sentSQL = "update PARTIDA set "+ 
 					"nombreUsuario = '" + usuario + "', " +
 					"puntUsuario = '" + puntUsuario + "', " +
-					"fecha = '" + fecha + "')";
+					"fecha = '" + fecha + "'";
 			System.out.println( sentSQL );  // (Quitar) para ver lo que se hace
 			int val = st.executeUpdate( sentSQL );
 			if (val!=1) return false;  // Se tiene que modificar 1, error si no

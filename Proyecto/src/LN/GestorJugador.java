@@ -102,7 +102,7 @@ public class GestorJugador {
 		try {
 			String sentSQL = "update USUARIO set "+ 
 					"nombre = '" + nombre + "', " +
-					"contrasenya = '" + contrasenya + "')";
+					"contrasenya = '" + contrasenya + "'";
 			System.out.println( sentSQL );  // (Quitar) para ver lo que se hace
 			int val = st.executeUpdate( sentSQL );
 			if (val!=1) return false;  // Se tiene que modificar 1, error si no

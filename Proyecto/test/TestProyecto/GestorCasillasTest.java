@@ -82,14 +82,7 @@ public class GestorCasillasTest extends TestCase{
 			gc.comenzarCasillas2();
 			
 			arrayCasilla = gc.casillasList2();
-			
-			//int k1 = gc.casillasList1().size()+1;
-			
-			//arrayCasilla.add(casilla1);
-			//int k2 = arrayCasilla.size();
-			
-			//assertEquals(k1,k2);
-			
+
 			int pos_x = casilla2.getPos_x();
 			int pos_x2 = arrayCasilla.get(1).getPos_x();
 			
