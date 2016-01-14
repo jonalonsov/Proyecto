@@ -50,7 +50,7 @@ public class GestorRankingTest {
 	
 	@Test
 	public void CogerInfoDeTablaPartidaTest() {
-		//NULL POINTER EXCEPTION
+		
 		String nombre = "amaia";
 		String nombre2 = "";
 		

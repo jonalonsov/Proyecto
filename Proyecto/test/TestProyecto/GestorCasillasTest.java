@@ -2,6 +2,8 @@ package TestProyecto;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -63,6 +65,25 @@ public class GestorCasillasTest {
 		public void testgetPos_y2() {
 			
 			assertEquals(130, casilla2.getPos_y());
+			
+		}
+		
+		@Test
+		public void testArraySize() {
+			
+			GestorCasillas gc = new GestorCasillas();
+			ArrayList<Casilla> arrayCasilla = new ArrayList<Casilla>();
+			
+			gc.comenzarCasillas1();
+			
+			arrayCasilla = gc.casillasList1();
+			
+			int k1 = gc.casillasList1().size()+1;
+			
+			arrayCasilla.add(casilla1);
+			int k2 = arrayCasilla.size();
+			
+			assertEquals(k1,k2);
 			
 		}
 
