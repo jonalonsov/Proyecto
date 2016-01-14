@@ -31,6 +31,8 @@ public class GestorRankingTest extends TestCase {
 	
 	@After
 	public void tearDown() throws Exception {
+		
+		BasesDeDatos.close();
 	}
 	
 	@Test
