@@ -69,7 +69,7 @@ public class GestorCasillasTest {
 		}
 		
 		@Test
-		public void testArraySize() {
+		public void testcasillasList2() {
 			
 			GestorCasillas gc = new GestorCasillas();
 			ArrayList<Casilla> arrayCasilla = new ArrayList<Casilla>();
