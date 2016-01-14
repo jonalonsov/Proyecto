@@ -1,13 +1,10 @@
 package LN;
 
-import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.JOptionPane;
-
-import LD.BasesDeDatos;
 
 public class GestorJugador {
 
@@ -19,25 +16,7 @@ public class GestorJugador {
 		this.contrasenya = contrasenya;
 		
 	}
-		
 
-	public boolean existeTabla(){
-		boolean b=false;
-		try{
-				    
-		    Statement stat = BasesDeDatos.getStatement();
-		    ResultSet rs1=stat.executeQuery("select * from usuario");
-				
-		    if(rs1.next()){
-		    	b=true;
-		    }
-		        return(b);
-		    }    	
-		     catch (Exception e){	
-			return b;
-		    }
-	}
-	
 //    USUARIO!!    //
 	
 	/** Comprueba si un usuario ya esta en la tabla USUARIO de BD,considerando la trayectoria completa del disco como informacion clave.
@@ -74,7 +53,7 @@ public class GestorJugador {
 				
 				ResultSet rs = st.executeQuery( sentSQL );
 				
-				if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
+				if (rs.next()) { 
 					rs.close();
 					JOptionPane.showMessageDialog(null, "Nombre de usuario y contrasenya correctas","Correcto",JOptionPane.INFORMATION_MESSAGE);
 					return true;

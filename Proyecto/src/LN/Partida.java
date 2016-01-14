@@ -3,15 +3,16 @@ package LN;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 
-import javax.swing.JOptionPane;
 
 public class Partida implements DatoParaTabla, Comparable<Object> {
 
 	int punt;
 	String fecha;
 	String nombre;
+	
+	public static String[] nombresAtributos = new String[] {"Nombre_del_Jugador", "Puntuacion", "Fecha"};
+	public static boolean[] atributosEditables = new boolean[] {false, false, false };
 	
 	public Partida(int punt, String fecha, String nombre){
 		this.punt = punt;
@@ -53,9 +54,8 @@ public class Partida implements DatoParaTabla, Comparable<Object> {
 				
 				ResultSet rs = st.executeQuery( sentSQL );
 				
-				if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
+				if (rs.next()) {
 					rs.close();
-					//JOptionPane.showMessageDialog(null, "El usuario ya existe, prueba con otro","Mensaje de error",JOptionPane.ERROR_MESSAGE);
 					return true;
 				}
 				return false;
@@ -113,26 +113,4 @@ public class Partida implements DatoParaTabla, Comparable<Object> {
 		return 0;
 	}
 
-	
-	
-//	public int compareTo(Object o){
-//		
-//		Partida a = (Partida)o;
-//		
-//		
-//		if (this.punt>a.getPunt()) return 1;
-//		if (this.punt<a.getPunt()) return -1;
-//		
-//		return 0;	
-//	}
-
-//	@Override
-//	public int compareTo(Partida o) {
-//		// TODO Auto-generated method stub
-//		if (this.punt>o.getPunt()) return 1;
-//		if (this.punt<o.getPunt()) return -1;
-//		
-//		return 0;
-//	}
-	
 }

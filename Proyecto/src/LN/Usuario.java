@@ -5,8 +5,7 @@ public class Usuario extends Partida {
 
 	String contrasenya;
 	
-	public static String[] nombresAtributos = new String[] {"Nombre_de_Usuario", "Puntuacion", "Fecha"};
-	public static boolean[] atributosEditables = new boolean[] {false, false, false };
+
 	
 	public Usuario(String nombre, String contrasenya, int punt, String fecha){
 		super(punt, fecha, nombre);

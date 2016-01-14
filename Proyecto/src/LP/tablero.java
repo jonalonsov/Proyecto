@@ -1,45 +1,32 @@
 package LP;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Image;
 
-import javax.imageio.ImageIO;
-import javax.swing.BoundedRangeModel;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
-import javax.swing.text.Caret;
 
 import LD.BasesDeDatos;
-import LN.Casilla;
 import LN.Dado;
 import LN.FichaJuego1;
 import LN.FichaJuego2;
 import LN.GestorCasillas;
 import LN.GestorRanking;
-import LN.Maquina;
 import LN.PanelConImagen;
-import LN.Partida;
-import LN.Usuario;
 
-import java.awt.Toolkit;
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -53,6 +40,10 @@ import javax.swing.JButton;
 
 public class tablero extends JFrame implements ActionListener{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int contadorPrueba = -1;
 	private int contadorUsuario = -1;
 	private int numeroDadoUsuario=0;
@@ -217,8 +208,6 @@ public class tablero extends JFrame implements ActionListener{
 		
 		Pregunta = new JTextArea();
 		scroll.setViewportView(Pregunta);
-		//Pregunta.setBounds(28, 35, 283, 40);
-		//panel.add(Pregunta);
 		Pregunta.setColumns(10);
 		Pregunta.setEditable(false);
 		
@@ -259,9 +248,7 @@ public class tablero extends JFrame implements ActionListener{
 		btnSalir.setIcon(new ImageIcon(tablero.class.getResource("/imagenes/red_x.png")));
 		btnSalir.setBounds(1241, 11, 94, 34);
 		contentPane.add(btnSalir);
-		
-				
-		//this.AnadirInformacion();
+
 		PreguntaUsuario();
 		
 		//crear posiciones casillas
@@ -537,10 +524,9 @@ public class tablero extends JFrame implements ActionListener{
 	}
 	
 	
-	public ArrayList<Partida> FinalPartida(){
+	public void FinalPartida(){
 	
 		aleatorio = -1;
-		ArrayList<Partida> partida = new ArrayList<Partida>();
 		Date data = new Date();
 		SimpleDateFormat formato = new SimpleDateFormat( "dd/MM/yyyy HH:mm:ss" );
 		System.out.println( "Fecha de la partida: " + formato.format(data) );
@@ -566,6 +552,5 @@ public class tablero extends JFrame implements ActionListener{
 			dispose();
 		}
 		
-		return partida;
 	}
 }

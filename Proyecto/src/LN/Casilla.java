@@ -4,10 +4,14 @@ import java.io.Serializable;
 
 public class Casilla implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int pos_x;
 	int pos_y;
 	String color;
-	int valor; // Las casillas valdran 1 o 2, dependiendo de la dificultad
+	int valor; // Cada casilla tendra un valor diferente
 	
 	public Casilla(int pos_x, int pos_y, String color, int valor){
 		this.pos_x = pos_x;

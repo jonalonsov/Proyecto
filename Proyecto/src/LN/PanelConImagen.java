@@ -13,52 +13,56 @@ import java.awt.Graphics;
 public class PanelConImagen extends JPanel 
 {
 	 
- private Image bgImage;
-	 
- public PanelConImagen() 
- {
-  super();
-	 
-  // Hacemos que el panel sea transparente
-  this.setOpaque(false);
- }
-	 
  /**
-  * Lo utilizaremos para establecerle su imagen de fondo.
-  * @param bgImage La imagen en cuestion
-  */
- public void setBackgroundImage(Image bgImage) {
-  this.bgImage = bgImage;
- }
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Image bgImage;
+		 
+	 public PanelConImagen() 
+	 {
+		  super();
+			 
+		  // Hacemos que el panel sea transparente
+		  this.setOpaque(false);
+	 }
+		 
+	 /**
+	  * Lo utilizaremos para establecerle su imagen de fondo.
+	  * @param bgImage La imagen en cuestion
+	  */
+	 public void setBackgroundImage(Image bgImage) {
+		 this.bgImage = bgImage;
+	 }
+		 
+	 /**
+	  * Para recuperar una imagen de un archivo...
+	  * @param path Ruta de la imagen relativa al proyecto
+	  * @return una imagen
+	  */
+	 public ImageIcon createImage(String path) {
+		  URL imgURL = getClass().getResource(path);
+		     if (imgURL != null) {
+		    	 //return new Image(imgURL);
+		    	 return new ImageIcon(imgURL);
+			         
+		     } else {
+		         System.err.println("Couldn't find file: " + path);
+		         return null;
+		     }
+	 }
 	 
- /**
-  * Para recuperar una imagen de un archivo...
-  * @param path Ruta de la imagen relativa al proyecto
-  * @return una imagen
-  */
- public ImageIcon createImage(String path) {
-  URL imgURL = getClass().getResource(path);
-     if (imgURL != null) {
-    	 //return new Image(imgURL);
-    	 return new ImageIcon(imgURL);
-	         
-     } else {
-         System.err.println("Couldn't find file: " + path);
-         return null;
-     }
- }
- 
- @Override
- public void paint(Graphics g) 
- {
- 
-  // Pintamos la imagen de fondo...
-  if(bgImage != null) 
-  {
-   g.drawImage(bgImage, 0, 0, null);
-  }
-  super.paint(g);
- }
+	 @Override
+	 public void paint(Graphics g) 
+	 {
+	 
+		  // Pintamos la imagen de fondo...
+		  if(bgImage != null) 
+		  {
+		   g.drawImage(bgImage, 0, 0, null);
+		  }
+		  super.paint(g);
+	 }
  
 }
 

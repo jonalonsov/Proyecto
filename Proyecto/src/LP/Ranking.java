@@ -7,7 +7,7 @@ import javax.swing.table.TableModel;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 
-import LN.Usuario;
+import LN.Partida;
 
 
 public class Ranking extends JTable{
@@ -36,11 +36,11 @@ public class Ranking extends JTable{
 	    	// Fijar tama�o preferido de la tabla
 	        setPreferredScrollableViewportSize(new Dimension(500, 200));
 	        // [02] Asignar renderers de alineación horizontal
-	        getColumn("Nombre_de_Usuario").setCellRenderer( rendererCentrado );
+	        getColumn("Nombre_del_Jugador").setCellRenderer( rendererCentrado );
 	        getColumn("Puntuacion").setCellRenderer( rendererCentrado );
 	        getColumn("Fecha").setCellRenderer( rendererCentrado );
 	        
-	        datos = new MiTablaModelo( Usuario.nombresAtributos, Usuario.atributosEditables );
+	        datos = new MiTablaModelo( Partida.nombresAtributos, Partida.atributosEditables );
 	        
 		}
 		

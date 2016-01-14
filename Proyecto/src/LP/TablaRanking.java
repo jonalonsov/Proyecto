@@ -13,7 +13,6 @@ import javax.swing.border.EmptyBorder;
 import LD.BasesDeDatos;
 import LN.GestorRanking;
 import LN.Partida;
-import LN.Usuario;
 
 import java.awt.Font;
 
@@ -38,7 +37,7 @@ public class TablaRanking extends JFrame implements ActionListener{
 		setResizable(false);
 		
 		this.nombre = nombre;
-		modelo = new MiTablaModelo(Usuario.nombresAtributos, Usuario.atributosEditables);
+		modelo = new MiTablaModelo(Partida.nombresAtributos, Partida.atributosEditables);
         
 		gr = new GestorRanking();
 		arrayLuzera = gr.cogerInfoDeTablaPartida(BasesDeDatos.getStatement(), nombre).size();

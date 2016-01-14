@@ -1,31 +1,21 @@
 package LN;
 
-import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 
 import javax.swing.JOptionPane;
 
 import LD.BasesDeDatos;
 
 public class GestorRanking {
-	
-	//String usuario;
-	//int puntUsuario;
-	//int fecha;
-	
+
 		
 	public GestorRanking( ){
-//		this.usuario = usuario;
-//		this.puntUsuario = puntUsuario;
-//		this.fecha = fecha;
-//		this.file = file;
-		
+
 	}
 		
 
@@ -62,7 +52,7 @@ public class GestorRanking {
 			
 			ResultSet rs = st.executeQuery( sentSQL );
 			
-			if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
+			if (rs.next()) {
 				rs.close();
 				JOptionPane.showMessageDialog(null, "Esta partida ya se ha guardado,","Mensaje de error",JOptionPane.ERROR_MESSAGE);
 				return true;
@@ -128,7 +118,7 @@ public class GestorRanking {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ArrayList<Partida> cogerInfoDeTablaPartida( Statement st, String usuario ) {
 		//SELECT
 		
@@ -136,7 +126,6 @@ public class GestorRanking {
 		
 			try {
 
-				//String sentSQL = "select * from PARTIDA where(nombreUsuario = '" + usuario + "' OR 'Trivial')";
 				String sentSQL = "select * from PARTIDA ";
 				System.out.println( sentSQL ); 
 				
@@ -161,8 +150,9 @@ public class GestorRanking {
 				
 				
 				Collections.sort(ListaPartida, new Comparator() {
+					@SuppressWarnings("unused")
 					public int compare(Partida p1, Partida p2) {
-						// Aqui esta el truco, ahora comparamos p2 con p1 y no al reves como antes
+						// Aqui comparamos p2 con p1 para ordenar de mayor a menor y no alrebes
 						return new Integer(p2.getPunt()).compareTo(new Integer(p1.getPunt()));
 					}
 

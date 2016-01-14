@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.swing.JOptionPane;
 
 import LD.BasesDeDatos;
 
@@ -59,9 +58,8 @@ public class Instrucciones {
 				
 				ResultSet rs = st.executeQuery( sentSQL );
 				
-				if (rs.next()) {  // Normalmente se recorre con un while, pero aqui solo hay que ver si ya existe
+				if (rs.next()) {
 					rs.close();
-					//JOptionPane.showMessageDialog(null, "El usuario ya existe, prueba con otro","Mensaje de error",JOptionPane.ERROR_MESSAGE);
 					return true;
 				}
 				return false;

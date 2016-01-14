@@ -4,14 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 
 import javax.swing.JOptionPane;
 
 public class BasesDeDatos {
 
 	private static Connection connection = null;
-	private static Statement statement = null; //CREATE, INSERT, MODIFY, ADD... ETA HOIETAKOK ITEKO BASES DE DATOS-EN
+	private static Statement statement = null;
 	
 	/** Inicializa una BD SQLITE y devuelve una conexion con ella. Debe llamarse a este 
 	 * metodo antes que ningun otro, y debe devolver no null para poder seguir trabajando con la BD.
