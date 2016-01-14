@@ -23,6 +23,7 @@ public class principio extends JFrame implements ActionListener{
 	private JButton btnRegistrarse;
 
 	public principio() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 474, 393);
 		contentPane = new JPanel();

@@ -31,6 +31,7 @@ public class logIn extends JFrame implements ActionListener {
 	private JButton cancelarbtn;
 
 	public logIn() {
+		setResizable(false);
 		setTitle("LOG IN");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 474, 393);

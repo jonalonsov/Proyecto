@@ -36,6 +36,7 @@ public class TablaRanking extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public TablaRanking(String nombre) {
+		setResizable(false);
 		
 		this.nombre = nombre;
 		modelo = new MiTablaModelo(Usuario.nombresAtributos, Usuario.atributosEditables);

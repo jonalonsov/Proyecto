@@ -38,6 +38,7 @@ public class instrucciones extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public instrucciones() {
+		setResizable(false);
 		setTitle("INSTRUCCIONES");
 		
 		inst = new Instrucciones();
