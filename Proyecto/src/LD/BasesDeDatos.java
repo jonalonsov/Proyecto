@@ -78,7 +78,7 @@ public class BasesDeDatos {
 		if (statement==null) return;
 		try {
 			statement.executeUpdate("create table if not exists PREGUNTA (descp string, resp1 string, resp2 string, resp3 string, resp4 string, correcta string)");
-			System.out.println("bai");
+			//System.out.println("bai");
 			
 			
 		} catch (SQLException e) {

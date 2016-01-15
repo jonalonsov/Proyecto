@@ -138,20 +138,21 @@ public class GestorRanking {
 				
 				
 			//   ORDENAR	
-				Collections.sort(ListaPartida, new Comparator() {
-					@SuppressWarnings("unused")
-					public int compare(Partida p1, Partida p2) {
-						// Aqui comparamos p2 con p1 para ordenar de mayor a menor y no alrebes
-						return new Integer(p2.getPunt()).compareTo(new Integer(p1.getPunt()));
-					}
-
-					@Override
-					public int compare(Object arg0, Object arg1) {
-						// TODO Auto-generated method stub
-						return 0;
-					}
-				});
-				
+//				Collections.sort(ListaPartida, new Comparator() {
+//					@SuppressWarnings("unused")
+//					public int compare(Partida p1, Partida p2) {
+//						// Aqui comparamos p2 con p1 para ordenar de mayor a menor y no alrebes
+//						return new Integer(p2.getPunt()).compareTo(new Integer(p1.getPunt()));
+//					}
+//
+//					@Override
+//					public int compare(Object arg0, Object arg1) {
+//						// TODO Auto-generated method stub
+//						return 0;
+//					}
+//				}
+//				);
+				Collections.sort(ListaPartida);
 				return ListaPartida;
 			}
 		}
